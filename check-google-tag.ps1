@@ -69,10 +69,7 @@ if ($missingTags.Count -eq 0) {
     Write-Host ""
     Write-Host "💡 لإضافة Google Tag، استخدم:" -ForegroundColor Cyan
     Write-Host "💡 To add Google Tag, use:" -ForegroundColor Cyan
-    if ($missingTags.Count -gt 0) {
-        Write-Host "   .\add-google-tag.ps1 -FilePath [file-path]" -ForegroundColor White
-    }
+    Write-Host "   .\add-google-tag.ps1 -FilePath [file-path]" -ForegroundColor White
 }
 
 Write-Host ""
-
