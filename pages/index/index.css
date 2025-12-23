@@ -1493,8 +1493,20 @@ body {
         grid-column: span 2;
     }
     
-    .approach-grid {
-        grid-template-columns: 1fr;
+    .approach-slider-wrapper {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .approach-slide-content {
+        padding: var(--spacing-md);
+    }
+    
+    .approach-slide-title {
+        font-size: 1.5rem;
+    }
+    
+    .approach-slide-text {
+        font-size: 1rem;
     }
     
     .footer-content {
@@ -1550,6 +1562,28 @@ body {
     
     .hero-side-icons {
         display: none;
+    }
+    
+    .approach-slider-title {
+        font-size: 2rem;
+    }
+    
+    .approach-slide-content {
+        padding: var(--spacing-md);
+    }
+    
+    .approach-slide-title {
+        font-size: 1.3rem;
+    }
+    
+    .approach-slide-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+    
+    .approach-slider-btn {
+        width: 40px;
+        height: 40px;
     }
 }
 
