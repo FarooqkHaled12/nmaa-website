@@ -1,13 +1,24 @@
-// Smooth scrolling
+// Enhanced Smooth Scrolling with Offset for Fixed Header
+function smoothScrollTo(target, offset = 80) {
+    const element = document.querySelector(target);
+    if (element) {
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Smooth scrolling for all anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const target = this.getAttribute('href');
+        if (target && target !== '#') {
+            smoothScrollTo(target, 80);
         }
     });
 });
@@ -215,19 +226,108 @@ function animateNumber(element, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-// Header scroll effect
+// Header scroll effect with active navigation highlighting
 let lastScroll = 0;
 const header = document.querySelector('.header');
+const navLinks = document.querySelectorAll('.nav-link, .nav-menu-desktop a');
+
+// All sections with IDs
+const sections = document.querySelectorAll('section[id]');
+
+function updateActiveNav() {
+    const scrollY = window.pageYOffset;
+    const headerHeight = header ? header.offsetHeight : 0;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - headerHeight - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+    
+    // Handle home section (top of page)
+    if (scrollY < 100) {
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === '#home' || link.getAttribute('href') === '/') {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+}
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
+    // Header shadow effect
     if (currentScroll > 100) {
-        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+        if (header) {
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            header.style.backdropFilter = 'blur(10px)';
+        }
     } else {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        if (header) {
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            header.style.backgroundColor = 'var(--color-white)';
+            header.style.backdropFilter = 'none';
+        }
     }
+    
+    // Update active navigation
+    updateActiveNav();
     
     lastScroll = currentScroll;
 });
+
+// Scroll animations for sections
+const scrollObserverOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-visible');
+            
+            // Animate children elements with stagger
+            const children = entry.target.querySelectorAll('.animate-on-scroll');
+            children.forEach((child, index) => {
+                setTimeout(() => {
+                    child.classList.add('animated');
+                }, index * 100);
+            });
+        }
+    });
+}, scrollObserverOptions);
+
+// Observe all sections
+sections.forEach(section => {
+    section.classList.add('fade-in-section');
+    scrollObserver.observe(section);
+});
+
+// Parallax effect for hero sections
+function parallaxScroll() {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.parallax-element');
+    
+    parallaxElements.forEach(element => {
+        const speed = element.dataset.speed || 0.5;
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translateY(${yPos}px)`;
+    });
+}
+
+window.addEventListener('scroll', parallaxScroll);
 
