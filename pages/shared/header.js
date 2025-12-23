@@ -44,7 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.add('active');
             menuToggle.classList.add('active');
+            // Prevent body scroll when menu is open
             document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.top = `-${window.scrollY}px`;
         });
     }
 
@@ -52,7 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuClose.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             if (menuToggle) menuToggle.classList.remove('active');
+            // Restore body scroll
+            const scrollY = document.body.style.top;
             document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
         });
     }
 
@@ -74,7 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 if (menuToggle) menuToggle.classList.remove('active');
+                // Restore body scroll
+                const scrollY = document.body.style.top;
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+                document.body.style.top = '';
+                if (scrollY) {
+                    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+                }
             });
         });
     }
