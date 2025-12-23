@@ -3,13 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>من نحن - Nmaa</title>
-    <link rel="stylesheet" href="../shared/style.css">
+    <title>عن Nmaa - Nmaa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../shared/header.css">
     <link rel="stylesheet" href="about.css">
 </head>
 <body>
-    <h1>من نحن</h1>
-    <!-- محتوى صفحة من نحن -->
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <button class="nav-icon-btn search-btn" id="searchToggle" aria-label="Search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <button class="nav-icon-btn menu-btn" id="menuToggle" aria-label="Menu">
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                    </button>
+                </div>
+                <div class="nav-center">
+                    <a href="../index/index.html" class="logo-link">
+                        <span class="logo-text">Nmaa</span>
+                    </a>
+                </div>
+                <div class="nav-right">
+                    <ul class="nav-menu">
+                        <li class="nav-item dropdown">
+                            <button class="nav-link active" type="button">من نحن</button>
+                            <ul class="dropdown-menu">
+                                <li><a href="about.html" class="dropdown-link">عن Nmaa</a></li>
+                                <li><a href="../management/management.html" class="dropdown-link">الإدارة</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="../projects/projects.html" class="nav-link">المشاريع</a></li>
+                        <li class="nav-item"><a href="../media/media.html" class="nav-link">الإعلام والأخبار</a></li>
+                        <li class="nav-item"><a href="../careers/careers.html" class="nav-link">الوظائف</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <select class="lang-select" id="languageSelect">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                        </select>
+                        <a href="../contact/contact.html" class="contact-btn">تواصل معنا</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Search Modal -->
+        <div class="search-modal" id="searchModal">
+            <div class="search-modal-content">
+                <button class="search-close-btn" id="searchClose" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="search-wrapper">
+                    <h2 class="search-heading">Search</h2>
+                    <form class="search-form" role="search">
+                        <input type="search" class="search-field" placeholder="ابحث..." autocomplete="off" autofocus>
+                        <button type="submit" class="search-submit-btn" aria-label="Submit search">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="mobile-close-btn" id="mobileMenuClose" aria-label="Close menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <div class="mobile-nav-item">
+                    <button class="mobile-nav-link" id="mobileAboutBtn">من نحن</button>
+                    <ul class="mobile-submenu" id="mobileAboutMenu">
+                        <li><a href="about.html" class="mobile-submenu-link">عن Nmaa</a></li>
+                        <li><a href="../management/management.html" class="mobile-submenu-link">الإدارة</a></li>
+                    </ul>
+                </div>
+                <a href="../projects/projects.html" class="mobile-nav-link">المشاريع</a>
+                <a href="../media/media.html" class="mobile-nav-link">الإعلام والأخبار</a>
+                <a href="../careers/careers.html" class="mobile-nav-link">الوظائف</a>
+                <div class="mobile-nav-footer">
+                    <select class="mobile-lang-select">
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                    <a href="../contact/contact.html" class="mobile-contact-btn">تواصل معنا</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1 class="about-hero-title">عن Nmaa</h1>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="section-container">
+            <h2 class="section-title">رؤية طموحة لا تعرف الحدود</h2>
+            <p class="section-subtitle">إرثٌ من التطوير، يتجاوز البناء</p>
+            <p class="vision-text">
+                انسجامًا مع مستهدفات رؤية المملكة 2030، تعمل Nmaa على تطوير بيئات عمرانية متكاملة ترتقي بجودة الحياة، وتُعزز علاقة الإنسان بمحيطه ومجتمعه. ومن خلال محفظة مشاريع تتوسع بثبات، تقدّم الشركة حلولًا عقارية تستجيب لمتطلبات السوق وتتماشى مع تطلعاته المستقبلية. تعتمد Nmaa فلسفة تصميم تُبنى على دقة التنفيذ ووضوح الهوية، مع اهتمام عميق بالتوازن بين العملية والجمال. مشاريع اليوم تمضي نحو مستقبل مستدام، وتجسّد رؤية تنسجم مع طموحات الأجيال القادمة.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Nmaa Section -->
+    <section class="about-nmaa-section">
+        <div class="section-container">
+            <h2 class="section-title">عن Nmaa</h2>
+            <p class="about-nmaa-text">
+                "Nmaa" شركة سعودية تعمل في مجال التطوير العقاري، تأسست عام 2006 وتتخذ من مدينة الرياض مقرًا لها. تختص بتطوير المشاريع السكنية والتجارية والأراضي الخام، وتهدف إلى تقديم منتجات عقارية تواكب احتياجات السوق وتُقدّم حلولًا تعمّق الاستفادة من الموقع وتواكب متطلبات العيش الحديث. أنجزت Nmaa حتى الآن أكثر من 27 مشروعًا متنوعًا، بمساحة أراضي تتجاوز 591,000 متر مربع، ومسطحات بنائية تفوق 563,000 متر مربع. وتحرص Nmaa على دمج عناصر الاستدامة في مشاريعها، من خلال توفير المساحات الخضراء والحلول التي تدعم جودة الحياة.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Vision Section -->
+    <section class="our-vision-section">
+        <div class="vision-image-wrapper">
+            <div class="vision-image"></div>
+        </div>
+        <div class="section-container">
+            <h2 class="section-title">رؤيتنا</h2>
+            <h3 class="vision-subtitle">تشكيل مشهد الغد ما وراء الحدود</h3>
+            <p class="vision-description">
+                تنطلق "Nmaa" من التزامها بتحقيق تطلعات عملائها، وتحويل احتياجاتهم إلى واقع ملموس عبر حلول متكاملة. وتتولى تصميم وإدارة مجموعة متنوعة من المشاريع السكنية والتجارية والمكتبية والفندقية، بما يضمن تقديم حلول تطويرية متكاملة بمعايير عالية. وتقوم رؤيتها على الدمج بين الابتكار في التصميم ومرونة التنفيذ، بما يعزز تجربة العميل ويرفع من قيمة الاستثمار.
+            </p>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-container">
+            <h2 class="section-title">قيم ثابتة</h2>
+            <p class="values-intro">قدوة للأجيال القادمة</p>
+            <p class="values-description">
+                تجسد قيمنا تفانينا في تصميم العقارات التي تعزز نمط حياة مستدام للأجيال القادمة، وتتماشى بسلاسة مع رؤيتنا لبناء عقارات راقية، وتنمية مجتمعات عالية الجودة.
+            </p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3 class="value-title">الشفافية</h3>
+                    <p class="value-text">الحوكمة أمر بالغ الأهمية بالنسبة لنا، ولهذا نسعى للحفاظ على مصداقيتنا في جميع تعاملاتنا التجارية مع أصحاب المصلحة.</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="value-title">الثقة</h3>
+                    <p class="value-text">أصالتنا تقود حلول البناء المبتكرة، وتحوّل المشهد العقاري في المملكة العربية السعودية.</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="value-title">الالتزام</h3>
+                    <p class="value-text">نحن نصمّم مساحات تحمل معاني كبيرة، وننشئ مجتمعات دائمة تصمد أمام اختبار الزمن من خلال التصميم الدقيق، والالتزام الراسخ بالجودة التي لا نتنازل عنها.</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="value-title">المرونة</h3>
+                    <p class="value-text">نحن نغتنم الفرص للاستجابة السريعة للتغيرات، وتحقيق الريادة في السوق من خلال أعلى معايير البناء، مما يعود بالنفع في نهاية المطاف على عملائنا والمجتمع بشكل أشمل.</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="value-title">الجودة</h3>
+                    <p class="value-text">نحن ملتزمون بالتحول الاقتصادي في المملكة العربية السعودية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">الاشتراك في النشرة الإخبارية</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="البريد الإلكتروني" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn">اشترك</button>
+                    </form>
+                    <p class="newsletter-note">Leave this field empty if you're human:</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index/index.html">الرئيسية</a></li>
+                        <li><a href="../projects/projects.html">المشاريع</a></li>
+                        <li><a href="about.html">عن Nmaa</a></li>
+                        <li><a href="../management/management.html">الإدارة</a></li>
+                        <li><a href="../media/media.html">الإعلام والأخبار</a></li>
+                        <li><a href="../contact/contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">المشاريع السكنية</h4>
+                    <h5 class="footer-subtitle">مشاريع Nmaa هاوسنق</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Nmaa هاوسنق إشبيلية</a></li>
+                        <li><a href="#">Nmaa هاوسنق المونسية</a></li>
+                        <li><a href="#">Nmaa هاوسنق السعادة</a></li>
+                        <li><a href="#">Nmaa هاوسنق مرسية</a></li>
+                    </ul>
+                    <h5 class="footer-subtitle">مشاريع أخرى</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">سجايا من Nmaa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">المشاريع التجارية</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Nmaa إيدج</a></li>
+                        <li><a href="#">Nmaa جرين تاور</a></li>
+                    </ul>
+                    <h4 class="footer-title">OD مشاريع</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">أو دي أوفيس I</a></li>
+                        <li><a href="#">أو دي أوفيس II</a></li>
+                        <li><a href="#">أو دي بلازا I</a></li>
+                        <li><a href="#">أو دي بلازا II</a></li>
+                        <li><a href="#">أو دي فلور I</a></li>
+                        <li><a href="#">أو دي فلور II</a></li>
+                        <li><a href="#">أو دي تاور</a></li>
+                    </ul>
+                    <h4 class="footer-title">مجتمعات متعددة الإستخدام</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Nmaa برايم</a></li>
+                        <li><a href="#">Nmaa مكان</a></li>
+                        <li><a href="#">عين Nmaa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 جميع الحقوق محفوظة © Nmaa العقار</p>
+                <div class="footer-legal">
+                    <a href="#">شروط الخدمة</a>
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">سياسة ملفات تعريف الارتباط</a>
+                    <a href="#">خريطة الموقع</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../shared/header.js"></script>
+    <script src="about.js"></script>
 </body>
 </html>
-
