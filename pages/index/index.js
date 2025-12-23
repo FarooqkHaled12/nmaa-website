@@ -85,6 +85,90 @@ if (slides.length > 0) {
     });
 }
 
+// Approach Slider Functionality
+let currentApproachSlide = 0;
+const approachSlides = document.querySelectorAll('.approach-slide');
+const approachDots = document.querySelectorAll('.approach-dot');
+const approachPrevBtn = document.querySelector('.approach-prev');
+const approachNextBtn = document.querySelector('.approach-next');
+const approachTrack = document.querySelector('.approach-slider-track');
+const totalApproachSlides = approachSlides.length;
+
+function showApproachSlide(index) {
+    // Remove active class from all slides and dots
+    approachSlides.forEach(slide => slide.classList.remove('active'));
+    approachDots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    if (approachSlides[index]) {
+        approachSlides[index].classList.add('active');
+    }
+    if (approachDots[index]) {
+        approachDots[index].classList.add('active');
+    }
+    
+    // Move track
+    if (approachTrack) {
+        approachTrack.style.transform = `translateX(-${index * 100}%)`;
+    }
+    
+    currentApproachSlide = index;
+}
+
+function nextApproachSlide() {
+    const next = (currentApproachSlide + 1) % totalApproachSlides;
+    showApproachSlide(next);
+}
+
+function prevApproachSlide() {
+    const prev = (currentApproachSlide - 1 + totalApproachSlides) % totalApproachSlides;
+    showApproachSlide(prev);
+}
+
+// Initialize approach slider
+if (approachSlides.length > 0) {
+    showApproachSlide(0);
+    
+    // Auto slide every 6 seconds
+    setInterval(nextApproachSlide, 6000);
+    
+    // Button events
+    if (approachNextBtn) {
+        approachNextBtn.addEventListener('click', nextApproachSlide);
+    }
+    
+    if (approachPrevBtn) {
+        approachPrevBtn.addEventListener('click', prevApproachSlide);
+    }
+    
+    // Dot events
+    approachDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showApproachSlide(index));
+    });
+    
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    approachTrack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    approachTrack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            nextApproachSlide();
+        }
+        if (touchEndX > touchStartX + 50) {
+            prevApproachSlide();
+        }
+    }
+}
+
 // Mobile menu toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
