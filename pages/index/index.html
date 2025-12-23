@@ -4,12 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الصفحة الرئيسية - Nmaa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../shared/style.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>الصفحة الرئيسية</h1>
-    <!-- محتوى الصفحة الرئيسية -->
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html">Nmaa</a>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#projects">المشاريع</a></li>
+                        <li><a href="#media">الإعلام والأخبار</a></li>
+                        <li><a href="#careers">الوظائف</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <select class="language-select">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                        </select>
+                        <a href="#contact" class="btn-contact">تواصل معنا</a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-subtitle">الجيل القادم</span>
+                    <span class="hero-main-title">للتطوير العقاري</span>
+                </h1>
+                <p class="hero-description">اكتشف وجهات حضرية متكاملة في المملكة العربية السعودية</p>
+                <a href="#projects" class="btn-primary">استكشف المشاريع</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">مشاريع مميزة</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <h3 class="project-title">مشروع مميز</h3>
+                            <p class="project-category">مجتمعات متعددة الإستخدام</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-name">اسم المشروع</h3>
+                        <p class="project-description">وصف المشروع يظهر هنا مع تفاصيل مهمة عن المشروع</p>
+                        <a href="#" class="project-link">استكشف</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <h3 class="project-title">مشروع سكني</h3>
+                            <p class="project-category">سكني</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-name">مشروع سكني</h3>
+                        <a href="#" class="project-link">عرض المشروع</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <h3 class="project-title">مشروع تجاري</h3>
+                            <p class="project-category">تجاري وإداري</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-name">مشروع تجاري</h3>
+                        <a href="#" class="project-link">عرض المشروع</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="#all-projects" class="btn-secondary">عرض جميع المشاريع</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach -->
+    <section class="our-approach" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">نهجنا</h2>
+            </div>
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <div class="approach-icon">🎨</div>
+                    <h3 class="approach-title">التميّز في التصميم</h3>
+                    <p class="approach-description">في Nmaa، يبدأ كل مشروع من التصميم. تمتد مشاريعنا لتشمل وجهات متعددة الاستخدام، ومجمعات سكنية، وأبراج تجارية تعكس الطابع السعودي الحديث بتوازن بين الشكل والوظيفة والهوية.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="approach-icon">👥</div>
+                    <h3 class="approach-title">الإنسان في المركز</h3>
+                    <p class="approach-description">نضع الإنسان في قلب كل مشروع. يتم تخطيط مشاريع Nmaa بعناية لتعزيز جودة الحياة من خلال بيئات تعزّز الراحة، والتفاعل، والانتماء.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="approach-icon">💡</div>
+                    <h3 class="approach-title">الابتكار</h3>
+                    <p class="approach-description">الابتكار هو جوهر منهجنا في Nmaa. نعتمد أحدث التقنيات وأساليب البناء المتقدمة والتصاميم المستقبلية لتلبية متطلبات أسلوب الحياة العصري.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="approach-icon">🌱</div>
+                    <h3 class="approach-title">الاستدامة</h3>
+                    <p class="approach-description">نخطط ونبني برؤية مستدامة نحو المستقبل. ندمج المساحات الخضراء، وأنظمة كفاءة الطاقة، وممارسات البناء المسؤولة في جميع مشاريعنا.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="0">0</div>
+                    <div class="stat-label">مليون متر مربع</div>
+                    <div class="stat-sublabel">المساحة البنائية</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="0">0</div>
+                    <div class="stat-label">الأصول تحت الإدارة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="0">0</div>
+                    <div class="stat-label">المشاريع المنجزة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#projects">المشاريع</a></li>
+                        <li><a href="#about">عن Nmaa</a></li>
+                        <li><a href="#media">الإعلام والأخبار</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">المشاريع السكنية</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">مشروع سكني 1</a></li>
+                        <li><a href="#">مشروع سكني 2</a></li>
+                        <li><a href="#">مشروع سكني 3</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">المشاريع التجارية</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">مشروع تجاري 1</a></li>
+                        <li><a href="#">مشروع تجاري 2</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">الاشتراك في النشرة الإخبارية</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="البريد الإلكتروني" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 جميع الحقوق محفوظة © Nmaa</p>
+                <div class="footer-legal">
+                    <a href="#">شروط الخدمة</a>
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">خريطة الموقع</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 </html>
-
