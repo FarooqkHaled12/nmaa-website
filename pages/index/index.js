@@ -236,8 +236,13 @@ if (mobileMenuClose && mobileMenu) {
 }
 
 if (mobileAboutBtn && mobileAboutMenu) {
-    mobileAboutBtn.addEventListener('click', () => {
+    const mobileNavItem = mobileAboutBtn.closest('.mobile-nav-item');
+    mobileAboutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         mobileAboutMenu.classList.toggle('active');
+        if (mobileNavItem) {
+            mobileNavItem.classList.toggle('active');
+        }
     });
 }
 
