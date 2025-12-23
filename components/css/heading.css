@@ -1,0 +1,22 @@
+.heading-container {
+  display: flex;
+  max-width: 600px;
+  margin-top: var(--dl-space-space-tripleunit);
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-doubleunit);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.heading-image {
+  width: 150px;
+  object-fit: cover;
+  margin-bottom: var(--dl-space-space-doubleunit);
+}
+.heading-text {
+  width: 100%;
+  text-align: left;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.heading-text1 {
+  text-align: left;
+}

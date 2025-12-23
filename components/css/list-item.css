@@ -1,0 +1,18 @@
+.list-item-container {
+  display: flex;
+  margin-top: 0;
+  align-items: flex-start;
+  margin-bottom: var(--dl-space-space-halfunit);
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.list-item-icon {
+  width: 12px;
+  height: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  margin-right: var(--dl-space-space-halfunit);
+}
+.list-item-text {
+  max-width: 600px;
+}

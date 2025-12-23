@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Intro to teleportHQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 300;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="../style.css" />
+    <div>
+      <link href="./tip.css" rel="stylesheet" />
+      <div class="tip-tip">
+        <svg viewBox="0 0 1024 1024" class="tip-icon">
+          <path
+            d="M146.286 768c0-20-16.571-36.571-36.571-36.571s-36.571 16.571-36.571 36.571 16.571 36.571 36.571 36.571 36.571-16.571 36.571-36.571zM950.857 438.857c0-38.857-34.857-73.143-73.143-73.143h-329.143c0-36 54.857-73.143 54.857-146.286 0-54.857-42.857-73.143-91.429-73.143-16 0-45.143 66.286-51.429 79.429-6.857 12.571-13.714 25.143-21.143 37.143-18.857 30.286-40.571 56.571-64 82.857-36.571 41.714-77.143 93.143-137.714 93.143h-18.286v365.714h18.286c100 0 197.714 73.143 308.571 73.143 64 0 108-26.857 108-95.429 0-10.857-1.143-21.714-2.857-32 24-13.143 37.143-45.714 37.143-72 0-13.714-3.429-27.429-10.286-39.429 19.429-18.286 30.286-41.143 30.286-68 0-18.286-8-45.143-20-58.857h189.143c39.429 0 73.143-33.714 73.143-73.143zM1024 438.286c0 80-66.286 146.857-146.286 146.857h-96.571c-1.714 24-9.143 46.857-21.143 68 1.143 8 1.714 16.571 1.714 24.571 0 36.571-12 73.143-34.286 101.714 1.143 108-72.571 171.429-178.286 171.429-64 0-124.571-17.714-184-39.429-34.857-12.571-91.429-33.714-127.429-33.714h-164.571c-40.571 0-73.143-32.571-73.143-73.143v-365.714c0-40.571 32.571-73.143 73.143-73.143h164.571c27.429 0 66.286-49.143 82.857-68 20.571-23.429 40-46.857 57.143-73.714 33.143-53.143 57.714-150.857 134.286-150.857 90.857 0 164.571 49.714 164.571 146.286 0 25.143-4 49.714-12.571 73.143h213.714c78.857 0 146.286 66.857 146.286 145.714z"
+          ></path>
+        </svg>
+        <span class="tip-text Tooltip">
+          <span>Hit Ctrl/Cmd + Arrow Down for the next step</span>
+        </span>
+        <header data-role="Accordion" class="tip-header">
+          <img
+            alt="logo"
+            src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
+            class="tip-image"
+          />
+          <div class="tip-separator"></div>
+          <nav class="tip-nav">
+            <nav
+              class="navigation-links-nav navigation-links-root-class-name19"
+            >
+              <span class="navigation-links-text"><span>About</span></span>
+              <span class="navigation-links-text1"><span>Features</span></span>
+              <span class="navigation-links-text2"><span>Pricing</span></span>
+              <span class="navigation-links-text3"><span>Team</span></span>
+              <span class="navigation-links-text4"><span>Blog</span></span>
+            </nav>
+          </nav>
+          <div data-role="AccordionHeader" class="tip-accordion-header">
+            <svg viewBox="0 0 1024 1024" class="tip-icon2">
+              <path
+                d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+              ></path>
+            </svg>
+          </div>
+          <div data-role="AccordionContent" class="tip-accordion-content">
+            <div class="tip-nav1">
+              <nav
+                class="navigation-links-nav navigation-links-root-class-name20"
+              >
+                <span class="navigation-links-text"><span>About</span></span>
+                <span class="navigation-links-text1">
+                  <span>Features</span>
+                </span>
+                <span class="navigation-links-text2"><span>Pricing</span></span>
+                <span class="navigation-links-text3"><span>Team</span></span>
+                <span class="navigation-links-text4"><span>Blog</span></span>
+              </nav>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+    <script
+      defer=""
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>
