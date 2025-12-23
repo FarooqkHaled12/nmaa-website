@@ -58,32 +58,105 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-background-image"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content-wrapper">
-            <div class="hero-badge">مشاريع مميزة</div>
-            <h1 class="hero-main-title">عين Nmaa</h1>
-            <p class="hero-description">
-                وجهة عقارية متكاملة تجمع ما بين مساكن أنيقة بفخامة عصرية، وفندق عالمي "هيلتون جاردن إن" وبرج سكني بعلامة تجارية "كوريو كوليكشن من هيلتون"، ومكاتب فاخرة بمعايير عالمية، ومساحات تجارية
-            </p>
-            <a href="#explore" class="btn-explore">استكشف</a>
+    <!-- Video Hero Section -->
+    <section class="video-hero-section">
+        <div class="video-wrapper">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                <!-- Fallback image if video doesn't load -->
+                <div class="video-fallback"></div>
+            </video>
+            <div class="video-overlay"></div>
         </div>
-        <div class="hero-side-icons">
-            <a href="#" class="side-icon whatsapp-icon" aria-label="WhatsApp">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-            </a>
-            <button class="side-icon accessibility-icon" aria-label="Accessibility">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-            </button>
+        <div class="video-content-wrapper">
+            <div class="video-content">
+                <h1 class="video-title">
+                    <span class="video-subtitle">الجيل القادم</span>
+                    <span class="video-main-title">للتطوير العقاري</span>
+                </h1>
+                <p class="video-description">اكتشف وجهات حضرية متكاملة في المملكة العربية السعودية</p>
+                <a href="#projects" class="btn-video-primary">استكشف المشاريع</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Hero Section -->
+    <section class="image-hero-section">
+        <div class="image-hero-wrapper">
+            <div class="image-hero-background"></div>
+            <div class="image-hero-overlay"></div>
+            <div class="image-hero-content">
+                <div class="image-hero-badge">مشاريع مميزة</div>
+                <h2 class="image-hero-title">عين Nmaa</h2>
+                <p class="image-hero-description">
+                    وجهة عقارية متكاملة تجمع ما بين مساكن أنيقة بفخامة عصرية، وفندق عالمي "هيلتون جاردن إن" وبرج سكني بعلامة تجارية "كوريو كوليكشن من هيلتون"، ومكاتب فاخرة بمعايير عالمية، ومساحات تجارية
+                </p>
+                <a href="#explore" class="btn-image-hero">استكشف</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slider Hero Section -->
+    <section class="slider-hero-section">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slider-slide active">
+                    <div class="slide-background slide-bg-1"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="slide-badge">مشروع جديد</div>
+                        <h2 class="slide-title">مشروع Nmaa الأول</h2>
+                        <p class="slide-description">اكتشف مشروعنا الجديد الذي يجمع بين الفخامة والحداثة في قلب الرياض</p>
+                        <div class="slide-buttons">
+                            <a href="#project1" class="btn-slide-primary">استكشف المشروع</a>
+                            <a href="#contact" class="btn-slide-secondary">تواصل معنا</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <div class="slide-background slide-bg-2"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="slide-badge">مشروع مميز</div>
+                        <h2 class="slide-title">مشروع Nmaa الثاني</h2>
+                        <p class="slide-description">وجهة عقارية متكاملة تجمع بين السكن الفاخر والمساحات التجارية</p>
+                        <div class="slide-buttons">
+                            <a href="#project2" class="btn-slide-primary">استكشف المشروع</a>
+                            <a href="#contact" class="btn-slide-secondary">تواصل معنا</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <div class="slide-background slide-bg-3"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="slide-badge">مشروع استثماري</div>
+                        <h2 class="slide-title">مشروع Nmaa الثالث</h2>
+                        <p class="slide-description">استثمر في مستقبل التطوير العقاري مع مشاريعنا المتميزة</p>
+                        <div class="slide-buttons">
+                            <a href="#project3" class="btn-slide-primary">استكشف المشروع</a>
+                            <a href="#contact" class="btn-slide-secondary">تواصل معنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn slider-prev" aria-label="Previous slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="slider-dots">
+                    <button class="slider-dot active" data-slide="0" aria-label="Slide 1"></button>
+                    <button class="slider-dot" data-slide="1" aria-label="Slide 2"></button>
+                    <button class="slider-dot" data-slide="2" aria-label="Slide 3"></button>
+                </div>
+                <button class="slider-btn slider-next" aria-label="Next slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
 
