@@ -16,27 +16,27 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-left">
-                    <button class="nav-icon search-icon" aria-label="Search">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <button class="nav-icon search-icon" id="searchToggle" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </button>
-                    <button class="nav-icon menu-icon" aria-label="Menu">
+                    <button class="nav-icon menu-icon" id="menuToggle" aria-label="Menu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                 </div>
                 <div class="nav-center">
-                    <a href="index.html" class="logo-link">
+                    <a href="#home" class="logo-link">
                         <span class="logo-text">Nmaa</span>
                     </a>
                 </div>
                 <div class="nav-right">
-                    <div class="nav-menu-desktop">
+                    <div class="nav-menu-desktop" id="navMenu">
                         <div class="nav-item dropdown">
-                            <button class="nav-link">من نحن</button>
+                            <button class="nav-link" id="aboutDropdown">من نحن</button>
                             <ul class="dropdown-menu">
                                 <li><a href="#about">عن Nmaa</a></li>
                                 <li><a href="#management">الإدارة</a></li>
@@ -47,15 +47,72 @@
                         <a href="#careers" class="nav-link">الوظائف</a>
                     </div>
                     <div class="nav-actions">
-                        <select class="language-select">
-                            <option value="ar">العربية</option>
-                            <option value="en">English</option>
-                        </select>
+                        <div class="language-selector">
+                            <select class="language-select" id="languageSelect">
+                                <option value="ar">العربية</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
                         <a href="#contact" class="btn-contact">تواصل معنا</a>
                     </div>
                 </div>
             </div>
         </nav>
+        
+        <!-- Search Overlay -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <button class="search-close" id="searchClose" aria-label="Close search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="search-content">
+                    <h2 class="search-title">Search</h2>
+                    <form class="search-form">
+                        <input type="search" class="search-input" placeholder="ابحث..." autofocus>
+                        <button type="submit" class="search-submit">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-container">
+                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <nav class="mobile-menu">
+                    <div class="mobile-menu-item">
+                        <button class="mobile-menu-link" id="mobileAboutToggle">من نحن</button>
+                        <ul class="mobile-submenu" id="mobileAboutSubmenu">
+                            <li><a href="#about" class="mobile-submenu-link">عن Nmaa</a></li>
+                            <li><a href="#management" class="mobile-submenu-link">الإدارة</a></li>
+                        </ul>
+                    </div>
+                    <a href="#projects" class="mobile-menu-link">المشاريع</a>
+                    <a href="#media" class="mobile-menu-link">الإعلام والأخبار</a>
+                    <a href="#careers" class="mobile-menu-link">الوظائف</a>
+                    <div class="mobile-menu-actions">
+                        <select class="mobile-language-select">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                        </select>
+                        <a href="#contact" class="mobile-btn-contact">تواصل معنا</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <!-- Video Hero Section -->
