@@ -334,3 +334,22 @@ body::after {
         font-size: 0.85rem;
     }
 }
+
+@media (max-width: 768px) {
+    .projects-hero,
+    .hero-section {
+        height: 60vh !important;
+        min-height: 350px !important;
+    }
+
+    .section-container,
+    .container {
+        padding: 0 1rem !important;
+    }
+
+    .projects-grid,
+    .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+}

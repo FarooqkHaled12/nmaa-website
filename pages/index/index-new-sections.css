@@ -703,3 +703,78 @@
         gap: 20px;
     }
 }
+/* ===== CRITICAL MOBILE FIX ===== */
+@media (max-width: 768px) {
+    .home-about-section,
+    .home-services-section,
+    .home-values-section,
+    .home-history-section {
+        padding: 50px 0 !important;
+        overflow: hidden !important;
+    }
+
+    .home-about-section .container,
+    .home-services-section .container,
+    .home-values-section .container,
+    .home-history-section .container {
+        padding: 0 1rem !important;
+    }
+
+    .about-content-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    .about-text-content .section-title {
+        font-size: 1.75rem !important;
+    }
+
+    .about-description {
+        font-size: 1rem !important;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px !important;
+    }
+
+    .service-card {
+        padding: 25px 15px !important;
+    }
+
+    .service-card h3 {
+        font-size: 1rem !important;
+    }
+
+    .service-card p {
+        font-size: 0.85rem !important;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px !important;
+    }
+
+    .value-item {
+        padding: 20px 15px !important;
+    }
+
+    .history-stats {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .history-stat-card {
+        padding: 30px 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr !important;
+    }
+}

@@ -2584,6 +2584,80 @@ html[dir="ltr"] .mobile-submenu-link:hover {
     }
 
     /* Search Modal Mobile Styles moved to shared/header.css */
+
+    /* Fix hero sections height on mobile */
+    .video-hero-section,
+    .image-hero-section,
+    .slider-hero-section {
+        height: 70vh;
+        min-height: 450px;
+    }
+
+    /* Fix content padding on mobile */
+    .video-content,
+    .image-hero-content,
+    .slide-content {
+        padding: 0 1.25rem;
+    }
+
+    /* Fix slider controls on mobile */
+    .slider-controls {
+        bottom: 1rem;
+        padding: 0.75rem 1rem;
+        gap: 1rem;
+    }
+
+    .slider-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Fix approach section padding */
+    .approach-section .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Fix CTA section */
+    .cta-content {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .cta-title {
+        font-size: 1.75rem;
+    }
+
+    /* Fix news section padding */
+    .news-section {
+        padding: 50px 0 60px;
+    }
+
+    .news-section .section-container,
+    .section-container {
+        padding: 0 1rem;
+    }
+
+    /* Fix statistics section */
+    .statistics-section {
+        padding: 60px 0;
+    }
+
+    .stats-grid {
+        padding: 0 1rem;
+    }
+
+    /* Fix slide buttons stacking */
+    .slide-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn-slide-primary,
+    .btn-slide-secondary {
+        text-align: center;
+        width: 100%;
+        max-width: 280px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2723,6 +2797,30 @@ html[dir="ltr"] .mobile-submenu-link:hover {
 
     .cta-subtitle {
         font-size: 1rem;
+    }
+
+    /* Fix hero sections on small mobile */
+    .video-hero-section,
+    .image-hero-section,
+    .slider-hero-section {
+        height: 65vh;
+        min-height: 380px;
+    }
+
+    /* Fix approach nav buttons */
+    .approach-nav-buttons {
+        margin-top: 1.25rem;
+    }
+
+    .approach-nav-buttons button {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    /* Fix floating side icons on small mobile */
+    .floating-side-icons {
+        display: none;
     }
 }
 
@@ -2953,5 +3051,63 @@ html[dir="ltr"] .mobile-submenu-link:hover {
     .client-logo {
         height: 70px;
         padding: 12px;
+    }
+}
+/* ===== CRITICAL MOBILE OVERFLOW FIX ===== */
+@media (max-width: 768px) {
+    /* Prevent ALL overflow */
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
+    /* Fix hero text overflow */
+    .video-content,
+    .image-hero-content,
+    .slide-content {
+        padding: 0 1rem !important;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .video-main-title,
+    .image-hero-title,
+    .slide-title {
+        font-size: 1.8rem !important;
+        letter-spacing: -0.5px !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.2 !important;
+    }
+
+    .video-subtitle {
+        font-size: 0.9rem !important;
+    }
+
+    .video-description,
+    .image-hero-description,
+    .slide-description {
+        font-size: 0.9rem !important;
+        max-width: 100%;
+    }
+
+    .btn-slide-primary,
+    .btn-slide-secondary,
+    .btn-video-primary,
+    .btn-image-hero {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.9rem !important;
+        display: block !important;
+        width: fit-content !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-main-title,
+    .image-hero-title,
+    .slide-title {
+        font-size: 1.6rem !important;
+        letter-spacing: 0 !important;
     }
 }

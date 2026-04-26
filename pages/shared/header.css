@@ -883,3 +883,37 @@
         margin-bottom: 1.25rem;
     }
 }
+
+/* Fix transparent header on mobile - always show white bg */
+@media (max-width: 768px) {
+    .header.transparent-header {
+        background: #ffffff !important;
+    }
+    .header.transparent-header:not(.scrolled) .logo-text,
+    .header.transparent-header:not(.scrolled) .nav-link,
+    .header.transparent-header:not(.scrolled) .nav-icon-btn,
+    .header.transparent-header:not(.scrolled) .contact-btn {
+        color: #000000 !important;
+    }
+    .header.transparent-header:not(.scrolled) .menu-line {
+        background: #000000 !important;
+    }
+    .header.transparent-header:not(.scrolled) .nav-icon-btn svg {
+        stroke: #000000 !important;
+    }
+}
+
+/* ===== NAVBAR MOBILE OVERFLOW FIX ===== */
+@media (max-width: 768px) {
+    .nav-container {
+        max-width: 100vw !important;
+        overflow: hidden !important;
+    }
+
+    .logo-text {
+        max-width: 150px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+}

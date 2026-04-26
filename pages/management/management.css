@@ -393,6 +393,41 @@ html[dir="ltr"] .chairman-image-wrapper {
     .chairman-name {
         font-size: 2.5rem;
     }
+
+    .leadership-section,
+    .chairman-section,
+    .executive-section {
+        padding: 60px 0;
+    }
+
+    .section-container {
+        padding: 0 1rem;
+    }
+
+    .chairman-name {
+        font-size: 2rem;
+    }
+
+    .chairman-title {
+        font-size: 1.25rem;
+    }
+
+    .chairman-text {
+        font-size: 1rem;
+    }
+
+    .leadership-text {
+        font-size: 1rem;
+    }
+
+    .executive-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .executive-image {
+        height: 300px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -406,5 +441,17 @@ html[dir="ltr"] .chairman-image-wrapper {
 
     .executive-grid {
         grid-template-columns: 1fr;
+    }
+
+    .management-hero {
+        height: 350px;
+    }
+
+    .management-hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
     }
 }

@@ -113,10 +113,18 @@ document.addEventListener('DOMContentLoaded', function () {
             wrapper.style.width = 'auto';
             wrapper.style.flexWrap = 'nowrap';
 
-            // Responsive slide widths
+            // Responsive slide widths - FIXED FOR MOBILE
             function updateLayout() {
                 const width = window.innerWidth;
                 const slides = wrapper.querySelectorAll('.swiper-slide');
+
+                // Remove all inline styles first
+                slides.forEach(slide => {
+                    slide.style.width = '';
+                    slide.style.marginLeft = '';
+                    slide.style.minWidth = '';
+                    slide.style.maxWidth = '';
+                });
 
                 if (width >= 992) {
                     wrapper.style.gap = '2rem';
@@ -127,50 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (slides[0]) slides[0].style.marginLeft = '0';
                 } else if (width >= 768) {
                     wrapper.style.gap = '1.5rem';
-                    slides.forEach(slide => {
-                        slide.style.width = `calc((100% - 3rem) / 3)`;
-                        slide.style.marginLeft = '';
-                    });
+                    // Let CSS handle it
                 } else if (width >= 480) {
                     wrapper.style.gap = '1rem';
-                    slides.forEach(slide => {
-                        slide.style.width = `calc((100% - 1rem) / 2)`;
-                        slide.style.marginLeft = '';
-                    });
+                    // Let CSS handle it
                 } else {
                     wrapper.style.gap = '1.5rem';
-                    slides.forEach(slide => {
-                        slide.style.width = `calc(100% - 3rem)`;
-                        slide.style.maxWidth = '350px';
-                        slide.style.marginLeft = '';
-                    });
+                    // Let CSS handle it - don't override
                 }
-            }
-
-            // Detect if page is RTL
-            const isRTL = document.documentElement.dir === 'rtl' ||
-                getComputedStyle(document.documentElement).direction === 'rtl';
-            // In RTL, scrollLeft is negative (or inverted), so we invert the direction
-            const scrollAmount = 402; // 372px width + 30px margin
-
-            // Next button: scroll towards "next" cards (left in RTL)
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function () {
-                    approachSlider.scrollBy({
-                        left: isRTL ? -scrollAmount : scrollAmount,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-
-            // Prev button: scroll towards "previous" cards (right in RTL)
-            if (prevBtn) {
-                prevBtn.addEventListener('click', function () {
-                    approachSlider.scrollBy({
-                        left: isRTL ? scrollAmount : -scrollAmount,
-                        behavior: 'smooth'
-                    });
-                });
             }
 
             updateLayout();
@@ -364,4 +336,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // }
 
 // window.addEventListener('scroll', parallaxScroll);
+
 

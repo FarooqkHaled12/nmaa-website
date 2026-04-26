@@ -306,4 +306,21 @@ html[dir="ltr"] .footer-links a:hover {
         transform: translateX(0) scale(1.05);
         /* Slight scale instead of slide on mobile */
     }
+
+    .footer-container {
+        padding: 0 1rem;
+    }
+
+    .footer-content {
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        gap: 1rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.85rem;
+        text-align: center;
+    }
 }

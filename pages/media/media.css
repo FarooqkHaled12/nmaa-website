@@ -445,3 +445,23 @@ html[dir="ltr"] .read-more-link:hover .arrow-icon {
         font-size: 3rem;
     }
 }
+
+@media (max-width: 768px) {
+    .media-hero,
+    .hero-section {
+        height: 60vh !important;
+        min-height: 350px !important;
+    }
+
+    .section-container,
+    .container {
+        padding: 0 1rem !important;
+    }
+
+    .media-grid,
+    .news-grid,
+    .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+}
