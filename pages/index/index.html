@@ -5,57 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الصفحة الرئيسية - Nmaa</title>
     <link rel="icon" type="image/png" href="../../public/nama_logo_round_192.png">
+    <link rel="apple-touch-icon" href="../../public/nama_logo_round_192.png">
+    
+    <!-- Performance optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="../../public/nama_assets/one-1400w.webp" as="image">
+    
+    <!-- Optimized fonts - reduced weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../shared/style.css">
     <link rel="stylesheet" href="../shared/header.css">
-    <link rel="stylesheet" href="index_fast.css">
-    <link rel="stylesheet" href="../shared/footer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index-new-sections.css">
+    <link rel="stylesheet" href="../shared/footer.css?v=1">
+    
+    <!-- Swiper CSS - deferred loading -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Google Analytics -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');</script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Critical CSS for fast loading -->
     <style>
-    /* Critical CSS for fast loading */
-    .hero-section { 
-        position: relative; 
-        height: 100vh; 
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../public/nama_assets/one-1400w.webp') center/cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-    }
-    .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
-    .btn-primary { 
-        background: #007bff; 
-        color: white; 
-        padding: 12px 24px; 
-        text-decoration: none; 
-        border-radius: 5px;
-        display: inline-block;
-        transition: background 0.3s;
-    }
-    .btn-primary:hover { background: #0056b3; }
+        .header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); transition: all 0.3s; }
+        .video-hero-section { position: relative; height: 100vh; overflow: hidden; }
+        .hero-video { width: 100%; height: 100%; object-fit: cover; }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); }
+        .video-content-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; z-index: 10; }
+        .video-title { font-size: 3rem; margin-bottom: 1rem; }
+        .btn-video-primary { background: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; transition: background 0.3s; }
+        .btn-video-primary:hover { background: #0056b3; }
+        @media (max-width: 768px) { .video-title { font-size: 2rem; } }
     </style>
 </head>
 <body>
-    <!-- Static Header for Speed -->
-    <header class="header" id="header">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- Header with full navigation -->
+    <header class="header transparent-header" id="header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-right">
                     <a href="../index/index.html" class="logo-link">
-                        <span class="logo-text">نماء المدن</span>
+                        <span class="logo-text" data-translate="navLogo">نماء المدن</span>
                     </a>
+                    <div class="header-separator"></div>
                     <ul class="nav-menu">
-                        <li class="nav-item"><a href="../about/about.html" class="nav-link">من نحن</a></li>
-                        <li class="nav-item"><a href="../projects/projects.html" class="nav-link">المشاريع</a></li>
-                        <li class="nav-item"><a href="../services/services.html" class="nav-link">الخدمات</a></li>
-                        <li class="nav-item"><a href="../contact/contact.html" class="nav-link">تواصل معنا</a></li>
+                        <li class="nav-item dropdown">
+                            <button class="nav-link" type="button" data-translate="navAbout">من نحن</button>
+                            <ul class="dropdown-menu">
+                                <li><a href="../about/about.html" class="dropdown-link" data-translate="navAboutUs">عن نماء المدن</a></li>
+                                <li><a href="../management/management.html" class="dropdown-link" data-translate="navManagement">الإدارة</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="../projects/projects.html" class="nav-link" data-translate="navProjects">المشاريع</a></li>
+                        <li class="nav-item"><a href="../services/services.html" class="nav-link" data-translate="navServices">الخدمات</a></li>
+                        <li class="nav-item"><a href="../media/media.html" class="nav-link" data-translate="navMedia">الإعلام والأخبار</a></li>
+                        <li class="nav-item"><a href="../careers/careers.html" class="nav-link" data-translate="navCareers">الوظائف</a></li>
                     </ul>
                 </div>
                 <div class="nav-left">
-                    <button class="nav-icon-btn menu-btn" id="menuToggle">
+                    <button class="nav-icon-btn search-btn" id="searchToggle" aria-label="Search" title="بحث">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <select class="lang-select" id="languageSelect">
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                    <a href="../contact/contact.html" class="contact-btn" data-translate="navContact">تواصل معنا</a>
+                    <button class="nav-icon-btn menu-btn" id="menuToggle" aria-label="Menu" title="القائمة">
                         <span class="menu-line"></span>
                         <span class="menu-line"></span>
                         <span class="menu-line"></span>
@@ -64,62 +103,156 @@
             </div>
         </nav>
         
+        <!-- Search Modal -->
+        <div class="search-modal" id="searchModal">
+            <div class="search-modal-content">
+                <button class="search-close-btn" id="searchClose" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="search-wrapper">
+                    <h2 class="search-heading" data-translate="navSearchHeading">بحث</h2>
+                    <form class="search-form" role="search">
+                        <input type="search" class="search-field" placeholder="ابحث..." data-translate="navSearch" autocomplete="off" autofocus>
+                        <button type="submit" class="search-submit-btn" aria-label="Submit search">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu-header">
-                <button class="mobile-close-btn" id="mobileMenuClose">×</button>
+                <button class="mobile-close-btn" id="mobileMenuClose" aria-label="Close menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
             <nav class="mobile-nav">
-                <a href="../about/about.html" class="mobile-nav-link">من نحن</a>
-                <a href="../services/services.html" class="mobile-nav-link">الخدمات</a>
-                <a href="../projects/projects.html" class="mobile-nav-link">المشاريع</a>
-                <a href="../contact/contact.html" class="mobile-nav-link">تواصل معنا</a>
+                <div class="mobile-nav-item">
+                    <button class="mobile-nav-link" id="mobileAboutBtn" data-translate="navAbout">من نحن</button>
+                    <ul class="mobile-submenu" id="mobileAboutMenu">
+                        <li><a href="../about/about.html" class="mobile-submenu-link" data-translate="navAboutUs">عن نماء المدن</a></li>
+                        <li><a href="../management/management.html" class="mobile-submenu-link" data-translate="navManagement">الإدارة</a></li>
+                    </ul>
+                </div>
+                <a href="../services/services.html" class="mobile-nav-link" data-translate="navServices">الخدمات</a>
+                <a href="../projects/projects.html" class="mobile-nav-link" data-translate="navProjects">المشاريع</a>
+                <a href="../media/media.html" class="mobile-nav-link" data-translate="navMedia">الإعلام والأخبار</a>
+                <a href="../careers/careers.html" class="mobile-nav-link" data-translate="navCareers">الوظائف</a>
+                <div class="mobile-nav-bottom">
+                    <select class="mobile-lang-select">
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                    <a href="../contact/contact.html" class="mobile-contact-btn" data-translate="navContact">تواصل معنا</a>
+                </div>
             </nav>
         </div>
     </header>
-
-    <!-- Fast Hero Section -->
-    <section class="hero-section" id="home">
-        <div class="hero-content">
-            <h1>الجيل القادم للتطوير العقاري</h1>
-            <p>اكتشف وجهات حضرية متكاملة في المملكة العربية السعودية</p>
-            <a href="../projects/projects.html" class="btn-primary">مشاريعنا</a>
+    
+    <!-- Video Hero Section - Optimized -->
+    <section class="video-hero-section" id="home">
+        <div class="video-wrapper parallax-element" data-speed="0.3">
+            <video autoplay muted loop playsinline class="hero-video" preload="metadata">
+                <source src="../../public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
+                <img src="../../public/nama_assets/one-1400w.webp" alt="Nmaa" class="video-fallback-img">
+            </video>
+            <div class="video-overlay"></div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>عن شركتنا</h2>
-                <p>نحن شركة تطوير عقاري وطنية طموحة ومصنفة تأسست عام 2009</p>
+        <div class="video-content-wrapper">
+            <div class="video-content animate-on-scroll">
+                <h1 class="video-title">
+                    <span class="video-subtitle animate-on-scroll" data-translate="homeVideoSubtitle">الجيل القادم</span>
+                    <span class="video-main-title animate-on-scroll" data-translate="homeVideoMainTitle">للتطوير العقاري</span>
+                </h1>
+                <p class="video-description animate-on-scroll" data-translate="homeVideoDescription">اكتشف وجهات حضرية متكاملة في المملكة العربية السعودية</p>
+                <a href="../projects/projects.html" class="btn-video-primary animate-on-scroll" data-translate="homeVideoButton">مشاريعنا</a>
             </div>
         </div>
     </section>
-
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text-content">
+                    <div class="section-badge" data-translate="homeAboutBadge">عن شركتنا</div>
+                    <h2 class="section-title" data-translate="homeAboutTitle">عن شركتنا</h2>
+                    <p class="about-description" data-translate="homeAboutText">
+                        نحن شركة تطوير عقاري وطنية طموحة ومصنفة تأسست عام 2009 في المدينة المنورة وامتدت لتشمل أكبر المدن السعودية. نتخصص في تطوير المشاريع السكنية والتجارية والمختلطة بأعلى معايير الجودة والابتكار.
+                    </p>
+                    <a href="../about/about.html" class="btn-about" data-translate="homeAboutButton">اعرف المزيد</a>
+                </div>
+                <div class="about-image-content">
+                    <img src="../../public/nama_logo_round_192.png" alt="Nmaa Logo" class="about-company-logo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Services Section -->
     <section class="services-section">
         <div class="container">
             <div class="section-header">
-                <h2>خدماتنا</h2>
+                <div class="section-badge" data-translate="homeServicesBadge">خدماتنا</div>
+                <h2 class="section-title" data-translate="homeServicesTitle">خدماتنا</h2>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>المقاولات والبناء</h3>
-                    <p>تنفيذ مشاريع إنشائية متكاملة بأعلى معايير الجودة</p>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 21h18"></path>
+                            <path d="M5 21V7l8-4v18"></path>
+                            <path d="M19 21V11l-6-4"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService1Title">المقاولات والبناء</h3>
+                    <p data-translate="homeService1Text">تنفيذ مشاريع إنشائية متكاملة بأعلى معايير الجودة والدقة في التنفيذ.</p>
                 </div>
                 <div class="service-card">
-                    <h3>التطوير العقاري</h3>
-                    <p>تطوير مشاريع سكنية وتجارية متكاملة</p>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService2Title">التطوير العقاري</h3>
+                    <p data-translate="homeService2Text">تطوير مشاريع سكنية وتجارية متكاملة تلبي احتياجات السوق.</p>
                 </div>
                 <div class="service-card">
-                    <h3>إدارة المرافق</h3>
-                    <p>خدمات صيانة وإدارة شاملة للمشاريع</p>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService3Title">إدارة المرافق</h3>
+                    <p data-translate="homeService3Text">خدمات صيانة وإدارة شاملة للمشاريع والمرافق.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService4Title">فيت أوت والإنتاج</h3>
+                    <p data-translate="homeService4Text">تجهيز وتشطيب المتاجر والمحلات التجارية بأعلى جودة.</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -143,28 +276,29 @@
             </div>
         </div>
     </footer>
-
-    <!-- Minimal JavaScript -->
+    
+    <!-- JavaScript -->
+    <script src="../shared/header.js"></script>
+    <script src="../shared/language.js"></script>
+    <script src="index.js"></script>
+    
+    <!-- Swiper JS - Deferred loading -->
     <script>
-    // Simple mobile menu toggle
-    document.getElementById('menuToggle').addEventListener('click', function() {
-        document.getElementById('mobileMenu').classList.toggle('active');
-    });
-    
-    document.getElementById('mobileMenuClose').addEventListener('click', function() {
-        document.getElementById('mobileMenu').classList.remove('active');
-    });
-    
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        if (window.pageYOffset > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        // Load Swiper only when needed
+        function loadSwiper() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+            script.onload = function() {
+                // Initialize Swiper here if needed
+                console.log('Swiper loaded');
+            };
+            document.head.appendChild(script);
         }
-    });
+        
+        // Load Swiper after page load
+        window.addEventListener('load', function() {
+            setTimeout(loadSwiper, 1000);
+        });
     </script>
 </body>
 </html>
-
