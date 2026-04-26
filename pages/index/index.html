@@ -13,7 +13,7 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preload" href="../../public/nama_assets/one-1400w.webp" as="image">
     
-    <!-- Optimized fonts - reduced weights -->
+    <!-- Optimized fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- CSS -->
@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="index-new-sections.css">
     <link rel="stylesheet" href="../shared/footer.css?v=1">
     
-    <!-- Swiper CSS - deferred loading -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     
     <!-- Google Analytics -->
     <script>(function (w, d, s, l, i) {
@@ -45,7 +45,9 @@
     
     <!-- Critical CSS for fast loading -->
     <style>
-        .header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); transition: all 0.3s; }
+        .header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); transition: all 0.3s; border-bottom: 1px solid rgba(0,0,0,0.1); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .header .logo-text, .header .nav-link, .header .nav-icon-btn, .header .contact-btn { color: #000000 !important; }
+        .header .menu-line { background: #000000 !important; }
         .video-hero-section { position: relative; height: 100vh; overflow: hidden; }
         .hero-video { width: 100%; height: 100%; object-fit: cover; }
         .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); }
@@ -59,108 +61,10 @@
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
-    <!-- Header with full navigation -->
-    <header class="header transparent-header" id="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-right">
-                    <a href="../index/index.html" class="logo-link">
-                        <span class="logo-text" data-translate="navLogo">نماء المدن</span>
-                    </a>
-                    <div class="header-separator"></div>
-                    <ul class="nav-menu">
-                        <li class="nav-item dropdown">
-                            <button class="nav-link" type="button" data-translate="navAbout">من نحن</button>
-                            <ul class="dropdown-menu">
-                                <li><a href="../about/about.html" class="dropdown-link" data-translate="navAboutUs">عن نماء المدن</a></li>
-                                <li><a href="../management/management.html" class="dropdown-link" data-translate="navManagement">الإدارة</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="../projects/projects.html" class="nav-link" data-translate="navProjects">المشاريع</a></li>
-                        <li class="nav-item"><a href="../services/services.html" class="nav-link" data-translate="navServices">الخدمات</a></li>
-                        <li class="nav-item"><a href="../media/media.html" class="nav-link" data-translate="navMedia">الإعلام والأخبار</a></li>
-                        <li class="nav-item"><a href="../careers/careers.html" class="nav-link" data-translate="navCareers">الوظائف</a></li>
-                    </ul>
-                </div>
-                <div class="nav-left">
-                    <button class="nav-icon-btn search-btn" id="searchToggle" aria-label="Search" title="بحث">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                    <select class="lang-select" id="languageSelect">
-                        <option value="ar">العربية</option>
-                        <option value="en">English</option>
-                    </select>
-                    <a href="../contact/contact.html" class="contact-btn" data-translate="navContact">تواصل معنا</a>
-                    <button class="nav-icon-btn menu-btn" id="menuToggle" aria-label="Menu" title="القائمة">
-                        <span class="menu-line"></span>
-                        <span class="menu-line"></span>
-                        <span class="menu-line"></span>
-                    </button>
-                </div>
-            </div>
-        </nav>
-        
-        <!-- Search Modal -->
-        <div class="search-modal" id="searchModal">
-            <div class="search-modal-content">
-                <button class="search-close-btn" id="searchClose" aria-label="Close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-                <div class="search-wrapper">
-                    <h2 class="search-heading" data-translate="navSearchHeading">بحث</h2>
-                    <form class="search-form" role="search">
-                        <input type="search" class="search-field" placeholder="ابحث..." data-translate="navSearch" autocomplete="off" autofocus>
-                        <button type="submit" class="search-submit-btn" aria-label="Submit search">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-header">
-                <button class="mobile-close-btn" id="mobileMenuClose" aria-label="Close menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <nav class="mobile-nav">
-                <div class="mobile-nav-item">
-                    <button class="mobile-nav-link" id="mobileAboutBtn" data-translate="navAbout">من نحن</button>
-                    <ul class="mobile-submenu" id="mobileAboutMenu">
-                        <li><a href="../about/about.html" class="mobile-submenu-link" data-translate="navAboutUs">عن نماء المدن</a></li>
-                        <li><a href="../management/management.html" class="mobile-submenu-link" data-translate="navManagement">الإدارة</a></li>
-                    </ul>
-                </div>
-                <a href="../services/services.html" class="mobile-nav-link" data-translate="navServices">الخدمات</a>
-                <a href="../projects/projects.html" class="mobile-nav-link" data-translate="navProjects">المشاريع</a>
-                <a href="../media/media.html" class="mobile-nav-link" data-translate="navMedia">الإعلام والأخبار</a>
-                <a href="../careers/careers.html" class="mobile-nav-link" data-translate="navCareers">الوظائف</a>
-                <div class="mobile-nav-bottom">
-                    <select class="mobile-lang-select">
-                        <option value="ar">العربية</option>
-                        <option value="en">English</option>
-                    </select>
-                    <a href="../contact/contact.html" class="mobile-contact-btn" data-translate="navContact">تواصل معنا</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <!-- Dynamic Navbar - Same as other pages -->
+    <div id="navbar-placeholder" data-header-class="transparent-header"></div>
     
-    <!-- Video Hero Section - Optimized -->
+    <!-- Video Hero Section -->
     <section class="video-hero-section" id="home">
         <div class="video-wrapper parallax-element" data-speed="0.3">
             <video autoplay muted loop playsinline class="hero-video" preload="metadata">
@@ -181,6 +85,156 @@
         </div>
     </section>
     
+    <!-- Image Hero Section -->
+    <section class="image-hero-section">
+        <div class="image-hero-background">
+            <img src="../../public/nama_assets/three-1400w.webp" alt="عين Nmaa" class="hero-bg-image" loading="lazy">
+            <div class="image-hero-overlay"></div>
+        </div>
+        <div class="image-hero-content">
+            <div class="image-hero-badge animate-on-scroll" data-translate="homeImageBadge">مشاريع مميزة</div>
+            <h2 class="image-hero-title animate-on-scroll" data-translate="homeImageTitle">عين Nmaa</h2>
+            <p class="image-hero-description animate-on-scroll" data-translate="homeImageDescription">
+                وجهة عقارية متكاملة تجمع ما بين مساكن أنيقة بفخامة عصرية، وفندق عالمي "هيلتون جاردن إن" وبرج سكني
+            </p>
+            <a href="../projects/projects.html" class="btn-image-primary animate-on-scroll" data-translate="homeImageButton">استكشف المشروع</a>
+        </div>
+    </section>
+    
+    <!-- Projects Slider Section -->
+    <section class="projects-slider-section">
+        <div class="projects-slider-wrapper">
+            <div class="swiper projects-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="slide-background">
+                            <img src="../../public/nama_assets/three-1500w.webp" alt="مشروع Nmaa الأول" class="slide-bg-image" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-badge animate-on-scroll" data-translate="homeSliderBadge1">مشروع جديد</div>
+                            <h2 class="slide-title animate-on-scroll" data-translate="homeSliderTitle1">مشروع Nmaa الأول</h2>
+                            <p class="slide-description animate-on-scroll" data-translate="homeSliderDesc1">اكتشف مشروعنا الرائد في قلب المدينة</p>
+                            <a href="../projects/projects.html" class="btn-slide-primary animate-on-scroll" data-translate="homeSliderButton1">تفاصيل المشروع</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="slide-background">
+                            <img src="../../public/nama_assets/four-1500w.webp" alt="مشروع Nmaa الثاني" class="slide-bg-image" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-badge animate-on-scroll" data-translate="homeSliderBadge2">مشروع مميز</div>
+                            <h2 class="slide-title animate-on-scroll" data-translate="homeSliderTitle2">مشروع Nmaa الثاني</h2>
+                            <p class="slide-description animate-on-scroll" data-translate="homeSliderDesc2">وجهة عقارية متكاملة بتصميم عصري</p>
+                            <a href="../projects/projects.html" class="btn-slide-primary animate-on-scroll" data-translate="homeSliderButton2">تفاصيل المشروع</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="slide-background">
+                            <img src="../../public/nama_assets/eight-1500w.webp" alt="مشروع Nmaa الثالث" class="slide-bg-image" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-badge animate-on-scroll" data-translate="homeSliderBadge3">مشروع استثماري</div>
+                            <h2 class="slide-title animate-on-scroll" data-translate="homeSliderTitle3">مشروع Nmaa الثالث</h2>
+                            <p class="slide-description animate-on-scroll" data-translate="homeSliderDesc3">استثمر في مستقبل التطوير العقاري</p>
+                            <a href="../projects/projects.html" class="btn-slide-primary animate-on-scroll" data-translate="homeSliderButton3">تفاصيل المشروع</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Approach Section -->
+    <section class="approach-section">
+        <div class="container-fluid">
+            <div class="text-center">
+                <h1 class="approach-title" data-translate="homeOurApproach">نهجنا</h1>
+            </div>
+            <div class="approach-slider-wrapper">
+                <div class="swiper approach-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/three-1500w.webp" alt="التميّز في التصميم" class="approach-image" loading="lazy">
+                                    <div class="icon-badge icon-design"><span class="icon-symbol">✎</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle1">التميّز في التصميم</h3>
+                                    <p class="card-text" data-translate="homeApproachText1">في Nmaa، يبدأ كل مشروع من التصميم. تمتد مشاريعنا لتشمل وجهات متعددة الاستخدام</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/four-1500w.webp" alt="الكادر الهندسي" class="approach-image" loading="lazy">
+                                    <div class="icon-badge icon-human"><span class="icon-symbol">👤</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle2">الكادر الهندسي</h3>
+                                    <p class="card-text" data-translate="homeApproachText2">يضم فريقنا نخبة من الكفاءات الهندسية التي تجمع بين الخبرة الأكاديمية والمهارة الميدانية</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/seven-1400w.webp" alt="الابتكار" class="approach-image" loading="lazy">
+                                    <div class="icon-badge icon-innovation"><span class="icon-symbol">💡</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle3">الابتكار</h3>
+                                    <p class="card-text" data-translate="homeApproachText3">الابتكار هو جوهر منهجنا في Nmaa. نعتمد أحدث التقنيات وأساليب البناء المتقدمة</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/nine-1500w.webp" alt="الاستدامة" class="approach-image" loading="lazy">
+                                    <div class="icon-badge icon-sustainability"><span class="icon-symbol">♻</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle4">الاستدامة</h3>
+                                    <p class="card-text" data-translate="homeApproachText4">نخطط ونبني برؤية مستدامة نحو المستقبل</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-pagination approach-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Clients Section -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="homeClientsTitle">عملاؤنا</h2>
+                <p class="section-subtitle" data-translate="homeClientsSubtitle">شركاؤنا في النجاح</p>
+            </div>
+            <div class="clients-grid">
+                <!-- Client logos would go here -->
+            </div>
+        </div>
+    </section>
+    
     <!-- About Section -->
     <section class="about-section">
         <div class="container">
@@ -189,7 +243,7 @@
                     <div class="section-badge" data-translate="homeAboutBadge">عن شركتنا</div>
                     <h2 class="section-title" data-translate="homeAboutTitle">عن شركتنا</h2>
                     <p class="about-description" data-translate="homeAboutText">
-                        نحن شركة تطوير عقاري وطنية طموحة ومصنفة تأسست عام 2009 في المدينة المنورة وامتدت لتشمل أكبر المدن السعودية. نتخصص في تطوير المشاريع السكنية والتجارية والمختلطة بأعلى معايير الجودة والابتكار.
+                        نحن شركة تطوير عقاري وطنية طموحة ومصنفة تأسست عام 2009 في المدينة المنورة وامتدت لتشمل أكبر المدن السعودية
                     </p>
                     <a href="../about/about.html" class="btn-about" data-translate="homeAboutButton">اعرف المزيد</a>
                 </div>
@@ -253,52 +307,116 @@
         </div>
     </section>
     
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Values Section -->
+    <section class="values-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>نماء المدن</h3>
-                    <p>الجيل القادم للتطوير العقاري</p>
-                </div>
-                <div class="footer-section">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="../about/about.html">من نحن</a></li>
-                        <li><a href="../services/services.html">الخدمات</a></li>
-                        <li><a href="../projects/projects.html">المشاريع</a></li>
-                        <li><a href="../contact/contact.html">تواصل معنا</a></li>
-                    </ul>
-                </div>
+            <div class="section-header">
+                <div class="section-badge" data-translate="homeValuesBadge">قيمنا</div>
+                <h2 class="section-title" data-translate="homeValuesTitle">قيمنا</h2>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 نماء المدن. جميع الحقوق محفوظة.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue1Title">الجودة</h3>
+                    <p data-translate="homeValue1Text">نلتزم بأعلى معايير الجودة في جميع مشاريعنا</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue2Title">الابتكار</h3>
+                    <p data-translate="homeValue2Text">نسعى للابتكار في التصميم والتنفيذ</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue3Title">الشراكة</h3>
+                    <p data-translate="homeValue3Text">نبني شراكات قوية مع عملائنا</p>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2 class="cta-title" data-translate="homeCTATitle">هل أنت مهتم بمشاريع Nmaa؟</h2>
+                <p class="cta-subtitle" data-translate="homeCTASubtitle">انضم إلى الجيل القادم من العقارات.</p>
+                <a href="../projects/projects.html" class="btn-cta" data-translate="homeCTAButton">اتصل بنا</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
     
     <!-- JavaScript -->
     <script src="../shared/header.js"></script>
     <script src="../shared/language.js"></script>
     <script src="index.js"></script>
     
-    <!-- Swiper JS - Deferred loading -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Load Swiper only when needed
-        function loadSwiper() {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-            script.onload = function() {
-                // Initialize Swiper here if needed
-                console.log('Swiper loaded');
-            };
-            document.head.appendChild(script);
-        }
-        
-        // Load Swiper after page load
-        window.addEventListener('load', function() {
-            setTimeout(loadSwiper, 1000);
+        // Initialize Swiper
+        document.addEventListener('DOMContentLoaded', function() {
+            // Projects Swiper
+            const projectsSwiper = new Swiper('.projects-swiper', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+            
+            // Approach Swiper
+            const approachSwiper = new Swiper('.approach-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.approach-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                    }
+                }
+            });
         });
     </script>
 </body>
 </html>
+
