@@ -1,4 +1,4 @@
-// Header JavaScript - Shared across all pages
+﻿// Header JavaScript - Shared across all pages
 // Dynamically loads navbar.html and initializes all interactions
 
 (function () {
@@ -72,19 +72,17 @@
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = html;
                 
-                // Get the header element from temp div
+                // Insert content - handles both navbar (#header) and footer
                 const headerElement = tempDiv.querySelector('#header');
-                
                 if (headerElement) {
-                    // Insert header BEFORE placeholder
                     parent.insertBefore(headerElement, container);
-                    // Remove placeholder
                     container.remove();
-                    
-                    log('📦 HTML inserted - header moved to parent level');
-                    log('📦 Header element:', headerElement.tagName, headerElement.id);
                 } else {
-                    console.error('❌ No header element found in HTML!');
+                    // For footer and other components - insert all children
+                    while (tempDiv.firstChild) {
+                        parent.insertBefore(tempDiv.firstChild, container);
+                    }
+                    container.remove();
                 }
                 
                 log('✅ HTML inserted into DOM');
@@ -380,3 +378,4 @@
         log('✅ Navbar initialization complete');
     }
 })();
+
