@@ -1,4 +1,4 @@
-// Header JavaScript - Shared across all pages
+﻿// Header JavaScript - Shared across all pages
 // Dynamically loads navbar.html and initializes all interactions
 
 (function () {
@@ -47,25 +47,25 @@
 
         fetch(basePath + fileName)
             .then(response => {
-                log(`📡 Fetch response for ${fileName}:`, response.status, response.ok);
+                log(`ðŸ“¡ Fetch response for ${fileName}:`, response.status, response.ok);
                 if (!response.ok) throw new Error(`Failed to load ${fileName}: ${response.status}`);
                 return response.text();
             })
             .then(html => {
-                log(`📄 Received HTML for ${fileName}, length:`, html.length);
+                log(`ðŸ“„ Received HTML for ${fileName}, length:`, html.length);
                 
                 if (fileName === 'navbar.html') {
                     // Replace header class placeholder
                     const headerClass = container.getAttribute('data-header-class') || '';
                     html = html.replace('{{HEADER_CLASS}}', headerClass);
-                    log('🔄 Replaced header class:', headerClass);
+                    log('ðŸ”„ Replaced header class:', headerClass);
                 }
 
                 // Insert the HTML properly using insertAdjacentHTML
-                log('📦 HTML length:', html.length);
-                log('📦 HTML contains mobileMenu:', html.includes('id="mobileMenu"'));
-                log('📦 HTML contains menuToggle:', html.includes('id="menuToggle"'));
-                log('📦 HTML contains <header:', html.includes('<header'));
+                log('ðŸ“¦ HTML length:', html.length);
+                log('ðŸ“¦ HTML contains mobileMenu:', html.includes('id="mobileMenu"'));
+                log('ðŸ“¦ HTML contains menuToggle:', html.includes('id="menuToggle"'));
+                log('ðŸ“¦ HTML contains <header:', html.includes('<header'));
                 
                 // FIXED: Replace placeholder with actual content
                 const parent = container.parentNode;
@@ -81,13 +81,18 @@
                     // Remove placeholder
                     container.remove();
                     
-                    log('📦 HTML inserted - header moved to parent level');
-                    log('📦 Header element:', headerElement.tagName, headerElement.id);
+                    log('ðŸ“¦ HTML inserted - header moved to parent level');
+                    log('ðŸ“¦ Header element:', headerElement.tagName, headerElement.id);
                 } else {
-                    console.error('❌ No header element found in HTML!');
+                    // Check if we have a static header instead
+                    if (document.getElementById('header')) {
+                        log('ℹ️ Using static header - no dynamic loading needed');
+                    } else {
+                        console.error('❌ No header element found in HTML!');
+                    }
                 }
                 
-                log('✅ HTML inserted into DOM');
+                log('âœ… HTML inserted into DOM');
                 
                 // Check immediately if elements exist at document level
                 const immediateCheck = {
@@ -95,17 +100,17 @@
                     menuToggle: !!document.getElementById('menuToggle'),
                     mobileMenu: !!document.getElementById('mobileMenu')
                 };
-                log('🔍 Immediate check (document level):', immediateCheck);
+                log('ðŸ” Immediate check (document level):', immediateCheck);
 
                 // Use shorter timeout to check DOM
                 setTimeout(() => {
-                    log('⏰ Callback executing after delay...');
+                    log('â° Callback executing after delay...');
                     
                     const headerCheck = document.getElementById('header');
                     const toggleCheck = document.getElementById('menuToggle');
                     const menuCheck = document.getElementById('mobileMenu');
                     
-                    log('🔍 Elements in DOM:', {
+                    log('ðŸ” Elements in DOM:', {
                         header: !!headerCheck,
                         menuToggle: !!toggleCheck,
                         mobileMenu: !!menuCheck,
@@ -115,9 +120,9 @@
                     
                     // If still not found, log the actual DOM structure
                     if (!headerCheck || !toggleCheck || !menuCheck) {
-                        console.error('❌ Elements still not found after insertion!');
-                        log('📋 Body children:', document.body.children.length);
-                        log('📋 All elements with ID:');
+                        console.error('âŒ Elements still not found after insertion!');
+                        log('ðŸ“‹ Body children:', document.body.children.length);
+                        log('ðŸ“‹ All elements with ID:');
                         document.querySelectorAll('[id]').forEach(el => {
                             log('  - ' + el.tagName + '#' + el.id);
                         });
@@ -155,13 +160,13 @@
     const MAX_RETRIES = 10;
 
     function initNavbar() {
-        log('🔧 Initializing navbar... v5 (attempt ' + (initRetryCount + 1) + ')');
+        log('ðŸ”§ Initializing navbar... v5 (attempt ' + (initRetryCount + 1) + ')');
         
         // Wait a bit more to ensure DOM is ready
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         
-        log('📋 DOM Check:', {
+        log('ðŸ“‹ DOM Check:', {
             header: !!document.getElementById('header'),
             menuToggle: !!menuToggle,
             mobileMenu: !!mobileMenu,
@@ -172,25 +177,25 @@
         if (!menuToggle || !mobileMenu) {
             initRetryCount++;
             if (initRetryCount < MAX_RETRIES) {
-                warn('⚠️ Elements not ready, retrying in 300ms... (attempt ' + initRetryCount + '/' + MAX_RETRIES + ')');
+                warn('âš ï¸ Elements not ready, retrying in 300ms... (attempt ' + initRetryCount + '/' + MAX_RETRIES + ')');
                 setTimeout(initNavbar, 300);
                 return;
             } else {
-                console.error('❌ Failed to find elements after ' + MAX_RETRIES + ' attempts!');
-                console.error('❌ This means navbar.html was not loaded or inserted correctly.');
+                console.error('âŒ Failed to find elements after ' + MAX_RETRIES + ' attempts!');
+                console.error('âŒ This means navbar.html was not loaded or inserted correctly.');
                 return;
             }
         }
         
-        log('✅ Elements found! Proceeding with initialization...');
+        log('âœ… Elements found! Proceeding with initialization...');
         
-        // ─── Search Modal ───
+        // â”€â”€â”€ Search Modal â”€â”€â”€
         const searchToggle = document.getElementById('searchToggle');
         const searchModal = document.getElementById('searchModal');
         const searchClose = document.getElementById('searchClose');
 
         if (searchToggle && searchModal) {
-            log('✅ Search elements found');
+            log('âœ… Search elements found');
             searchToggle.addEventListener('click', () => {
                 searchModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
@@ -200,7 +205,7 @@
                 }
             });
         } else {
-            warn('⚠️ Search elements not found');
+            warn('âš ï¸ Search elements not found');
         }
 
         if (searchClose && searchModal) {
@@ -225,12 +230,12 @@
             document.body.style.overflow = '';
         }
 
-        // ─── Mobile Menu ───
+        // â”€â”€â”€ Mobile Menu â”€â”€â”€
         const mobileMenuClose = document.getElementById('mobileMenuClose');
         const mobileAboutBtn = document.getElementById('mobileAboutBtn');
         const mobileAboutMenu = document.getElementById('mobileAboutMenu');
 
-        log('📱 Mobile menu elements:', {
+        log('ðŸ“± Mobile menu elements:', {
             menuToggle: !!menuToggle,
             mobileMenu: !!mobileMenu,
             mobileMenuClose: !!mobileMenuClose,
@@ -261,19 +266,19 @@
         }
 
         // Attach click event to menu toggle
-        log('✅ Attaching click event to menuToggle');
+        log('âœ… Attaching click event to menuToggle');
         menuToggle.addEventListener('click', (e) => {
-            log('🎯 Menu toggle clicked!');
+            log('ðŸŽ¯ Menu toggle clicked!');
             e.preventDefault();
             e.stopPropagation();
 
             const isOpen = mobileMenu.classList.contains('active');
             if (isOpen) {
                 closeMobileMenu();
-                log('📂 Mobile menu closed');
+                log('ðŸ“‚ Mobile menu closed');
             } else {
                 openMobileMenu();
-                log('📂 Mobile menu opened');
+                log('ðŸ“‚ Mobile menu opened');
             }
         });
 
@@ -314,7 +319,7 @@
             });
         }
 
-        // ─── Desktop Dropdown (touch-friendly) ───
+        // â”€â”€â”€ Desktop Dropdown (touch-friendly) â”€â”€â”€
         const desktopDropdownItem = document.querySelector('.nav-item.dropdown');
         const desktopDropdownToggle = desktopDropdownItem?.querySelector(':scope > .nav-link');
         if (desktopDropdownItem && desktopDropdownToggle) {
@@ -344,7 +349,7 @@
             closeSearchModal();
         });
 
-        // ─── Active Navigation Highlighting ───
+        // â”€â”€â”€ Active Navigation Highlighting â”€â”€â”€
         const currentPath = window.location.pathname;
         const navLinks = document.querySelectorAll('.nav-link, .dropdown-link, .mobile-nav-link, .mobile-submenu-link');
 
@@ -361,7 +366,7 @@
             }
         });
 
-        // ─── Header Scroll Effect ───
+        // â”€â”€â”€ Header Scroll Effect â”€â”€â”€
         const header = document.getElementById('header');
 
         if (header) {
@@ -377,6 +382,8 @@
             onScroll();
         }
         
-        log('✅ Navbar initialization complete');
+        log('âœ… Navbar initialization complete');
     }
 })();
+
+
