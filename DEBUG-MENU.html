@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Menu</title>
+    <link rel="stylesheet" href="pages/shared/style.css">
+    <link rel="stylesheet" href="pages/shared/header.css">
+    <style>
+        body { margin: 0; padding: 0; }
+        .debug {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #000;
+            color: #0f0;
+            padding: 20px;
+            font-family: monospace;
+            font-size: 11px;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow: auto;
+            z-index: 99999;
+            border: 2px solid #0f0;
+        }
+        .debug h3 { color: #0ff; margin: 0 0 10px 0; }
+        .debug pre { margin: 5px 0; white-space: pre-wrap; }
+        .ok { color: #0f0; }
+        .error { color: #f00; }
+        button {
+            background: #0f0;
+            color: #000;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder" data-header-class="light-header"></div>
+
+    <div style="padding: 120px 20px;">
+        <h1>Debug: Where is the Mobile Menu?</h1>
+        <p>This page will help us find where the mobile menu code is.</p>
+        
+        <button onclick="checkElements()">Check Elements Now</button>
+        <button onclick="showAllDivs()">Show All DIVs</button>
+        <button onclick="searchForMenu()">Search for Menu</button>
+    </div>
+
+    <div class="debug" id="debug">
+        <h3>Debug Output</h3>
+        <div id="output">Waiting...</div>
+    </div>
+
+    <script src="pages/shared/header.js"></script>
+    <script>
+        function log(msg) {
+            const output = document.getElementById('output');
+            output.innerHTML += '<pre>' + msg + '</pre>';
+        }
+
+        function checkElements() {
+            log('\n=== CHECKING ELEMENTS ===');
+            log('Window width: ' + window.innerWidth);
+            
+            const header = document.getElementById('header');
+            log('header: ' + (header ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+            
+            const menuToggle = document.getElementById('menuToggle');
+            log('menuToggle: ' + (menuToggle ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+            if (menuToggle) {
+                log('  - Display: ' + getComputedStyle(menuToggle).display);
+                log('  - Visibility: ' + getComputedStyle(menuToggle).visibility);
+            }
+            
+            const mobileMenu = document.getElementById('mobileMenu');
+            log('mobileMenu: ' + (mobileMenu ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+            if (mobileMenu) {
+                log('  - Display: ' + getComputedStyle(mobileMenu).display);
+                log('  - Classes: ' + mobileMenu.className);
+            }
+            
+            const navMenu = document.querySelector('.nav-menu');
+            log('nav-menu: ' + (navMenu ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+            if (navMenu) {
+                log('  - Display: ' + getComputedStyle(navMenu).display);
+            }
+        }
+
+        function showAllDivs() {
+            log('\n=== ALL DIVs WITH IDs ===');
+            const allDivs = document.querySelectorAll('div[id]');
+            log('Total DIVs with ID: ' + allDivs.length);
+            allDivs.forEach(div => {
+                log('- ' + div.id + ' (class: ' + div.className + ')');
+            });
+        }
+
+        function searchForMenu() {
+            log('\n=== SEARCHING FOR MENU ===');
+            
+            // Search by class
+            const byClass = document.querySelector('.mobile-menu');
+            log('By class .mobile-menu: ' + (byClass ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+            
+            // Search by ID
+            const byId = document.getElementById('mobileMenu');
+            log('By ID #mobileMenu: ' + (byId ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+            
+            // Search in header
+            const header = document.getElementById('header');
+            if (header) {
+                const menuInHeader = header.querySelector('.mobile-menu');
+                log('Inside header: ' + (menuInHeader ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+                
+                // Show header structure
+                log('\nHeader children:');
+                Array.from(header.children).forEach(child => {
+                    log('  - ' + child.tagName + ' (class: ' + child.className + ', id: ' + child.id + ')');
+                });
+            } else {
+                log('Header not found!');
+            }
+            
+            // Check if navbar.html was loaded
+            const navbar = document.querySelector('.navbar');
+            log('\nNavbar element: ' + (navbar ? '<span class="ok">FOUND</span>' : '<span class="error">NOT FOUND</span>'));
+        }
+
+        // Auto-check after load
+        document.addEventListener('navbarLoaded', () => {
+            log('\n<span class="ok">✓ navbarLoaded event fired!</span>');
+            setTimeout(() => {
+                checkElements();
+                searchForMenu();
+            }, 100);
+        });
+
+        // Check every 2 seconds
+        setInterval(() => {
+            const toggle = document.getElementById('menuToggle');
+            const menu = document.getElementById('mobileMenu');
+            if (toggle && menu) {
+                log('\n<span class="ok">✓✓✓ ELEMENTS FOUND! ✓✓✓</span>');
+                clearInterval(this);
+            }
+        }, 2000);
+
+        // Initial check
+        setTimeout(() => {
+            log('Initial check after 1 second:');
+            checkElements();
+        }, 1000);
+    </script>
+</body>
+</html>

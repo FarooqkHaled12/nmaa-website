@@ -1,68 +1,115 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الصفحة الرئيسية - Nmaa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../shared/style.css">
     <link rel="stylesheet" href="../shared/header.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index-new-sections.css">
+    <link rel="stylesheet" href="../shared/footer.css?v=1">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- 
+      ⚠️ محظور حذف هذا الكود - Google Tag Manager
+      ⚠️ DO NOT DELETE - Google Tag Manager
+      
+      هذا الكود مطلوب لتتبع الزوار والتحليلات
+      This code is required for visitor tracking and analytics
+      
+      يجب استبدال GTM-XXXXXXX و G-XXXXXXXXXX بـ IDs الصحيحة
+      Replace GTM-XXXXXXX and G-XXXXXXXXXX with actual IDs
+    -->
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
+
 <body>
-    <!-- Header - Exact OSUS Copy -->
-    <header class="header" id="header">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navbar (STATIC - No dynamic loading) -->
+    <header class="header transparent-header" id="header">
         <nav class="navbar">
             <div class="nav-container">
-                <!-- Left: Search & Menu Icons -->
+                <!-- Right: Logo & Navigation Links -->
+                <div class="nav-right">
+                    <a href="../index/index.html" class="logo-link">
+                        <span class="logo-text" data-translate="navLogo">نماء المدن</span>
+                    </a>
+                    <div class="header-separator"></div>
+                    <ul class="nav-menu">
+                        <li class="nav-item dropdown">
+                            <button class="nav-link" type="button" data-translate="navAbout">من نحن</button>
+                            <ul class="dropdown-menu">
+                                <li><a href="../about/about.html" class="dropdown-link" data-translate="navAboutUs">عن نماء
+                                        المدن</a></li>
+                                <li><a href="../management/management.html" class="dropdown-link"
+                                        data-translate="navManagement">الإدارة</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="../projects/projects.html" class="nav-link"
+                                data-translate="navProjects">المشاريع</a></li>
+                        <li class="nav-item"><a href="../services/services.html" class="nav-link"
+                                data-translate="navServices">الخدمات</a></li>
+                        <li class="nav-item"><a href="../media/media.html" class="nav-link"
+                                data-translate="navMedia">الإعلام والأخبار</a></li>
+                        <li class="nav-item"><a href="../careers/careers.html" class="nav-link"
+                                data-translate="navCareers">الوظائف</a></li>
+                    </ul>
+                </div>
+
+                <!-- Left: Search, Language & Contact -->
                 <div class="nav-left">
-                    <button class="nav-icon-btn search-btn" id="searchToggle" aria-label="Search">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <button class="nav-icon-btn search-btn" id="searchToggle" aria-label="Search" title="بحث">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </button>
-                    <button class="nav-icon-btn menu-btn" id="menuToggle" aria-label="Menu">
+                    <select class="lang-select" id="languageSelect">
+                        <option value="ar">العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                    <a href="../contact/contact.html" class="contact-btn" data-translate="navContact">تواصل معنا</a>
+                    <button class="nav-icon-btn menu-btn" id="menuToggle" aria-label="Menu" title="القائمة">
                         <span class="menu-line"></span>
                         <span class="menu-line"></span>
                         <span class="menu-line"></span>
                     </button>
                 </div>
-                
-                <!-- Center: Logo -->
-                <div class="nav-center">
-                    <a href="../index/index.html" class="logo-link">
-                        <span class="logo-text">Nmaa</span>
-                    </a>
-                </div>
-                
-                <!-- Right: Navigation Menu -->
-                <div class="nav-right">
-                    <ul class="nav-menu">
-                        <li class="nav-item dropdown">
-                            <button class="nav-link" type="button">من نحن</button>
-                            <ul class="dropdown-menu">
-                                <li><a href="../about/about.html" class="dropdown-link">عن Nmaa</a></li>
-                                <li><a href="../management/management.html" class="dropdown-link">الإدارة</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="../projects/projects.html" class="nav-link">المشاريع</a></li>
-                        <li class="nav-item"><a href="../media/media.html" class="nav-link">الإعلام والأخبار</a></li>
-                        <li class="nav-item"><a href="../careers/careers.html" class="nav-link">الوظائف</a></li>
-                    </ul>
-                    <div class="nav-actions">
-                        <select class="lang-select" id="languageSelect">
-                            <option value="ar">العربية</option>
-                            <option value="en">English</option>
-                        </select>
-                        <a href="../contact/contact.html" class="contact-btn">تواصل معنا</a>
-                    </div>
-                </div>
             </div>
         </nav>
-        
+
         <!-- Search Modal -->
         <div class="search-modal" id="searchModal">
             <div class="search-modal-content">
@@ -73,11 +120,13 @@
                     </svg>
                 </button>
                 <div class="search-wrapper">
-                    <h2 class="search-heading">Search</h2>
+                    <h2 class="search-heading" data-translate="navSearchHeading">بحث</h2>
                     <form class="search-form" role="search">
-                        <input type="search" class="search-field" placeholder="ابحث..." autocomplete="off" autofocus>
+                        <input type="search" class="search-field" placeholder="ابحث..." data-translate="navSearch"
+                            autocomplete="off" autofocus>
                         <button type="submit" class="search-submit-btn" aria-label="Submit search">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <path d="m21 21-4.35-4.35"></path>
                             </svg>
@@ -86,7 +135,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu-header">
@@ -99,21 +148,24 @@
             </div>
             <nav class="mobile-nav">
                 <div class="mobile-nav-item">
-                    <button class="mobile-nav-link" id="mobileAboutBtn">من نحن</button>
+                    <button class="mobile-nav-link" id="mobileAboutBtn" data-translate="navAbout">من نحن</button>
                     <ul class="mobile-submenu" id="mobileAboutMenu">
-                        <li><a href="../about/about.html" class="mobile-submenu-link">عن Nmaa</a></li>
-                        <li><a href="../management/management.html" class="mobile-submenu-link">الإدارة</a></li>
+                        <li><a href="../about/about.html" class="mobile-submenu-link" data-translate="navAboutUs">عن نماء
+                                المدن</a></li>
+                        <li><a href="../management/management.html" class="mobile-submenu-link"
+                                data-translate="navManagement">الإدارة</a></li>
                     </ul>
                 </div>
-                <a href="../projects/projects.html" class="mobile-nav-link">المشاريع</a>
-                <a href="../media/media.html" class="mobile-nav-link">الإعلام والأخبار</a>
-                <a href="../careers/careers.html" class="mobile-nav-link">الوظائف</a>
-                <div class="mobile-nav-footer">
+                <a href="../services/services.html" class="mobile-nav-link" data-translate="navServices">الخدمات</a>
+                <a href="../projects/projects.html" class="mobile-nav-link" data-translate="navProjects">المشاريع</a>
+                <a href="../media/media.html" class="mobile-nav-link" data-translate="navMedia">الإعلام والأخبار</a>
+                <a href="../careers/careers.html" class="mobile-nav-link" data-translate="navCareers">الوظائف</a>
+                <div class="mobile-nav-bottom">
                     <select class="mobile-lang-select">
                         <option value="ar">العربية</option>
                         <option value="en">English</option>
                     </select>
-                    <a href="../contact/contact.html" class="mobile-contact-btn">تواصل معنا</a>
+                    <a href="../contact/contact.html" class="mobile-contact-btn" data-translate="navContact">تواصل معنا</a>
                 </div>
             </nav>
         </div>
@@ -123,20 +175,24 @@
     <section class="video-hero-section" id="home">
         <div class="video-wrapper parallax-element" data-speed="0.3">
             <video autoplay muted loop playsinline class="hero-video">
-                <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                <source src="../../public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
                 <!-- Fallback image if video doesn't load -->
-                <div class="video-fallback"></div>
+                <img src="../../public/nama_assets/one-1400w.webp" alt="Nmaa" class="video-fallback-img">
             </video>
             <div class="video-overlay"></div>
         </div>
         <div class="video-content-wrapper">
             <div class="video-content animate-on-scroll">
                 <h1 class="video-title">
-                    <span class="video-subtitle animate-on-scroll">الجيل القادم</span>
-                    <span class="video-main-title animate-on-scroll">للتطوير العقاري</span>
+                    <span class="video-subtitle animate-on-scroll" data-translate="homeVideoSubtitle">الجيل
+                        القادم</span>
+                    <span class="video-main-title animate-on-scroll" data-translate="homeVideoMainTitle">للتطوير
+                        العقاري</span>
                 </h1>
-                <p class="video-description animate-on-scroll">اكتشف وجهات حضرية متكاملة في المملكة العربية السعودية</p>
-                <a href="#projects" class="btn-video-primary animate-on-scroll">استكشف المشاريع</a>
+                <p class="video-description animate-on-scroll" data-translate="homeVideoDescription">اكتشف وجهات حضرية
+                    متكاملة في المملكة العربية السعودية</p>
+                <a href="../projects/projects.html" class="btn-video-primary animate-on-scroll"
+                    data-translate="homeVideoButton">مشاريعنا</a>
             </div>
         </div>
     </section>
@@ -147,12 +203,13 @@
             <div class="image-hero-background parallax-element" data-speed="0.2"></div>
             <div class="image-hero-overlay"></div>
             <div class="image-hero-content">
-                <div class="image-hero-badge animate-on-scroll">مشاريع مميزة</div>
-                <h2 class="image-hero-title animate-on-scroll">عين Nmaa</h2>
-                <p class="image-hero-description animate-on-scroll">
-                    وجهة عقارية متكاملة تجمع ما بين مساكن أنيقة بفخامة عصرية، وفندق عالمي "هيلتون جاردن إن" وبرج سكني بعلامة تجارية "كوريو كوليكشن من هيلتون"، ومكاتب فاخرة بمعايير عالمية، ومساحات تجارية
+                <div class="image-hero-badge animate-on-scroll" data-translate="homeImageBadge">مشاريع مميزة</div>
+                <h2 class="image-hero-title animate-on-scroll" data-translate="homeImageTitle">عين Nmaa</h2>
+                <p class="image-hero-description animate-on-scroll" data-translate="homeImageDescription">
+                    وجهة عقارية متكاملة تجمع ما بين مساكن أنيقة بفخامة عصرية، وفندق عالمي "هيلتون جاردن إن" وبرج سكني
+                    بعلامة تجارية "كوريو كوليكشن من هيلتون"، ومكاتب فاخرة بمعايير عالمية، ومساحات تجارية
                 </p>
-                <a href="#explore" class="btn-image-hero animate-on-scroll">استكشف</a>
+                <a href="#explore" class="btn-image-hero animate-on-scroll" data-translate="homeImageButton">استكشف</a>
             </div>
         </div>
     </section>
@@ -162,41 +219,76 @@
         <div class="slider-container">
             <div class="slider-wrapper">
                 <div class="slider-slide active">
-                    <div class="slide-background slide-bg-1 parallax-element" data-speed="0.4"></div>
+                    <div class="slide-background slide-bg-1">
+                        <video autoplay muted loop playsinline class="slide-video">
+                            <source src="../../public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
+                        </video>
+                        <img src="../../public/nama_assets/three-1500w.webp" alt="مشروع Nmaa الأول"
+                            class="slide-fallback-img">
+                    </div>
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
-                        <div class="slide-badge animate-on-scroll">مشروع جديد</div>
-                        <h2 class="slide-title animate-on-scroll">مشروع Nmaa الأول</h2>
-                        <p class="slide-description animate-on-scroll">اكتشف مشروعنا الجديد الذي يجمع بين الفخامة والحداثة في قلب الرياض</p>
+                        <div class="slide-badge animate-on-scroll" data-translate="homeSliderBadge1">مشروع جديد</div>
+                        <h2 class="slide-title animate-on-scroll" data-translate="homeSliderTitle1">مشروع Nmaa الأول
+                        </h2>
+                        <p class="slide-description animate-on-scroll" data-translate="homeSliderDesc1">اكتشف مشروعنا
+                            الجديد الذي يجمع بين الفخامة والحداثة في قلب الرياض</p>
                         <div class="slide-buttons animate-on-scroll">
-                            <a href="#project1" class="btn-slide-primary">استكشف المشروع</a>
-                            <a href="#contact" class="btn-slide-secondary">تواصل معنا</a>
+                            <a href="../projects/projects.html" class="btn-slide-primary"
+                                data-translate="homeSliderButton1">استكشف
+                                المشروع</a>
+                            <a href="../contact/contact.html" class="btn-slide-secondary"
+                                data-translate="homeSliderButton2">تواصل
+                                معنا</a>
                         </div>
                     </div>
                 </div>
                 <div class="slider-slide">
-                    <div class="slide-background slide-bg-2 parallax-element" data-speed="0.4"></div>
+                    <div class="slide-background slide-bg-2">
+                        <video autoplay muted loop playsinline class="slide-video">
+                            <source src="../../public/nama_assets/___202601091820_2d2tp.mp4" type="video/mp4">
+                        </video>
+                        <img src="../../public/nama_assets/four-1500w.webp" alt="مشروع Nmaa الثاني"
+                            class="slide-fallback-img">
+                    </div>
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
-                        <div class="slide-badge animate-on-scroll">مشروع مميز</div>
-                        <h2 class="slide-title animate-on-scroll">مشروع Nmaa الثاني</h2>
-                        <p class="slide-description animate-on-scroll">وجهة عقارية متكاملة تجمع بين السكن الفاخر والمساحات التجارية</p>
+                        <div class="slide-badge animate-on-scroll" data-translate="homeSliderBadge2">مشروع مميز</div>
+                        <h2 class="slide-title animate-on-scroll" data-translate="homeSliderTitle2">مشروع Nmaa الثاني
+                        </h2>
+                        <p class="slide-description animate-on-scroll" data-translate="homeSliderDesc2">وجهة عقارية
+                            متكاملة تجمع بين السكن الفاخر والمساحات التجارية</p>
                         <div class="slide-buttons animate-on-scroll">
-                            <a href="#project2" class="btn-slide-primary">استكشف المشروع</a>
-                            <a href="#contact" class="btn-slide-secondary">تواصل معنا</a>
+                            <a href="#project2" class="btn-slide-primary" data-translate="homeSliderButton1">استكشف
+                                المشروع</a>
+                            <a href="../contact/contact.html" class="btn-slide-secondary"
+                                data-translate="homeSliderButton2">تواصل
+                                معنا</a>
                         </div>
                     </div>
                 </div>
                 <div class="slider-slide">
-                    <div class="slide-background slide-bg-3 parallax-element" data-speed="0.4"></div>
+                    <div class="slide-background slide-bg-3">
+                        <video autoplay muted loop playsinline class="slide-video">
+                            <source src="../../public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
+                        </video>
+                        <img src="../../public/nama_assets/eight-1500w.webp" alt="مشروع Nmaa الثالث"
+                            class="slide-fallback-img">
+                    </div>
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
-                        <div class="slide-badge animate-on-scroll">مشروع استثماري</div>
-                        <h2 class="slide-title animate-on-scroll">مشروع Nmaa الثالث</h2>
-                        <p class="slide-description animate-on-scroll">استثمر في مستقبل التطوير العقاري مع مشاريعنا المتميزة</p>
+                        <div class="slide-badge animate-on-scroll" data-translate="homeSliderBadge3">مشروع استثماري
+                        </div>
+                        <h2 class="slide-title animate-on-scroll" data-translate="homeSliderTitle3">مشروع Nmaa الثالث
+                        </h2>
+                        <p class="slide-description animate-on-scroll" data-translate="homeSliderDesc3">استثمر في مستقبل
+                            التطوير العقاري مع مشاريعنا المتميزة</p>
                         <div class="slide-buttons animate-on-scroll">
-                            <a href="#project3" class="btn-slide-primary">استكشف المشروع</a>
-                            <a href="#contact" class="btn-slide-secondary">تواصل معنا</a>
+                            <a href="#project3" class="btn-slide-primary" data-translate="homeSliderButton1">استكشف
+                                المشروع</a>
+                            <a href="../contact/contact.html" class="btn-slide-secondary"
+                                data-translate="homeSliderButton2">تواصل
+                                معنا</a>
                         </div>
                     </div>
                 </div>
@@ -204,7 +296,7 @@
             <div class="slider-controls">
                 <button class="slider-btn slider-prev" aria-label="Previous slide">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
                     </svg>
                 </button>
                 <div class="slider-dots">
@@ -214,306 +306,499 @@
                 </div>
                 <button class="slider-btn slider-next" aria-label="Next slide">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section class="featured-projects-section fade-in-section" id="projects">
-        <div class="section-container">
-            <h2 class="section-title">مشاريع مميزة</h2>
-            <div class="projects-grid">
-                <div class="project-card-large">
-                    <div class="project-image-wrapper">
-                        <div class="project-badge">مشاريع مميزة</div>
-                        <div class="project-overlay-content">
-                            <h3 class="project-title-large">عين Nmaa</h3>
-                            <p class="project-category-large">مجتمعات متعددة الإستخدام</p>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">عين Nmaa</h3>
-                        <p class="project-description">وجهة عقارية متكاملة تجمع ما بين مساكن أنيقة بفخامة عصرية، وفندق عالمي "هيلتون جاردن إن" وبرج سكني بعلامة تجارية "كوريو كوليكشن من هيلتون"، ومكاتب فاخرة بمعايير عالمية، ومساحات تجارية</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image-wrapper-small">
-                        <div class="project-overlay-content-small">
-                            <h3 class="project-title-small">سجايا من Nmaa</h3>
-                            <p class="project-category-small">سكني</p>
-                        </div>
-                    </div>
-                    <div class="project-card-content-small">
-                        <h3 class="project-name-small">سجايا من Nmaa</h3>
-                        <a href="#" class="project-link-small">عرض المشروع</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image-wrapper-small">
-                        <div class="project-overlay-content-small">
-                            <h3 class="project-title-small">أو دي أوفيس I</h3>
-                            <p class="project-category-small">تجاري وإداري</p>
-                        </div>
-                    </div>
-                    <div class="project-card-content-small">
-                        <h3 class="project-name-small">أو دي أوفيس I</h3>
-                        <a href="#" class="project-link-small">عرض المشروع</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image-wrapper-small">
-                        <div class="project-overlay-content-small">
-                            <h3 class="project-title-small">Nmaa جرين تاور</h3>
-                            <p class="project-category-small">تجاري وإداري</p>
-                        </div>
-                    </div>
-                    <div class="project-card-content-small">
-                        <h3 class="project-name-small">Nmaa جرين تاور</h3>
-                        <a href="#" class="project-link-small">عرض المشروع</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image-wrapper-small">
-                        <div class="project-overlay-content-small">
-                            <h3 class="project-title-small">Nmaa إيدج</h3>
-                            <p class="project-category-small">تجاري وإداري</p>
-                        </div>
-                    </div>
-                    <div class="project-card-content-small">
-                        <h3 class="project-name-small">Nmaa إيدج</h3>
-                        <a href="#" class="project-link-small">عرض المشروع</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image-wrapper-small">
-                        <div class="project-overlay-content-small">
-                            <h3 class="project-title-small">أو دي تاور</h3>
-                            <p class="project-category-small">تجاري وإداري</p>
-                        </div>
-                    </div>
-                    <div class="project-card-content-small">
-                        <h3 class="project-name-small">أو دي تاور</h3>
-                        <a href="#" class="project-link-small">عرض المشروع</a>
-                    </div>
-                </div>
+    <!-- Our Approach Section -->
+    <section class="approach-section ptb-100 light sections" id="about">
+        <div class="container-fluid">
+            <div class="text-center">
+                <h1 class="approach-title" data-translate="homeOurApproach">نهجنا</h1>
             </div>
-            <div class="section-footer">
-                <a href="#all-projects" class="btn-view-all">عرض جميع المشاريع</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Approach Slider Section -->
-    <section class="our-approach-slider-section fade-in-section" id="about">
-        <div class="approach-slider-container">
-            <h2 class="approach-slider-title">نهجنا</h2>
             <div class="approach-slider-wrapper">
-                <div class="approach-slider-track">
-                    <div class="approach-slide active">
-                        <div class="approach-slide-content">
-                            <h3 class="approach-slide-title">التميّز في التصميم</h3>
-                            <p class="approach-slide-text">"في Nmaa، يبدأ كل مشروع من التصميم. تمتد مشاريعنا لتشمل وجهات متعددة الاستخدام، ومجمعات سكنية، وأبراج تجارية تعكس الطابع السعودي الحديث بتوازن بين الشكل والوظيفة والهوية. نتعاون مع أبرز المعماريين والمصممين العالميين لنقدّم تصاميم خالدة تجمع بين الدقة والجمال، وتضع معايير جديدة في سوق التطوير العقاري السعودي."</p>
+                <div class="row g-4 justify-content-center approach-slider">
+                    <div class="swiper-wrapper">
+                        <div class="col-lg-3 col-md-6 swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/three-1500w.webp" alt="التميّز في التصميم"
+                                        class="approach-image">
+                                    <div class="icon-badge icon-design"><span class="icon-symbol">✎</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle1">التميّز في التصميم</h3>
+                                    <p class="card-text" data-translate="homeApproachText1">"في Nmaa، يبدأ كل مشروع من
+                                        التصميم. تمتد مشاريعنا لتشمل وجهات متعددة الاستخدام، ومجمعات سكنية، وأبراج
+                                        تجارية
+                                        تعكس الطابع السعودي الحديث بتوازن بين الشكل والوظيفة والهوية. نتعاون مع أبرز
+                                        المعماريين والمصممين العالميين لنقدّم تصاميم خالدة تجمع بين الدقة والجمال، وتضع
+                                        معايير جديدة في سوق التطوير العقاري السعودي."</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="approach-slide">
-                        <div class="approach-slide-content">
-                            <h3 class="approach-slide-title">الإنسان في المركز</h3>
-                            <p class="approach-slide-text">"نضع الإنسان في قلب كل مشروع. يتم تخطيط مشاريع Nmaa بعناية لتعزيز جودة الحياة من خلال بيئات تعزّز الراحة، والتفاعل، والانتماء. من التصاميم العملية إلى المجتمعات المتكاملة والممرات القابلة للمشي، نعيد تعريف تجربة السكن والعمل في مشاريعنا المنتشرة في الرياض."</p>
+                        <div class="col-lg-3 col-md-6 swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/four-1500w.webp" alt="الكادر الهندسي"
+                                        class="approach-image">
+                                    <div class="icon-badge icon-human"><span class="icon-symbol">👤</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle2">الكادر الهندسي</h3>
+                                    <p class="card-text" data-translate="homeApproachText2">يضم فريقنا نخبة من الكفاءات
+                                        الهندسية التي تجمع بين الخبرة الأكاديمية والمهارة الميدانية، مما يجعلنا قادرين
+                                        على
+                                        إدارة أعقد المشاريع بكفاءة واقتدار</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="approach-slide">
-                        <div class="approach-slide-content">
-                            <h3 class="approach-slide-title">الابتكار</h3>
-                            <p class="approach-slide-text">"الابتكار هو جوهر منهجنا في Nmaa. نعتمد أحدث التقنيات وأساليب البناء المتقدمة والتصاميم المستقبلية لتلبية متطلبات أسلوب الحياة العصري. من الحلول الرقمية إلى البنية التحتية الذكية، تعكس مشاريعنا تطور القطاع العقاري السعودي نحو جيل جديد من التطوير."</p>
+                        <div class="col-lg-3 col-md-6 swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/seven-1400w.webp" alt="الابتكار"
+                                        class="approach-image">
+                                    <div class="icon-badge icon-innovation"><span class="icon-symbol">💡</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle3">الابتكار</h3>
+                                    <p class="card-text" data-translate="homeApproachText3">"الابتكار هو جوهر منهجنا في
+                                        Nmaa. نعتمد أحدث التقنيات وأساليب البناء المتقدمة والتصاميم المستقبلية لتلبية
+                                        متطلبات أسلوب الحياة العصري. من الحلول الرقمية إلى البنية التحتية الذكية، تعكس
+                                        مشاريعنا تطور القطاع العقاري السعودي نحو جيل جديد من التطوير."</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="approach-slide">
-                        <div class="approach-slide-content">
-                            <h3 class="approach-slide-title">الاستدامة</h3>
-                            <p class="approach-slide-text">"نخطط ونبني برؤية مستدامة نحو المستقبل. ندمج المساحات الخضراء، وأنظمة كفاءة الطاقة، وممارسات البناء المسؤولة في جميع مشاريعنا. هدفنا ليس فقط تقليل الأثر البيئي، بل إنشاء مجتمعات مستدامة تدعم أسلوب حياة صحي وتنسجم مع مستهدفات رؤية السعودية 2030 لمستقبل أكثر اخضرارًا."</p>
+                        <div class="col-lg-3 col-md-6 swiper-slide">
+                            <div class="approach-card">
+                                <div class="card-image-wrapper">
+                                    <img src="../../public/nama_assets/nine-1500w.webp" alt="الاستدامة"
+                                        class="approach-image">
+                                    <div class="icon-badge icon-sustainability"><span class="icon-symbol">♻</span></div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" data-translate="homeApproachTitle4">الاستدامة</h3>
+                                    <p class="card-text" data-translate="homeApproachText4">"نخطط ونبني برؤية مستدامة
+                                        نحو
+                                        المستقبل. ندمج المساحات الخضراء، وأنظمة كفاءة الطاقة، وممارسات البناء المسؤولة
+                                        في
+                                        جميع مشاريعنا. هدفنا ليس فقط تقليل الأثر البيئي، بل إنشاء مجتمعات مستدامة تدعم
+                                        أسلوب
+                                        حياة صحي وتنسجم مع مستهدفات رؤية السعودية 2030 لمستقبل أكثر اخضرارًا."</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="approach-slider-controls">
-                <button class="approach-slider-btn approach-prev" aria-label="Previous slide">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <div class="approach-slider-dots">
-                    <button class="approach-dot active" data-slide="0" aria-label="التميز في التصميم"></button>
-                    <button class="approach-dot" data-slide="1" aria-label="الإنسان في المركز"></button>
-                    <button class="approach-dot" data-slide="2" aria-label="الابتكار"></button>
-                    <button class="approach-dot" data-slide="3" aria-label="الاستدامة"></button>
+                <!-- Navigation buttons on the left edge, vertically centered with cards -->
+                <div class="approach-nav-buttons">
+                    <button id="approachPrev" aria-label="Previous">❮</button>
+                    <button id="approachNext" aria-label="Next">❯</button>
                 </div>
-                <button class="approach-slider-btn approach-next" aria-label="Next slide">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
         </div>
     </section>
 
     <!-- Statistics Section -->
     <section class="statistics-section fade-in-section" id="statistics">
+        <div class="statistics-background-image"></div>
+        <div class="statistics-overlay"></div>
         <div class="section-container">
-            <div class="stats-intro">
-                <p class="stats-intro-text">نصنع مستقبل التطوير بإنجازات تثبت مكانتنا</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="0">0</div>
-                    <div class="stat-unit">مليون متر مربع</div>
-                    <div class="stat-label">المساحة البنائية</div>
+            <div class="stats-content-wrapper">
+                <div class="stats-logo">
+                    <span class="stats-logo-text">Nmaa</span>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="0">0</div>
-                    <div class="stat-label">الأصول تحت الإدارة</div>
+                <div class="stats-intro">
+                    <p class="stats-intro-text" data-translate="homeStatsIntro">نصنع مستقبل التطوير بإنجازات تثبت
+                        مكانتنا</p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="0">0</div>
-                    <div class="stat-label">المشاريع المنجزة</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-number" data-target="65">0</div>
+                        <div class="stat-unit" data-translate="homeStatsArea">مليون متر مربع</div>
+                        <div class="stat-label" data-translate="homeStatsAreaLabel">المساحة البنائية</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon stat-icon-gold">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-number" data-target="10000000">0</div>
+                        <div class="stat-label" data-translate="homeStatsAssets">الأصول تحت الإدارة</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon stat-icon-gold">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-number" data-target="98">0</div>
+                        <div class="stat-label" data-translate="homeStatsCompleted">المشاريع المنجزة</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Awards Section -->
-    <section class="awards-section fade-in-section" id="awards">
-        <div class="section-container">
-            <h2 class="section-title">الجوائز والتقديرات</h2>
-            <div class="awards-grid">
-                <div class="award-item">🏆</div>
-                <div class="award-item">🏆</div>
-                <div class="award-item">🏆</div>
-                <div class="award-item">🏆</div>
-                <div class="award-item">🏆</div>
-                <div class="award-item">🏆</div>
+
+    <!-- Our Clients Section -->
+    <section class="clients-section fade-in-section" id="clients">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="homeClientsTitle">عملاؤنا</h2>
+                <p class="section-subtitle" data-translate="homeClientsSubtitle">شركاؤنا في النجاح</p>
+            </div>
+            <div class="clients-grid">
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient1">العميل 1</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient2">Client 2</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient3">Client 3</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient4">Client 4</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient5">Client 5</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient6">Client 6</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient7">Client 7</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient8">Client 8</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient9">Client 9</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient10">Client 10</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient11">Client 11</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient12">Client 12</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient13">Client 13</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient14">Client 14</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient15">Client 15</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient16">Client 16</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient17">Client 17</span>
+                    </div>
+                </div>
+                <div class="client-logo-wrapper">
+                    <div class="client-logo placeholder-logo">
+                        <span data-translate="homeClient18">Client 18</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- News Section -->
-    <section class="news-section fade-in-section" id="media">
-        <div class="section-container">
-            <div class="section-header-flex">
-                <h2 class="section-title">آخر الأخبار والتحديثات</h2>
-                <a href="#all-news" class="btn-view-all">عرض جميع الأخبار</a>
-            </div>
-            <div class="news-grid">
-                <article class="news-card">
-                    <div class="news-category">أخبار</div>
-                    <h3 class="news-title">"Nmaa العقار" تتجاوز مليار ريال القيمة الإجمالية للتعاملات العقارية</h3>
-                    <p class="news-excerpt">أعلنت شركة Nmaa العقار عن تجاوز قيمة تعاملاتها العقارية مليار ريال سعودي خلال مشاركتها في معرض سيتي سكيب 2025...</p>
-                    <a href="#" class="news-link">اقرأ المزيد</a>
-                </article>
-                <article class="news-card">
-                    <div class="news-category">أخبار</div>
-                    <h3 class="news-title">"عين Nmaa" يتوج بجائزتين مرموقتين</h3>
-                    <p class="news-excerpt">حصل مشروع "عين Nmaa" على جائزتين مرموقتين في حفل توزيع الجوائز...</p>
-                    <a href="#" class="news-link">اقرأ المزيد</a>
-                </article>
-                <article class="news-card">
-                    <div class="news-category">أخبار</div>
-                    <h3 class="news-title">Nmaa تُعلن تحولها إلى مجموعة عقارية متكاملة</h3>
-                    <p class="news-excerpt">أعلنت شركة Nmaa عن دخولها مرحلة استراتيجية جديدة من الريادة في القطاع العقاري السعودي...</p>
-                    <a href="#" class="news-link">اقرأ المزيد</a>
-                </article>
+
+    <!-- About Our Company Section -->
+    <section class="home-about-section fade-in-section" id="about-company">
+        <div class="container">
+            <div class="about-content-wrapper">
+                <div class="about-text-content">
+                    <div class="section-badge" data-translate="homeAboutBadge">عن شركتنا</div>
+                    <h2 class="section-title" data-translate="homeAboutTitle">عن شركتنا</h2>
+                    <p class="about-description" data-translate="homeAboutText">
+                        نحن شركة تطوير عقاري وطنية طموحة ومصنفة تأسست عام 2009 في المدينة المنورة وامتدت لتشمل أكبر
+                        المدن في المملكة. نقدم مجموعة واسعة من الخدمات العقارية الشاملة، وخدمات البناء، وإدارة المرافق
+                        في مجال التطوير العقاري السكني بجميع أشكاله.
+                    </p>
+                    <a href="../about/about.html" class="btn-learn-more" data-translate="learnMore">تعرف على المزيد</a>
+                </div>
+                <div class="about-image-content">
+                    <img src="../../public/nama_logo_round_192.png" alt="Nmaa Logo" class="about-company-logo">
+                </div>
             </div>
         </div>
     </section>
+
+
+    <!-- Our Services Section -->
+    <section class="home-services-section fade-in-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-translate="homeServicesBadge">خدماتنا</div>
+                <h2 class="section-title" data-translate="homeServicesTitle">خدماتنا</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService1Title">المقاولات والبناء</h3>
+                    <p data-translate="homeService1Text">تنفيذ مشاريع إنشائية متكاملة بأعلى معايير الجودة والدقة في
+                        التنفيذ.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="9" x2="15" y2="9"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService2Title">التطوير العقاري</h3>
+                    <p data-translate="homeService2Text">تطوير مشاريع سكنية وتجارية متكاملة تلبي احتياجات السوق.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService3Title">إدارة المرافق</h3>
+                    <p data-translate="homeService3Text">خدمات صيانة وإدارة شاملة للمشاريع والمرافق.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeService4Title">فيت أوت والإنتاج</h3>
+                    <p data-translate="homeService4Text">تجهيز وتشطيب المتاجر والمحلات التجارية بأعلى جودة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Our Values Section -->
+    <section class="home-values-section fade-in-section" id="values">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-translate="homeValuesBadge">قيمنا</div>
+                <h2 class="section-title" data-translate="homeValuesTitle">قيمنا</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue1Title">الشفافية</h3>
+                    <p data-translate="homeValue1Text">الحوكمة أمر بالغ الأهمية بالنسبة لنا.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue2Title">الثقة والمصداقية</h3>
+                    <p data-translate="homeValue2Text">أصالتنا تقود حلول البناء المبتكرة.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue3Title">المرونة</h3>
+                    <p data-translate="homeValue3Text">نتكيف مع احتياجات عملائنا بمرونة عالية.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue4Title">الابتكار</h3>
+                    <p data-translate="homeValue4Text">نبتكر حلولاً عقارية تواكب المستقبل.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 data-translate="homeValue5Title">الاستدامة</h3>
+                    <p data-translate="homeValue5Text">نبني مشاريع مستدامة للأجيال القادمة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Our History Section -->
+    <section class="home-history-section fade-in-section" id="history">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-translate="homeHistoryBadge">تاريخنا</div>
+                <h2 class="section-title" data-translate="homeHistoryTitle">تاريخنا</h2>
+            </div>
+            <div class="history-stats">
+                <div class="history-stat-card">
+                    <div class="stat-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-translate="homeHistoryEmployees">50+</div>
+                    <div class="stat-label" data-translate="homeHistoryEmployeesLabel">موظف</div>
+                </div>
+                <div class="history-stat-card">
+                    <div class="stat-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-translate="homeHistoryProjects">50+</div>
+                    <div class="stat-label" data-translate="homeHistoryProjectsLabel">مشروع</div>
+                </div>
+                <div class="history-stat-card">
+                    <div class="stat-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-translate="homeHistoryOffices">3</div>
+                    <div class="stat-label" data-translate="homeHistoryOfficesLabel">مكاتب</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- CTA Section -->
     <section class="cta-section fade-in-section" id="cta">
         <div class="cta-container">
             <div class="cta-content">
-                <h2 class="cta-title">هل أنت مهتم بمشاريع Nmaa؟</h2>
-                <p class="cta-subtitle">انضم إلى الجيل القادم من العقارات.</p>
-                <a href="#contact" class="btn-cta">اتصل بنا</a>
+                <h2 class="cta-title" data-translate="homeCTATitle">هل أنت مهتم بمشاريع Nmaa؟</h2>
+                <p class="cta-subtitle" data-translate="homeCTASubtitle">انضم إلى الجيل القادم من العقارات.</p>
+                <a href="../projects/projects.html" class="btn-cta" data-translate="homeCTAButton">اتصل بنا</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4 class="footer-title">الاشتراك في النشرة الإخبارية</h4>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="البريد الإلكتروني" class="newsletter-input" required>
-                        <button type="submit" class="newsletter-btn">اشترك</button>
-                    </form>
-                    <p class="newsletter-note">Leave this field empty if you're human:</p>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">روابط سريعة</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#projects">المشاريع</a></li>
-                        <li><a href="#about">عن Nmaa</a></li>
-                        <li><a href="#management">الإدارة</a></li>
-                        <li><a href="#media">الإعلام والأخبار</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">المشاريع السكنية</h4>
-                    <h5 class="footer-subtitle">مشاريع Nmaa هاوسنق</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Nmaa هاوسنق إشبيلية</a></li>
-                        <li><a href="#">Nmaa هاوسنق المونسية</a></li>
-                        <li><a href="#">Nmaa هاوسنق السعادة</a></li>
-                        <li><a href="#">Nmaa هاوسنق مرسية</a></li>
-                    </ul>
-                    <h5 class="footer-subtitle">مشاريع أخرى</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">سجايا من Nmaa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">المشاريع التجارية</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Nmaa إيدج</a></li>
-                        <li><a href="#">Nmaa جرين تاور</a></li>
-                    </ul>
-                    <h4 class="footer-title">OD مشاريع</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">أو دي أوفيس I</a></li>
-                        <li><a href="#">أو دي أوفيس II</a></li>
-                        <li><a href="#">أو دي بلازا I</a></li>
-                        <li><a href="#">أو دي بلازا II</a></li>
-                        <li><a href="#">أو دي فلور I</a></li>
-                        <li><a href="#">أو دي فلور II</a></li>
-                        <li><a href="#">أو دي تاور</a></li>
-                    </ul>
-                    <h4 class="footer-title">مجتمعات متعددة الإستخدام</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Nmaa برايم</a></li>
-                        <li><a href="#">Nmaa مكان</a></li>
-                        <li><a href="#">عين Nmaa</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 جميع الحقوق محفوظة © Nmaa العقار</p>
-                <div class="footer-legal">
-                    <a href="#">شروط الخدمة</a>
-                    <a href="#">سياسة الخصوصية</a>
-                    <a href="#">سياسة ملفات تعريف الارتباط</a>
-                    <a href="#">خريطة الموقع</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder - loaded dynamically by header.js -->
+    <div id="footer-placeholder"></div>
 
+    <!-- Floating Side Icons -->
+    <div class="floating-side-icons">
+        <a href="https://wa.me/966xxxxxxxxx" class="side-icon whatsapp-icon" target="_blank" aria-label="WhatsApp"
+            title="واتساب">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+        </a>
+        <a href="tel:+966xxxxxxxxx" class="side-icon phone-icon" aria-label="Phone" title="اتصل بنا">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+            </svg>
+        </a>
+    </div>
+
+    <script src="../shared/translations.js"></script>
     <script src="../shared/header.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>

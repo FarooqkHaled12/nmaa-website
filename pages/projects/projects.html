@@ -1,503 +1,316 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المشاريع - Nmaa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../shared/style.css">
     <link rel="stylesheet" href="../shared/header.css">
+    <link rel="stylesheet" href="../shared/footer.css?v=1">
     <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="projects-bg.css">
+    <script src="../shared/translations.js"></script>
+
+    <!-- 
+      ⚠️ محظور حذف هذا الكود - Google Tag Manager
+      ⚠️ DO NOT DELETE - Google Tag Manager
+      
+      هذا الكود مطلوب لتتبع الزوار والتحليلات
+      This code is required for visitor tracking and analytics
+      
+      يجب استبدال GTM-XXXXXXX و G-XXXXXXXXXX بـ IDs الصحيحة
+      Replace GTM-XXXXXXX and G-XXXXXXXXXX with actual IDs
+    -->
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-left">
-                    <button class="nav-icon-btn search-btn" id="searchToggle" aria-label="Search">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                    <button class="nav-icon-btn menu-btn" id="menuToggle" aria-label="Menu">
-                        <span class="menu-line"></span>
-                        <span class="menu-line"></span>
-                        <span class="menu-line"></span>
-                    </button>
-                </div>
-                <div class="nav-center">
-                    <a href="../index/index.html" class="logo-link">
-                        <span class="logo-text">Nmaa</span>
-                    </a>
-                </div>
-                <div class="nav-right">
-                    <ul class="nav-menu">
-                        <li class="nav-item dropdown">
-                            <button class="nav-link" type="button">من نحن</button>
-                            <ul class="dropdown-menu">
-                                <li><a href="../about/about.html" class="dropdown-link">عن Nmaa</a></li>
-                                <li><a href="../management/management.html" class="dropdown-link">الإدارة</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="projects.html" class="nav-link active">المشاريع</a></li>
-                        <li class="nav-item"><a href="../media/media.html" class="nav-link">الإعلام والأخبار</a></li>
-                        <li class="nav-item"><a href="../careers/careers.html" class="nav-link">الوظائف</a></li>
-                    </ul>
-                    <div class="nav-actions">
-                        <select class="lang-select" id="languageSelect">
-                            <option value="ar">العربية</option>
-                            <option value="en">English</option>
-                        </select>
-                        <a href="../contact/contact.html" class="contact-btn">تواصل معنا</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        
-        <!-- Search Modal -->
-        <div class="search-modal" id="searchModal">
-            <div class="search-modal-content">
-                <button class="search-close-btn" id="searchClose" aria-label="Close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-                <div class="search-wrapper">
-                    <h2 class="search-heading">Search</h2>
-                    <form class="search-form" role="search">
-                        <input type="search" class="search-field" placeholder="ابحث..." autocomplete="off" autofocus>
-                        <button type="submit" class="search-submit-btn" aria-label="Submit search">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-header">
-                <button class="mobile-close-btn" id="mobileMenuClose" aria-label="Close menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <nav class="mobile-nav">
-                <div class="mobile-nav-item">
-                    <button class="mobile-nav-link" id="mobileAboutBtn">من نحن</button>
-                    <ul class="mobile-submenu" id="mobileAboutMenu">
-                        <li><a href="../about/about.html" class="mobile-submenu-link">عن Nmaa</a></li>
-                        <li><a href="../management/management.html" class="mobile-submenu-link">الإدارة</a></li>
-                    </ul>
-                </div>
-                <a href="projects.html" class="mobile-nav-link">المشاريع</a>
-                <a href="../media/media.html" class="mobile-nav-link">الإعلام والأخبار</a>
-                <a href="../careers/careers.html" class="mobile-nav-link">الوظائف</a>
-                <div class="mobile-nav-footer">
-                    <select class="mobile-lang-select">
-                        <option value="ar">العربية</option>
-                        <option value="en">English</option>
-                    </select>
-                    <a href="../contact/contact.html" class="mobile-contact-btn">تواصل معنا</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Navbar Placeholder - loaded dynamically by header.js -->
+    <div id="navbar-placeholder" data-header-class=""></div>
 
     <!-- Projects Hero Section -->
-    <section class="projects-hero fade-in-section">
+    <section class="projects-hero">
         <div class="projects-hero-content">
-            <h1 class="projects-hero-title">مشاريعنا</h1>
-            <p class="projects-hero-description">
-                انطلاقًا من استراتيجية مستقبلية ترتكز على الابتكار والاستدامة والتصميم المتمحور حول الإنسان، تتجاوز مشاريعنا مفهوم البناء لتصنع تجارب تُثري حياة الناس والمجتمعات. ومن مقرّنا في الرياض، نطوّر وجهات متكاملة تشمل المشاريع السكنية، والوحدات السكنية ذات العلامات التجارية، والمشاريع التجارية، والفندقية، والتجزئة، والمشاريع متعددة الاستخدامات، لنصوغ بيئات تعكس تطلعات رؤية المملكة 2030 وتُجسّد جودة الحياة.
+            <span class="projects-hero-badge" data-translate="projectsHeroBadge">التميز في التنفيذ</span>
+            <h1 class="projects-hero-title" data-translate="projectsHero">مشاريعنا</h1>
+            <p class="projects-hero-description" data-translate="projectsHeroDescription">
+                انطلاقًا من استراتيجية مستقبلية ترتكز على الابتكار والاستدامة والتصميم المتمحور حول الإنسان، تتجاوز
+                مشاريعنا مفهوم البناء لتصنع تجارب تُثري حياة الناس والمجتمعات. ومن مقرّنا في الرياض، نطوّر وجهات متكاملة
+                تشمل المشاريع السكنية، والوحدات السكنية ذات العلامات التجارية، والمشاريع التجارية، والفندقية، والتجزئة،
+                والمشاريع متعددة الاستخدامات، لنصوغ بيئات تعكس تطلعات رؤية المملكة 2030 وتُجسّد جودة الحياة.
             </p>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span data-translate="heroScrollText">اكتشف المزيد</span>
+            <div class="mouse-icon">
+                <div class="mouse-wheel"></div>
+            </div>
         </div>
     </section>
 
     <!-- Projects Filter Section -->
-    <section class="projects-filter-section fade-in-section">
+    <section class="projects-filter-section">
         <div class="section-container">
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">جميع المشاريع</button>
-                <button class="filter-btn" data-filter="residential">سكني</button>
-                <button class="filter-btn" data-filter="land">أراضي</button>
-                <button class="filter-btn" data-filter="commercial">تجاري وإداري</button>
-                <button class="filter-btn" data-filter="mixed">مجتمعات متعددة الإستخدام</button>
+                <button class="filter-btn active" data-filter="all" data-translate="projectsFilterAll">جميع
+                    المشاريع</button>
+                <button class="filter-btn" data-filter="residential" data-translate="projectsFilterResidential">التطوير
+                    العقاري</button>
+                <button class="filter-btn" data-filter="construction"
+                    data-translate="projectsFilterConstruction">المقاولات وEPC</button>
+                <button class="filter-btn" data-filter="fitout" data-translate="projectsFilterFitout">خدمات فيت
+                    أوت</button>
+                <button class="filter-btn" data-filter="facility" data-translate="projectsFilterFacility">إدارة
+                    المرافق</button>
             </div>
         </div>
     </section>
 
     <!-- Projects Grid Section -->
-    <section class="projects-grid-section fade-in-section">
+    <section class="projects-grid-section">
         <div class="section-container">
             <div class="projects-grid" id="projectsGrid">
-                <!-- Mixed Use Projects -->
-                <div class="project-card" data-category="mixed">
-                    <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">عين Nmaa</h3>
-                                <p class="project-category">مجتمعات متعددة الإستخدام</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">عين Nmaa</h3>
-                        <p class="project-description">وجهة عقارية متكاملة تجمع ما بين مساكن أنيقة بفخامة عصرية، وفندق عالمي "هيلتون جاردن إن" وبرج سكني بعلامة تجارية "كوريو كوليكشن من هيلتون"، ومكاتب فاخرة بمعايير عالمية، ومساحات تجارية</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="mixed">
-                    <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa برايم</h3>
-                                <p class="project-category">مجتمعات متعددة الإستخدام</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">Nmaa برايم</h3>
-                        <p class="project-description">مجتمع متكامل يجمع بين السكن الفاخر والمساحات التجارية والترفيهية</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="mixed">
-                    <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa مكان</h3>
-                                <p class="project-category">مجتمعات متعددة الإستخدام</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">Nmaa مكان</h3>
-                        <p class="project-description">وجهة حضرية متكاملة تجمع بين السكن والترفيه والتجارة</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-
-                <!-- Residential Projects -->
+                <!-- Real Estate Development -->
                 <div class="project-card" data-category="residential">
+                    <p class="project-category" data-translate="projectsFilterResidential">التطوير العقاري</p>
                     <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">سجايا من Nmaa</h3>
-                                <p class="project-category">سكني</p>
-                            </div>
-                        </div>
+                        <div class="project-image placeholder"></div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">سجايا من Nmaa</h3>
-                        <p class="project-description">مجمع سكني راقي يوفر مساكن عصرية بمواصفات فاخرة</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <h3 class="project-title" data-translate="projRED1Title">مبنى سكني - أعمال إنشائية وتشطيبات</h3>
+                        <p class="project-description" data-translate="projRED1Desc">أعمال إنشاء مبانٍ سكنية وأعمال
+                            إنشائية وتشطيبات وديكور لشركة نماء المدن في الرياض، 2024.</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label" data-translate="consLocation">الموقع</span>
+                                <span class="meta-value" data-translate="locRiyadh">الرياض</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label" data-translate="consYear">السنة</span>
+                                <span class="meta-value">2024</span>
+                            </div>
+                        </div>
+                        <a href="../contact/contact.html" class="project-link" data-translate="projectsExplore">طلب عرض
+                            سعر</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="residential">
+                <!-- Construction & EPC -->
+                <div class="project-card" data-category="construction">
+                    <p class="project-category" data-translate="projectsFilterConstruction">المقاولات وEPC</p>
                     <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa هاوسنق إشبيلية</h3>
-                                <p class="project-category">سكني</p>
-                            </div>
-                        </div>
+                        <div class="project-image placeholder"></div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">Nmaa هاوسنق إشبيلية</h3>
-                        <p class="project-description">مجمع سكني راقي في موقع استراتيجي</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <h3 class="project-title" data-translate="consProj2Title">ديزيرت إكس 2024</h3>
+                        <p class="project-description" data-translate="consProj2Highlights">بناء الهياكل الفولاذية لمعرض
+                            فني وأعمال لاندسكيب</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label" data-translate="consLocation">الموقع</span>
+                                <span class="meta-value" data-translate="locAlUla">العلا</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label" data-translate="consYear">السنة</span>
+                                <span class="meta-value">2024</span>
+                            </div>
+                        </div>
+                        <a href="../construction/construction.html" class="project-link"
+                            data-translate="projectsExplore">عرض التفاصيل</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="residential">
+                <!-- Fit-out Services -->
+                <div class="project-card" data-category="fitout">
+                    <p class="project-category" data-translate="projectsFilterFitout">خدمات فيت أوت</p>
                     <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa هاوسنق المونسية</h3>
-                                <p class="project-category">سكني</p>
-                            </div>
-                        </div>
+                        <div class="project-image placeholder"></div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">Nmaa هاوسنق المونسية</h3>
-                        <p class="project-description">مجمع سكني راقي يوفر بيئة معيشية متميزة</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <h3 class="project-title" data-translate="projFitoutSeoulTitle">سيول</h3>
+                        <p class="project-description" data-translate="projFitoutSeoulDesc">أعمال إنشاء وتشطيبات وتأثيث
+                            وتجهيز كامل لمطعم سيول بالرياض، 2024.</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label" data-translate="consLocation">الموقع</span>
+                                <span class="meta-value" data-translate="locRiyadh">الرياض</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label" data-translate="consYear">السنة</span>
+                                <span class="meta-value">2024</span>
+                            </div>
+                        </div>
+                        <a href="../fitout/fitout.html" class="project-link" data-translate="projectsExplore">عرض
+                            التفاصيل</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="residential">
+                <div class="project-card" data-category="fitout">
                     <div class="project-image-wrapper">
+                        <div class="project-image placeholder"></div>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa هاوسنق السعادة</h3>
-                                <p class="project-category">سكني</p>
+                                <h3 class="project-title" data-translate="projFitoutNandosTitle">ناندوز</h3>
+                                <p class="project-category" data-translate="projectsFilterFitout">خدمات فيت أوت</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">Nmaa هاوسنق السعادة</h3>
-                        <p class="project-description">مجمع سكني راقي يجمع بين الفخامة والراحة</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <p class="project-description" data-translate="projFitoutNandosDesc">خدمات فيت أوت كاملة لمطعم
+                            ناندوز بالرياض، أكتوبر 2022.</p>
+                        <a href="../fitout/fitout.html" class="project-link" data-translate="projectsExplore">استكشف</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="residential">
+                <div class="project-card" data-category="fitout">
                     <div class="project-image-wrapper">
+                        <div class="project-image placeholder"></div>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa هاوسنق مرسية</h3>
-                                <p class="project-category">سكني</p>
+                                <h3 class="project-title" data-translate="projFitoutWoopTitle">ووب</h3>
+                                <p class="project-category" data-translate="projectsFilterFitout">خدمات فيت أوت</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">Nmaa هاوسنق مرسية</h3>
-                        <p class="project-description">مجمع سكني راقي بتصميم عصري</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <p class="project-description" data-translate="projFitoutWoopDesc">تجهيز فرع ووب آيس كريم في سكة
+                            بلازا بالرياض، ديسمبر 2022.</p>
+                        <a href="../fitout/fitout.html" class="project-link" data-translate="projectsExplore">استكشف</a>
                     </div>
                 </div>
 
-                <!-- Commercial Projects -->
-                <div class="project-card" data-category="commercial">
+                <div class="project-card" data-category="fitout">
                     <div class="project-image-wrapper">
+                        <div class="project-image placeholder"></div>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa إيدج</h3>
-                                <p class="project-category">تجاري وإداري</p>
+                                <h3 class="project-title" data-translate="projFitoutGrasseTitle">غراسا</h3>
+                                <p class="project-category" data-translate="projectsFilterFitout">خدمات فيت أوت</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">Nmaa إيدج</h3>
-                        <p class="project-description">برج تجاري وإداري بمواصفات عالمية</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <p class="project-description" data-translate="projFitoutGrasseDesc">تجهيز فرع غراسا بالرياض،
+                            ديسمبر 2022.</p>
+                        <a href="../fitout/fitout.html" class="project-link" data-translate="projectsExplore">استكشف</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="commercial">
+                <!-- Facility Management -->
+                <div class="project-card" data-category="facility">
                     <div class="project-image-wrapper">
+                        <div class="project-image placeholder"></div>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
-                                <h3 class="project-title">Nmaa جرين تاور</h3>
-                                <p class="project-category">تجاري وإداري</p>
+                                <h3 class="project-title" data-translate="projFMHalfMillionTitle">هاف مليون</h3>
+                                <p class="project-category" data-translate="projectsFilterFacility">إدارة المرافق</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">Nmaa جرين تاور</h3>
-                        <p class="project-description">برج تجاري وإداري بتصميم مستدام</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <p class="project-description" data-translate="projFMHalfMillionDesc">أعمال الصيانة لفروع كافيه
+                            هاف مليون بالرياض، 2024.</p>
+                        <a href="../facility/facility.html" class="project-link"
+                            data-translate="projectsExplore">استكشف</a>
                     </div>
                 </div>
 
-                <!-- OD Projects -->
-                <div class="project-card" data-category="commercial">
+                <div class="project-card" data-category="facility">
                     <div class="project-image-wrapper">
+                        <div class="project-image placeholder"></div>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
-                                <h3 class="project-title">أو دي أوفيس I</h3>
-                                <p class="project-category">تجاري وإداري</p>
+                                <h3 class="project-title" data-translate="projFMHungerstationTitle">سوبر ماركت هنقرستيشن
+                                </h3>
+                                <p class="project-category" data-translate="projectsFilterFacility">إدارة المرافق</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">أو دي أوفيس I</h3>
-                        <p class="project-description">مبنى مكاتب راقي بمواصفات عالمية</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <p class="project-description" data-translate="projFMHungerstationDesc">أنشطة الصيانة لفروع
+                            هنقرستيشن في أكثر من 15 مدينة بالمملكة، مستمر.</p>
+                        <a href="../facility/facility.html" class="project-link"
+                            data-translate="projectsExplore">استكشف</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="commercial">
+                <div class="project-card" data-category="facility">
                     <div class="project-image-wrapper">
+                        <div class="project-image placeholder"></div>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
-                                <h3 class="project-title">أو دي أوفيس II</h3>
-                                <p class="project-category">تجاري وإداري</p>
+                                <h3 class="project-title" data-translate="projFMLagateTitle">سوبر ماركت لاقيت</h3>
+                                <p class="project-category" data-translate="projectsFilterFacility">إدارة المرافق</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">أو دي أوفيس II</h3>
-                        <p class="project-description">مبنى مكاتب راقي بتصميم عصري</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <p class="project-description" data-translate="projFMLagateDesc">أنشطة الصيانة لمتاجر لاقيت في
+                            جميع مدن المملكة، مستمر.</p>
+                        <a href="../facility/facility.html" class="project-link"
+                            data-translate="projectsExplore">استكشف</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="commercial">
+                <div class="project-card" data-category="facility">
                     <div class="project-image-wrapper">
+                        <div class="project-image placeholder"></div>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
-                                <h3 class="project-title">أو دي بلازا I</h3>
-                                <p class="project-category">تجاري وإداري</p>
+                                <h3 class="project-title" data-translate="projFMNanaTitle">متاجر نانا</h3>
+                                <p class="project-category" data-translate="projectsFilterFacility">إدارة المرافق</p>
                             </div>
                         </div>
                     </div>
                     <div class="project-card-content">
-                        <h3 class="project-name">أو دي بلازا I</h3>
-                        <p class="project-description">مجمع تجاري راقي يوفر مساحات تجارية متنوعة</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="commercial">
-                    <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">أو دي بلازا II</h3>
-                                <p class="project-category">تجاري وإداري</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">أو دي بلازا II</h3>
-                        <p class="project-description">مجمع تجاري راقي بموقع استراتيجي</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="commercial">
-                    <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">أو دي فلور I</h3>
-                                <p class="project-category">تجاري وإداري</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">أو دي فلور I</h3>
-                        <p class="project-description">مبنى تجاري راقي يوفر مساحات متعددة الاستخدام</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="commercial">
-                    <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">أو دي فلور II</h3>
-                                <p class="project-category">تجاري وإداري</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">أو دي فلور II</h3>
-                        <p class="project-description">مبنى تجاري راقي بتصميم عصري</p>
-                        <a href="#" class="project-link">استكشف</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="commercial">
-                    <div class="project-image-wrapper">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <h3 class="project-title">أو دي تاور</h3>
-                                <p class="project-category">تجاري وإداري</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-name">أو دي تاور</h3>
-                        <p class="project-description">برج تجاري وإداري راقي بمواصفات عالمية</p>
-                        <a href="#" class="project-link">استكشف</a>
+                        <p class="project-description" data-translate="projFMNanaDesc">أنشطة الصيانة لفروع نانا بالرياض،
+                            مايو 2023.</p>
+                        <a href="../facility/facility.html" class="project-link"
+                            data-translate="projectsExplore">استكشف</a>
                     </div>
                 </div>
             </div>
             <div class="section-footer">
-                <button class="btn-load-more" id="loadMoreBtn">عرض المزيد</button>
+                <button class="btn-load-more" id="loadMoreBtn" data-translate="projectsLoadMore">عرض المزيد</button>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4 class="footer-title">الاشتراك في النشرة الإخبارية</h4>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="البريد الإلكتروني" class="newsletter-input" required>
-                        <button type="submit" class="newsletter-btn">اشترك</button>
-                    </form>
-                    <p class="newsletter-note">Leave this field empty if you're human:</p>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">روابط سريعة</h4>
-                    <ul class="footer-links">
-                        <li><a href="../index/index.html">الرئيسية</a></li>
-                        <li><a href="projects.html">المشاريع</a></li>
-                        <li><a href="../about/about.html">عن Nmaa</a></li>
-                        <li><a href="../management/management.html">الإدارة</a></li>
-                        <li><a href="../media/media.html">الإعلام والأخبار</a></li>
-                        <li><a href="../contact/contact.html">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">المشاريع السكنية</h4>
-                    <h5 class="footer-subtitle">مشاريع Nmaa هاوسنق</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Nmaa هاوسنق إشبيلية</a></li>
-                        <li><a href="#">Nmaa هاوسنق المونسية</a></li>
-                        <li><a href="#">Nmaa هاوسنق السعادة</a></li>
-                        <li><a href="#">Nmaa هاوسنق مرسية</a></li>
-                    </ul>
-                    <h5 class="footer-subtitle">مشاريع أخرى</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">سجايا من Nmaa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">المشاريع التجارية</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Nmaa إيدج</a></li>
-                        <li><a href="#">Nmaa جرين تاور</a></li>
-                    </ul>
-                    <h4 class="footer-title">OD مشاريع</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">أو دي أوفيس I</a></li>
-                        <li><a href="#">أو دي أوفيس II</a></li>
-                        <li><a href="#">أو دي بلازا I</a></li>
-                        <li><a href="#">أو دي بلازا II</a></li>
-                        <li><a href="#">أو دي فلور I</a></li>
-                        <li><a href="#">أو دي فلور II</a></li>
-                        <li><a href="#">أو دي تاور</a></li>
-                    </ul>
-                    <h4 class="footer-title">مجتمعات متعددة الإستخدام</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Nmaa برايم</a></li>
-                        <li><a href="#">Nmaa مكان</a></li>
-                        <li><a href="#">عين Nmaa</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 جميع الحقوق محفوظة © Nmaa العقار</p>
-                <div class="footer-legal">
-                    <a href="#">شروط الخدمة</a>
-                    <a href="#">سياسة الخصوصية</a>
-                    <a href="#">سياسة ملفات تعريف الارتباط</a>
-                    <a href="#">خريطة الموقع</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder - loaded dynamically by header.js -->
+    <div id="footer-placeholder"></div>
 
+    <script src="../shared/translations.js"></script>
     <script src="../shared/header.js"></script>
     <script src="projects.js"></script>
 </body>
-</html>
 
+</html>

@@ -69,3 +69,5 @@ git checkout HEAD -- "pages/index/index.html"
 - لا يمكن تجاوز الحماية إلا بإزالة Git hook (غير مستحسن)
 - جميع التغييرات محفوظة في Git history
 
+
+

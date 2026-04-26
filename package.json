@@ -1,0 +1,16 @@
+{
+  "name": "nmaa-web-site.backup-20260222-133047",
+  "version": "1.0.0",
+  "description": "```powershell\r .\\quick-restore.ps1\r ```",
+  "main": "DIAGNOSTIC-SCRIPT.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "css-tree": "^3.2.1"
+  }
+}

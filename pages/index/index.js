@@ -43,7 +43,7 @@ function showSlide(index) {
     // Remove active class from all slides and dots
     slides.forEach(slide => slide.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
-    
+
     // Add active class to current slide and dot
     if (slides[index]) {
         slides[index].classList.add('active');
@@ -51,7 +51,7 @@ function showSlide(index) {
     if (dots[index]) {
         dots[index].classList.add('active');
     }
-    
+
     currentSlide = index;
 }
 
@@ -68,24 +68,24 @@ function prevSlide() {
 // Initialize slider
 if (slides.length > 0) {
     showSlide(0);
-    
+
     // Auto slide every 5 seconds
     setInterval(nextSlide, 5000);
-    
+
     // Button events
     if (nextBtn) {
         nextBtn.addEventListener('click', nextSlide);
     }
-    
+
     if (prevBtn) {
         prevBtn.addEventListener('click', prevSlide);
     }
-    
+
     // Dot events
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => showSlide(index));
     });
-    
+
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') {
@@ -96,167 +96,91 @@ if (slides.length > 0) {
     });
 }
 
-// Approach Slider Functionality
-let currentApproachSlide = 0;
-const approachSlides = document.querySelectorAll('.approach-slide');
-const approachDots = document.querySelectorAll('.approach-dot');
-const approachPrevBtn = document.querySelector('.approach-prev');
-const approachNextBtn = document.querySelector('.approach-next');
-const approachTrack = document.querySelector('.approach-slider-track');
-const totalApproachSlides = approachSlides.length;
+// Approach Section - Horizontal Scroll Layout
+document.addEventListener('DOMContentLoaded', function () {
+    const approachSlider = document.querySelector('.approach-slider');
 
-function showApproachSlide(index) {
-    // Remove active class from all slides and dots
-    approachSlides.forEach(slide => slide.classList.remove('active'));
-    approachDots.forEach(dot => dot.classList.remove('active'));
-    
-    // Add active class to current slide and dot
-    if (approachSlides[index]) {
-        approachSlides[index].classList.add('active');
-    }
-    if (approachDots[index]) {
-        approachDots[index].classList.add('active');
-    }
-    
-    // Move track
-    if (approachTrack) {
-        approachTrack.style.transform = `translateX(-${index * 100}%)`;
-    }
-    
-    currentApproachSlide = index;
-}
+    if (approachSlider) {
+        const wrapper = approachSlider.querySelector('.swiper-wrapper');
+        const nextBtn = document.getElementById('approachNext');
+        const prevBtn = document.getElementById('approachPrev');
 
-function nextApproachSlide() {
-    const next = (currentApproachSlide + 1) % totalApproachSlides;
-    showApproachSlide(next);
-}
+        if (wrapper) {
+            // Ensure flex layout for horizontal scroll
+            wrapper.style.display = 'flex';
+            wrapper.style.flexDirection = 'row';
+            wrapper.style.transform = 'none';
+            wrapper.style.width = 'auto';
+            wrapper.style.flexWrap = 'nowrap';
 
-function prevApproachSlide() {
-    const prev = (currentApproachSlide - 1 + totalApproachSlides) % totalApproachSlides;
-    showApproachSlide(prev);
-}
+            // Responsive slide widths
+            function updateLayout() {
+                const width = window.innerWidth;
+                const slides = wrapper.querySelectorAll('.swiper-slide');
 
-// Initialize approach slider
-if (approachSlides.length > 0) {
-    showApproachSlide(0);
-    
-    // Auto slide every 6 seconds
-    setInterval(nextApproachSlide, 6000);
-    
-    // Button events
-    if (approachNextBtn) {
-        approachNextBtn.addEventListener('click', nextApproachSlide);
-    }
-    
-    if (approachPrevBtn) {
-        approachPrevBtn.addEventListener('click', prevApproachSlide);
-    }
-    
-    // Dot events
-    approachDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showApproachSlide(index));
-    });
-    
-    // Touch/swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    approachTrack.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-    
-    approachTrack.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-    
-    function handleSwipe() {
-        if (touchEndX < touchStartX - 50) {
-            nextApproachSlide();
+                if (width >= 992) {
+                    wrapper.style.gap = '2rem';
+                    slides.forEach(slide => {
+                        slide.style.width = '372px';
+                        slide.style.marginLeft = '30px';
+                    });
+                    if (slides[0]) slides[0].style.marginLeft = '0';
+                } else if (width >= 768) {
+                    wrapper.style.gap = '1.5rem';
+                    slides.forEach(slide => {
+                        slide.style.width = `calc((100% - 3rem) / 3)`;
+                        slide.style.marginLeft = '';
+                    });
+                } else if (width >= 480) {
+                    wrapper.style.gap = '1rem';
+                    slides.forEach(slide => {
+                        slide.style.width = `calc((100% - 1rem) / 2)`;
+                        slide.style.marginLeft = '';
+                    });
+                } else {
+                    wrapper.style.gap = '1.5rem';
+                    slides.forEach(slide => {
+                        slide.style.width = `calc(100% - 3rem)`;
+                        slide.style.maxWidth = '350px';
+                        slide.style.marginLeft = '';
+                    });
+                }
+            }
+
+            // Detect if page is RTL
+            const isRTL = document.documentElement.dir === 'rtl' ||
+                getComputedStyle(document.documentElement).direction === 'rtl';
+            // In RTL, scrollLeft is negative (or inverted), so we invert the direction
+            const scrollAmount = 402; // 372px width + 30px margin
+
+            // Next button: scroll towards "next" cards (left in RTL)
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function () {
+                    approachSlider.scrollBy({
+                        left: isRTL ? -scrollAmount : scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Prev button: scroll towards "previous" cards (right in RTL)
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function () {
+                    approachSlider.scrollBy({
+                        left: isRTL ? scrollAmount : -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            updateLayout();
+            window.addEventListener('resize', updateLayout);
         }
-        if (touchEndX > touchStartX + 50) {
-            prevApproachSlide();
-        }
     }
-}
+});
 
-// Search Modal
-const searchToggle = document.getElementById('searchToggle');
-const searchModal = document.getElementById('searchModal');
-const searchClose = document.getElementById('searchClose');
-
-if (searchToggle && searchModal) {
-    searchToggle.addEventListener('click', () => {
-        searchModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        const searchField = searchModal.querySelector('.search-field');
-        if (searchField) {
-            setTimeout(() => searchField.focus(), 100);
-        }
-    });
-}
-
-if (searchClose && searchModal) {
-    searchClose.addEventListener('click', () => {
-        searchModal.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-}
-
-if (searchModal) {
-    searchModal.addEventListener('click', (e) => {
-        if (e.target === searchModal) {
-            searchModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-}
-
-// Mobile Menu
-const menuToggle = document.getElementById('menuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileMenuClose = document.getElementById('mobileMenuClose');
-const mobileAboutBtn = document.getElementById('mobileAboutBtn');
-const mobileAboutMenu = document.getElementById('mobileAboutMenu');
-
-if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        menuToggle.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-}
-
-if (mobileMenuClose && mobileMenu) {
-    mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        if (menuToggle) menuToggle.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-}
-
-if (mobileAboutBtn && mobileAboutMenu) {
-    const mobileNavItem = mobileAboutBtn.closest('.mobile-nav-item');
-    mobileAboutBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        mobileAboutMenu.classList.toggle('active');
-        if (mobileNavItem) {
-            mobileNavItem.classList.toggle('active');
-        }
-    });
-}
-
-// Close mobile menu on link click
-if (mobileMenu) {
-    const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link, .mobile-submenu-link');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            if (menuToggle) menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-}
+// Search Modal - REMOVED (handled by header.js)
+// Mobile Menu - REMOVED (handled by header.js)
 
 // Animate statistics on scroll
 const observerOptions = {
@@ -295,21 +219,28 @@ function animateNumber(element, start, end, duration) {
 
 // Header scroll effect with active navigation highlighting
 let lastScroll = 0;
-const header = document.querySelector('.header');
-const navLinks = document.querySelectorAll('.nav-link, .nav-menu-desktop a');
 
-// All sections with IDs
+// Initialize immediately since navbar is static HTML
+const header = document.querySelector('.header');
+const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
+console.log('🎯 index.js: Header elements initialized', {
+    header: !!header,
+    navLinks: navLinks ? navLinks.length : 0,
+    sections: sections ? sections.length : 0
+});
+
 function updateActiveNav() {
+    if (!sections || !navLinks || sections.length === 0) return;
     const scrollY = window.pageYOffset;
     const headerHeight = header ? header.offsetHeight : 0;
-    
+
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
         const sectionTop = section.offsetTop - headerHeight - 100;
         const sectionId = section.getAttribute('id');
-        
+
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
@@ -319,7 +250,7 @@ function updateActiveNav() {
             });
         }
     });
-    
+
     // Handle home section (top of page)
     if (scrollY < 100) {
         navLinks.forEach(link => {
@@ -334,27 +265,60 @@ function updateActiveNav() {
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
-    // Header shadow effect
-    if (currentScroll > 100) {
-        if (header) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-            header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-            header.style.backdropFilter = 'blur(10px)';
+    const headerHeight = header ? header.offsetHeight : 0;
+
+    // Determine which section we're in
+    let currentSection = null;
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - headerHeight - 100;
+        const sectionHeight = section.offsetHeight;
+        if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+            currentSection = section;
         }
-    } else {
-        if (header) {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            header.style.backgroundColor = 'var(--color-white)';
-            header.style.backdropFilter = 'none';
+    });
+
+    // Change header style based on section
+    if (header) {
+        // Transparent sections: video-hero, image-hero, slider-hero (sections with images/videos)
+        const transparentSections = ['home', 'featured', 'slider'];
+        const isTransparentSection = currentSection && transparentSections.includes(currentSection.id);
+
+        // Dark sections: statistics, cta
+        const darkSections = ['statistics', 'cta'];
+        const isDarkSection = currentSection && darkSections.includes(currentSection.id);
+
+        // Light sections: about, awards, news
+        const lightSections = ['about', 'awards', 'media'];
+        const isLightSection = currentSection && lightSections.includes(currentSection.id);
+
+        // Reset all classes
+        header.classList.remove('transparent-header', 'light-header', 'scrolled');
+
+        if (isTransparentSection || (currentScroll < 100 && !currentSection)) {
+            header.classList.add('transparent-header');
+            if (currentScroll > 50) header.classList.add('scrolled');
+        } else if (isDarkSection) {
+            // Re-use transparent-header logic for dark sections to get white text
+            header.classList.add('transparent-header');
+            header.classList.add('scrolled');
+            // Allow CSS to handle the background for .scrolled
+        } else {
+            // Light sections or default
+            header.classList.add('light-header');
+            if (currentScroll > 100) header.classList.add('scrolled');
         }
     }
-    
+
     // Update active navigation
     updateActiveNav();
-    
+
     lastScroll = currentScroll;
 });
+
+// Initial header state
+if (header && window.pageYOffset < 100) {
+    header.classList.add('transparent-header');
+}
 
 // Scroll animations for sections
 const scrollObserverOptions = {
@@ -366,7 +330,7 @@ const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-visible');
-            
+
             // Animate children elements with stagger
             const children = entry.target.querySelectorAll('.animate-on-scroll');
             children.forEach((child, index) => {
@@ -378,23 +342,26 @@ const scrollObserver = new IntersectionObserver((entries) => {
     });
 }, scrollObserverOptions);
 
-// Observe all sections
-sections.forEach(section => {
-    section.classList.add('fade-in-section');
-    scrollObserver.observe(section);
+// Observe all sections - wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+    const allSections = document.querySelectorAll('section[id]');
+    allSections.forEach(section => {
+        section.classList.add('fade-in-section');
+        scrollObserver.observe(section);
+    });
 });
 
-// Parallax effect for hero sections
-function parallaxScroll() {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.parallax-element');
-    
-    parallaxElements.forEach(element => {
-        const speed = element.dataset.speed || 0.5;
-        const yPos = -(scrolled * speed);
-        element.style.transform = `translateY(${yPos}px)`;
-    });
-}
+// Parallax effect disabled to prevent spacing issues
+// function parallaxScroll() {
+//     const scrolled = window.pageYOffset;
+//     const parallaxElements = document.querySelectorAll('.parallax-element');
+//
+//     parallaxElements.forEach(element => {
+//         const speed = element.dataset.speed || 0.5;
+//         const yPos = -(scrolled * speed);
+//         element.style.transform = `translateY(${yPos}px)`;
+//     });
+// }
 
-window.addEventListener('scroll', parallaxScroll);
+// window.addEventListener('scroll', parallaxScroll);
 

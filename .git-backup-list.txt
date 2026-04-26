@@ -1,0 +1,2 @@
+pages/shared/header.css
+pages/shared/header.js

@@ -1,0 +1,114 @@
+<!-- Shared Navbar Component - Loaded dynamically by header.js -->
+<header class="header {{HEADER_CLASS}}" id="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Right: Logo & Navigation Links -->
+            <div class="nav-right">
+                <a href="../index/index.html" class="logo-link">
+                    <span class="logo-text" data-translate="navLogo">نماء المدن</span>
+                </a>
+                <div class="header-separator"></div>
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <button class="nav-link" type="button" data-translate="navAbout">من نحن</button>
+                        <ul class="dropdown-menu">
+                            <li><a href="../about/about.html" class="dropdown-link" data-translate="navAboutUs">عن نماء
+                                    المدن</a></li>
+                            <li><a href="../management/management.html" class="dropdown-link"
+                                    data-translate="navManagement">الإدارة</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="../projects/projects.html" class="nav-link"
+                            data-translate="navProjects">المشاريع</a></li>
+                    <li class="nav-item"><a href="../services/services.html" class="nav-link"
+                            data-translate="navServices">الخدمات</a></li>
+                    <li class="nav-item"><a href="../media/media.html" class="nav-link"
+                            data-translate="navMedia">الإعلام والأخبار</a></li>
+                    <li class="nav-item"><a href="../careers/careers.html" class="nav-link"
+                            data-translate="navCareers">الوظائف</a></li>
+                </ul>
+            </div>
+
+            <!-- Left: Search, Language & Contact -->
+            <div class="nav-left">
+                <button class="nav-icon-btn search-btn" id="searchToggle" aria-label="Search" title="بحث">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <select class="lang-select" id="languageSelect">
+                    <option value="ar">العربية</option>
+                    <option value="en">English</option>
+                </select>
+                <a href="../contact/contact.html" class="contact-btn" data-translate="navContact">تواصل معنا</a>
+                <button class="nav-icon-btn menu-btn" id="menuToggle" aria-label="Menu" title="القائمة">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <button class="search-close-btn" id="searchClose" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="search-wrapper">
+                <h2 class="search-heading" data-translate="navSearchHeading">بحث</h2>
+                <form class="search-form" role="search">
+                    <input type="search" class="search-field" placeholder="ابحث..." data-translate="navSearch"
+                        autocomplete="off" autofocus>
+                    <button type="submit" class="search-submit-btn" aria-label="Submit search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <button class="mobile-close-btn" id="mobileMenuClose" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-link" id="mobileAboutBtn" data-translate="navAbout">من نحن</button>
+                <ul class="mobile-submenu" id="mobileAboutMenu">
+                    <li><a href="../about/about.html" class="mobile-submenu-link" data-translate="navAboutUs">عن نماء
+                            المدن</a></li>
+                    <li><a href="../management/management.html" class="mobile-submenu-link"
+                            data-translate="navManagement">الإدارة</a></li>
+                </ul>
+            </div>
+            <a href="../services/services.html" class="mobile-nav-link" data-translate="navServices">الخدمات</a>
+            <a href="../projects/projects.html" class="mobile-nav-link" data-translate="navProjects">المشاريع</a>
+            <a href="../media/media.html" class="mobile-nav-link" data-translate="navMedia">الإعلام والأخبار</a>
+            <a href="../careers/careers.html" class="mobile-nav-link" data-translate="navCareers">الوظائف</a>
+            <div class="mobile-nav-bottom">
+                <select class="mobile-lang-select">
+                    <option value="ar">العربية</option>
+                    <option value="en">English</option>
+                </select>
+                <a href="../contact/contact.html" class="mobile-contact-btn" data-translate="navContact">تواصل معنا</a>
+            </div>
+        </nav>
+    </div>
+</header>

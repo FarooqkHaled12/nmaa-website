@@ -66,3 +66,5 @@ Write-Host "  - التحقق التلقائي قبل كل commit" -ForegroundCol
 Write-Host "  - Automatic check before each commit" -ForegroundColor White
 Write-Host ""
 
+
+

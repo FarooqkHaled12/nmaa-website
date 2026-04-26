@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Menu Toggle</title>
+    <link rel="stylesheet" href="pages/shared/style.css">
+    <link rel="stylesheet" href="pages/shared/header.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .test-content {
+            padding: 150px 20px 50px;
+            text-align: center;
+            color: white;
+        }
+        .test-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .test-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .test-instructions {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: right;
+        }
+        .test-instructions h2 {
+            margin-top: 0;
+            color: #ffd700;
+        }
+        .test-instructions ol {
+            text-align: right;
+            line-height: 2;
+        }
+        .status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            max-width: 300px;
+        }
+        .status.success { border-left: 4px solid #4caf50; }
+        .status.error { border-left: 4px solid #f44336; }
+        .status.info { border-left: 4px solid #2196f3; }
+    </style>
+</head>
+<body>
+    <!-- Navbar (loaded dynamically) -->
+    <div id="navbar-placeholder" data-header-class="transparent-header"></div>
+
+    <div class="test-content">
+        <h1>🧪 اختبار زر القائمة</h1>
+        <p>Menu Toggle Button Test</p>
+        
+        <div class="test-instructions">
+            <h2>📋 خطوات الاختبار:</h2>
+            <ol>
+                <li>صغّر الشاشة أو افتح Developer Tools (F12)</li>
+                <li>اختر Device Toolbar (Ctrl+Shift+M)</li>
+                <li>اختر iPhone أو iPad</li>
+                <li>اضغط على زر ☰ في الأعلى</li>
+                <li>يجب أن تفتح القائمة المنسدلة</li>
+                <li>اضغط على ✕ للإغلاق</li>
+            </ol>
+            
+            <h2>✅ النتيجة المتوقعة:</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li>✓ الزر يتحول من ☰ إلى ✕</li>
+                <li>✓ القائمة تظهر بشكل كامل</li>
+                <li>✓ التمرير يُقفل</li>
+                <li>✓ يمكن الإغلاق بالضغط على ✕</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="status info" id="status">
+        <div>⏳ جاري التحميل...</div>
+        <div>Loading navbar...</div>
+    </div>
+
+    <script src="pages/shared/translations.js"></script>
+    <script src="pages/shared/header.js"></script>
+    
+    <script>
+        // Monitor navbar loading
+        document.addEventListener('navbarLoaded', () => {
+            const status = document.getElementById('status');
+            
+            setTimeout(() => {
+                const menuToggle = document.getElementById('menuToggle');
+                const mobileMenu = document.getElementById('mobileMenu');
+                
+                if (menuToggle && mobileMenu) {
+                    status.className = 'status success';
+                    status.innerHTML = `
+                        <div>✅ Navbar loaded successfully!</div>
+                        <div>menuToggle: Found</div>
+                        <div>mobileMenu: Found</div>
+                        <div>Width: ${window.innerWidth}px</div>
+                        <div style="margin-top: 10px; color: #4caf50;">Ready to test!</div>
+                    `;
+                    
+                    // Add extra click handler for testing
+                    menuToggle.addEventListener('click', () => {
+                        console.log('🎯 Menu toggle clicked! (test listener)');
+                    });
+                } else {
+                    status.className = 'status error';
+                    status.innerHTML = `
+                        <div>❌ Error!</div>
+                        <div>menuToggle: ${menuToggle ? 'Found' : 'NOT FOUND'}</div>
+                        <div>mobileMenu: ${mobileMenu ? 'Found' : 'NOT FOUND'}</div>
+                    `;
+                }
+            }, 200);
+        });
+        
+        // Timeout check
+        setTimeout(() => {
+            const status = document.getElementById('status');
+            if (status.className === 'status info') {
+                status.className = 'status error';
+                status.innerHTML = `
+                    <div>⚠️ Timeout!</div>
+                    <div>Navbar did not load</div>
+                    <div>Check console for errors</div>
+                `;
+            }
+        }, 5000);
+    </script>
+</body>
+</html>

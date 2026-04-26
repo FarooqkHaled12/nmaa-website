@@ -1,0 +1,61 @@
+.careers-page {
+  min-height: 60vh;
+}
+
+.careers-hero {
+  padding: 120px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.careers-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 400px at 15% 30%, rgba(183, 135, 78, 0.18), transparent 60%),
+    radial-gradient(700px 360px at 85% 55%, rgba(0, 0, 0, 0.10), transparent 55%);
+  pointer-events: none;
+}
+
+.careers-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(183, 135, 78, 0.35);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+.careers-title {
+  margin: 18px 0 10px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.careers-subtitle {
+  margin: 0;
+  max-width: 62ch;
+  opacity: 0.9;
+}
+
+.careers-actions {
+  margin-top: 22px;
+}
+
+.careers-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(183, 135, 78, 0.45);
+  background: rgba(183, 135, 78, 0.12);
+  text-decoration: none;
+}
+
+.careers-btn:hover {
+  background: rgba(183, 135, 78, 0.18);
+}

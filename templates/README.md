@@ -53,3 +53,5 @@ Copy-Item -Path "templates\pages\shared\*" -Destination "pages\shared\" -Recurse
 
 ✅ **نصيحة**: قبل الاستعادة، احتفظ بنسخة من التعديلات الحالية إذا كنت تريد الاحتفاظ بها.
 
+
+

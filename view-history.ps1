@@ -29,3 +29,5 @@ Write-Host "للاستعادة من commit معين، استخدم:" -Foreground
 Write-Host "To restore from a specific commit, use:" -ForegroundColor Cyan
 Write-Host "  git checkout [commit-hash] -- [file-path]" -ForegroundColor White
 
+
+
