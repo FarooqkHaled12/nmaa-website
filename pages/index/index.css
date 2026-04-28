@@ -1305,10 +1305,21 @@ body::after {
 @media (max-width: 768px) {
     /* Hero Sections Mobile */
     .video-hero-section,
-    .image-hero-section,
     .slider-hero-section {
         height: 70vh;
         min-height: 380px;
+    }
+
+    /* image-hero-section needs auto height to fit all content */
+    .image-hero-section {
+        height: auto;
+        min-height: 70vh;
+        padding: 5rem 0 3rem;
+    }
+
+    .image-hero-wrapper {
+        height: auto;
+        min-height: 100%;
     }
 
     .video-main-title,
@@ -1496,10 +1507,15 @@ body::after {
 
 @media (max-width: 480px) {
     .video-hero-section,
-    .image-hero-section,
     .slider-hero-section {
         height: 60vh;
         min-height: 350px;
+    }
+
+    .image-hero-section {
+        height: auto;
+        min-height: 60vh;
+        padding: 5rem 0 3rem;
     }
 
     .video-main-title,
@@ -1598,10 +1614,15 @@ body::after {
 /* Tablet Portrait */
 @media (max-width: 1024px) and (min-width: 769px) {
     .video-hero-section,
-    .image-hero-section,
     .slider-hero-section {
         height: 80vh;
         min-height: 500px;
+    }
+
+    .image-hero-section {
+        height: auto;
+        min-height: 80vh;
+        padding: 5rem 0 3rem;
     }
 
     .video-main-title,
