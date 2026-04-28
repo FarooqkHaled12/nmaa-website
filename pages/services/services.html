@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -10,11 +10,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../shared/style.css">
-    <link rel="stylesheet" href="../shared/header.css">
-    <link rel="stylesheet" href="../shared/footer.css?v=1">
-    <link rel="stylesheet" href="services.css">
-    <script src="../shared/translations.js"></script>
+    <link rel="stylesheet" href="../shared/style.css?v=2.0">
+    <link rel="stylesheet" href="../shared/header.css?v=2.0">
+    <link rel="stylesheet" href="../shared/footer.css?v=2.0">
+    <link rel="stylesheet" href="services.css?v=2.0">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
             <!-- Construction -->
             <a href="../construction/construction.html" class="service-card animate-on-scroll">
                 <div class="card-image-wrapper">
-                    <div class="placeholder"></div>
+                    <img src="../../public/nama_assets/one-1400w.webp" alt="المقاولات والبناء" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div class="card-content">
                     <div>
@@ -67,7 +67,7 @@
             <!-- Fit-out -->
             <a href="../fitout/fitout.html" class="service-card animate-on-scroll" style="transition-delay: 0.2s;">
                 <div class="card-image-wrapper">
-                    <div class="placeholder"></div>
+                    <img src="../../public/nama_assets/four-1500w.webp" alt="فيت أوت والإنتاج" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div class="card-content">
                     <div>
@@ -99,7 +99,7 @@
             <!-- Facility -->
             <a href="../facility/facility.html" class="service-card animate-on-scroll" style="transition-delay: 0.4s;">
                 <div class="card-image-wrapper">
-                    <div class="placeholder"></div>
+                    <img src="../../public/nama_assets/nine-1500w.webp" alt="إدارة المرافق" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div class="card-content">
                     <div>
@@ -173,12 +173,12 @@
                 <div class="footer-section">
                     <h4 class="footer-title" data-translate="footerQuickLinks">روابط سريعة</h4>
                     <ul class="footer-links">
-                        <li><a href="../index/index.html" data-translate="navHome">الرئيسية</a></li>
+                        <li><a href="/" data-translate="navHome">الرئيسية</a></li>
                         <li><a href="../projects/projects.html" data-translate="navProjects">المشاريع</a></li>
                         <li><a href="../services/services.html" data-translate="navServices">الخدمات</a></li>
                         <li><a href="../construction/construction.html" data-translate="navConstruction">المقاولات
                                 وEPC</a></li>
-                        <li><a href="fitout.html" data-translate="navFitOut">فيت أوت والإنتاج</a></li>
+                        <li><a href="../fitout/fitout.html" data-translate="navFitOut">فيت أوت والإنتاج</a></li>
                         <li><a href="../facility/facility.html" data-translate="navFacility">إدارة المرافق</a></li>
                         <li><a href="../about/about.html" data-translate="navAboutUs">عن نماء المدن</a></li>
                         <li><a href="../management/management.html" data-translate="navManagement">الإدارة</a></li>
@@ -245,7 +245,8 @@
         </div>
     </footer>
 
-    <script src="../shared/header.js"></script>
+    <script src="../shared/translations.js?v=2.0" defer></script>
+    <script src="../shared/header.js?v=2.0" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {

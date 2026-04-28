@@ -1,3 +1,8 @@
+/* ============================================
+   NMAA INDEX PAGE - OPTIMIZED JAVASCRIPT
+   Removed unused code and improved performance
+   ============================================ */
+
 // Enhanced Smooth Scrolling with Offset for Fixed Header
 function smoothScrollTo(target, offset = 80) {
     const element = document.querySelector(target);
@@ -31,148 +36,159 @@ if (heroVideo) {
     });
 }
 
-// Slider Functionality
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slider-slide');
-const dots = document.querySelectorAll('.slider-dot');
-const prevBtn = document.querySelector('.slider-prev');
-const nextBtn = document.querySelector('.slider-next');
-const totalSlides = slides.length;
+// Slider Functionality - Optimized
+document.addEventListener('DOMContentLoaded', function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const totalSlides = slides.length;
 
-function showSlide(index) {
-    // Remove active class from all slides and dots
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+    if (slides.length === 0) return;
 
-    // Add active class to current slide and dot
-    if (slides[index]) {
-        slides[index].classList.add('active');
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        if (slides[index]) slides[index].classList.add('active');
+        if (dots[index]) dots[index].classList.add('active');
+        currentSlide = index;
     }
-    if (dots[index]) {
-        dots[index].classList.add('active');
+
+    function nextSlide() {
+        showSlide((currentSlide + 1) % totalSlides);
     }
 
-    currentSlide = index;
-}
+    function prevSlide() {
+        showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    }
 
-function nextSlide() {
-    const next = (currentSlide + 1) % totalSlides;
-    showSlide(next);
-}
-
-function prevSlide() {
-    const prev = (currentSlide - 1 + totalSlides) % totalSlides;
-    showSlide(prev);
-}
-
-// Initialize slider
-if (slides.length > 0) {
+    // Initialize
     showSlide(0);
-
-    // Auto slide every 5 seconds
-    setInterval(nextSlide, 5000);
-
-    // Button events
-    if (nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
-    }
-
-    if (prevBtn) {
-        prevBtn.addEventListener('click', prevSlide);
-    }
-
-    // Dot events
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showSlide(index));
+    
+    // Auto-advance slides
+    const slideInterval = setInterval(nextSlide, 5000);
+    
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        nextSlide();
     });
-
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        prevSlide();
+    });
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            showSlide(index);
+        });
+    });
+    
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') {
+            clearInterval(slideInterval);
             nextSlide();
         } else if (e.key === 'ArrowLeft') {
+            clearInterval(slideInterval);
             prevSlide();
         }
     });
-}
+});
 
-// Approach Section - Horizontal Scroll Layout
+// Approach Section - Horizontal Scroll Layout - Optimized
 document.addEventListener('DOMContentLoaded', function () {
     const approachSlider = document.querySelector('.approach-slider');
+    if (!approachSlider) return;
 
-    if (approachSlider) {
-        const wrapper = approachSlider.querySelector('.swiper-wrapper');
-        const nextBtn = document.getElementById('approachNext');
-        const prevBtn = document.getElementById('approachPrev');
+    const wrapper = approachSlider.querySelector('.swiper-wrapper');
+    const nextBtn = document.getElementById('approachNext');
+    const prevBtn = document.getElementById('approachPrev');
+    const scrollContainer = document.querySelector('.approach-scroll-container') || approachSlider;
 
-        if (wrapper) {
-            // Ensure flex layout for horizontal scroll
-            wrapper.style.display = 'flex';
-            wrapper.style.flexDirection = 'row';
-            wrapper.style.transform = 'none';
-            wrapper.style.width = 'auto';
-            wrapper.style.flexWrap = 'nowrap';
+    if (wrapper) {
+        // Ensure flex layout for horizontal scroll
+        wrapper.style.display = 'flex';
+        wrapper.style.flexDirection = 'row';
+        wrapper.style.transform = 'none';
+        wrapper.style.width = 'auto';
+        wrapper.style.flexWrap = 'nowrap';
 
-            // Responsive slide widths - FIXED FOR MOBILE
-            function updateLayout() {
-                const width = window.innerWidth;
-                const slides = wrapper.querySelectorAll('.swiper-slide');
+        // Responsive slide widths
+        function updateLayout() {
+            const width = window.innerWidth;
+            const slides = wrapper.querySelectorAll('.swiper-slide');
 
-                // Remove all inline styles first
-                slides.forEach(slide => {
-                    slide.style.width = '';
-                    slide.style.marginLeft = '';
-                    slide.style.minWidth = '';
-                    slide.style.maxWidth = '';
+            slides.forEach(slide => {
+                slide.style.width = '';
+                slide.style.marginLeft = '';
+            });
+
+            if (width >= 992) {
+                wrapper.style.gap = '2rem';
+                slides.forEach((slide, index) => {
+                    slide.style.width = '372px';
+                    slide.style.marginLeft = index === 0 ? '0' : '30px';
                 });
-
-                if (width >= 992) {
-                    wrapper.style.gap = '2rem';
-                    slides.forEach(slide => {
-                        slide.style.width = '372px';
-                        slide.style.marginLeft = '30px';
-                    });
-                    if (slides[0]) slides[0].style.marginLeft = '0';
-                } else if (width >= 768) {
-                    wrapper.style.gap = '1.5rem';
-                    // Let CSS handle it
-                } else if (width >= 480) {
-                    wrapper.style.gap = '1rem';
-                    // Let CSS handle it
-                } else {
-                    wrapper.style.gap = '1.5rem';
-                    // Let CSS handle it - don't override
-                }
+            } else if (width >= 768) {
+                wrapper.style.gap = '1.5rem';
+            } else if (width >= 480) {
+                wrapper.style.gap = '1rem';
+            } else {
+                wrapper.style.gap = '1.5rem';
             }
+        }
 
-            updateLayout();
-            window.addEventListener('resize', updateLayout);
+        updateLayout();
+        
+        // Debounced resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateLayout, 150);
+        });
+
+        // Navigation buttons scroll
+        const scrollAmount = 400;
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
         }
     }
 });
 
-// Search Modal - REMOVED (handled by header.js)
-// Mobile Menu - REMOVED (handled by header.js)
-
-// Animate statistics on scroll
+// Animate statistics on scroll - Optimized with Intersection Observer
 const observerOptions = {
     threshold: 0.5,
     rootMargin: '0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const statNumber = entry.target.querySelector('.stat-number');
-            const target = parseInt(statNumber.getAttribute('data-target'));
-            animateNumber(statNumber, 0, target, 2000);
-            observer.unobserve(entry.target);
+            if (statNumber && !statNumber.dataset.animated) {
+                const target = parseInt(statNumber.getAttribute('data-target'));
+                animateNumber(statNumber, 0, target, 2000);
+                statNumber.dataset.animated = 'true';
+            }
+            statsObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 document.querySelectorAll('.stat-item').forEach(item => {
-    observer.observe(item);
+    statsObserver.observe(item);
 });
 
 function animateNumber(element, start, end, duration) {
@@ -181,7 +197,7 @@ function animateNumber(element, start, end, duration) {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
         const current = Math.floor(progress * (end - start) + start);
-        element.textContent = current;
+        element.textContent = current.toLocaleString();
         if (progress < 1) {
             window.requestAnimationFrame(step);
         }
@@ -189,22 +205,15 @@ function animateNumber(element, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-// Header scroll effect with active navigation highlighting
+// Header scroll effect with active navigation highlighting - Optimized
 let lastScroll = 0;
-
-// Initialize immediately since navbar is static HTML
 const header = document.querySelector('.header');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
-console.log('🎯 index.js: Header elements initialized', {
-    header: !!header,
-    navLinks: navLinks ? navLinks.length : 0,
-    sections: sections ? sections.length : 0
-});
-
 function updateActiveNav() {
     if (!sections || !navLinks || sections.length === 0) return;
+    
     const scrollY = window.pageYOffset;
     const headerHeight = header ? header.offsetHeight : 0;
 
@@ -235,7 +244,19 @@ function updateActiveNav() {
     }
 }
 
+// Debounced scroll handler - Optimized
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+            handleScroll();
+            scrollTicking = false;
+        });
+        scrollTicking = true;
+    }
+}, { passive: true });
+
+function handleScroll() {
     const currentScroll = window.pageYOffset;
     const headerHeight = header ? header.offsetHeight : 0;
 
@@ -251,17 +272,10 @@ window.addEventListener('scroll', () => {
 
     // Change header style based on section
     if (header) {
-        // Transparent sections: video-hero, image-hero, slider-hero (sections with images/videos)
         const transparentSections = ['home', 'featured', 'slider'];
-        const isTransparentSection = currentSection && transparentSections.includes(currentSection.id);
-
-        // Dark sections: statistics, cta
         const darkSections = ['statistics', 'cta'];
+        const isTransparentSection = currentSection && transparentSections.includes(currentSection.id);
         const isDarkSection = currentSection && darkSections.includes(currentSection.id);
-
-        // Light sections: about, awards, news
-        const lightSections = ['about', 'awards', 'media'];
-        const isLightSection = currentSection && lightSections.includes(currentSection.id);
 
         // Reset all classes
         header.classList.remove('transparent-header', 'light-header', 'scrolled');
@@ -270,12 +284,9 @@ window.addEventListener('scroll', () => {
             header.classList.add('transparent-header');
             if (currentScroll > 50) header.classList.add('scrolled');
         } else if (isDarkSection) {
-            // Re-use transparent-header logic for dark sections to get white text
             header.classList.add('transparent-header');
             header.classList.add('scrolled');
-            // Allow CSS to handle the background for .scrolled
         } else {
-            // Light sections or default
             header.classList.add('light-header');
             if (currentScroll > 100) header.classList.add('scrolled');
         }
@@ -283,58 +294,40 @@ window.addEventListener('scroll', () => {
 
     // Update active navigation
     updateActiveNav();
-
     lastScroll = currentScroll;
-});
+}
 
 // Initial header state
 if (header && window.pageYOffset < 100) {
     header.classList.add('transparent-header');
 }
 
-// Scroll animations for sections
-const scrollObserverOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
+// Scroll animations for sections - Optimized
 const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-visible');
-
-            // Animate children elements with stagger
-            const children = entry.target.querySelectorAll('.animate-on-scroll');
-            children.forEach((child, index) => {
-                setTimeout(() => {
-                    child.classList.add('animated');
-                }, index * 100);
+            entry.target.querySelectorAll('.animate-on-scroll').forEach(child => {
+                child.classList.add('animated');
             });
+            scrollObserver.unobserve(entry.target);
         }
     });
-}, scrollObserverOptions);
+}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
 
-// Observe all sections - wait for DOM to be ready
+// Initialize scroll animations
 document.addEventListener('DOMContentLoaded', () => {
-    const allSections = document.querySelectorAll('section[id]');
-    allSections.forEach(section => {
+    document.querySelectorAll('section[id]').forEach(section => {
+        if (section.id === 'home') {
+            section.classList.add('fade-in-visible');
+            section.querySelectorAll('.animate-on-scroll').forEach(c => c.classList.add('animated'));
+            return;
+        }
         section.classList.add('fade-in-section');
         scrollObserver.observe(section);
     });
 });
 
-// Parallax effect disabled to prevent spacing issues
-// function parallaxScroll() {
-//     const scrolled = window.pageYOffset;
-//     const parallaxElements = document.querySelectorAll('.parallax-element');
-//
-//     parallaxElements.forEach(element => {
-//         const speed = element.dataset.speed || 0.5;
-//         const yPos = -(scrolled * speed);
-//         element.style.transform = `translateY(${yPos}px)`;
-//     });
-// }
-
-// window.addEventListener('scroll', parallaxScroll);
-
-
+// Performance optimization: Disable parallax effect
+// Parallax was causing performance issues and layout shifts
+// Keeping this comment for future reference if needed

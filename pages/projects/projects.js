@@ -1,4 +1,4 @@
-// Projects Page JavaScript
+﻿// Projects Page JavaScript
 
 document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -131,3 +131,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+// ===== Auto Image Rotator with Arrows =====
+document.querySelectorAll('.project-image-wrapper').forEach(wrapper => {
+    const imgs = wrapper.querySelectorAll('.project-image');
+    if (imgs.length <= 1) return;
+
+    let current = imgs.length - 1;
+
+    imgs.forEach((img, i) => {
+        img.style.position = 'absolute';
+        img.style.top = '0'; img.style.left = '0';
+        img.style.width = '100%'; img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.style.transition = 'opacity 0.8s ease';
+        img.style.opacity = (i === current) ? '1' : '0';
+        img.style.display = '';
+    });
+    wrapper.style.position = 'relative';
+
+    function goTo(n) {
+        imgs[current].style.opacity = '0';
+        current = (n + imgs.length) % imgs.length;
+        imgs[current].style.opacity = '1';
+    }
+
+    // Auto rotate
+    let timer = setInterval(() => goTo(current + 1), 3000);
+
+    // Arrows
+    const prev = document.createElement('button');
+    prev.className = 'img-arrow prev';
+    prev.innerHTML = '&#10094;';
+    prev.addEventListener('click', e => { e.preventDefault(); clearInterval(timer); goTo(current - 1); timer = setInterval(() => goTo(current + 1), 3000); });
+
+    const next = document.createElement('button');
+    next.className = 'img-arrow next';
+    next.innerHTML = '&#10095;';
+    next.addEventListener('click', e => { e.preventDefault(); clearInterval(timer); goTo(current + 1); timer = setInterval(() => goTo(current + 1), 3000); });
+
+    wrapper.appendChild(prev);
+    wrapper.appendChild(next);
+});

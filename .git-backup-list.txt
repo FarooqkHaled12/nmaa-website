@@ -1,3 +1,0 @@
-.git-backup-list.txt
-.netlify/netlify.toml
-pages/shared/header-temp.css

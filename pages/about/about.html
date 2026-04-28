@@ -1,260 +1,151 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="تعرف على شركة نماء المدن للمقاولات - تأسست عام 2009، خبرة أكثر من 15 عاماً في مجال المقاولات والتطوير العقاري في المملكة.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عن نماء المدن | About Nmaa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../shared/style.css">
-    <link rel="stylesheet" href="../shared/header.css">
-    <link rel="stylesheet" href="../shared/footer.css?v=1">
-    <link rel="stylesheet" href="about.css">
-    <script src="../shared/translations.js"></script>
+    <link rel="stylesheet" href="../shared/style.css?v=2.0">
+    <link rel="stylesheet" href="../shared/header.css?v=2.0">
+    <link rel="stylesheet" href="../shared/footer.css?v=2.0">
+    <link rel="stylesheet" href="about.css?v=2.0">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
 </head>
 
 <body>
-    <!-- Navbar Placeholder - loaded dynamically by header.js -->
     <div id="navbar-placeholder" data-header-class="transparent-header"></div>
 
-    <!-- WRAPPER FOR BLURRED BACKGROUND -->
-    <div class="about-page-container">
-
-        <!-- Hero Section -->
-        <section class="about-hero">
-            <div class="hero-content animate-on-scroll">
-                <div class="hero-badge" data-translate="navAboutUs">عن نماء المدن</div>
+    <main class="about-page">
+        <section class="about-hero section-reveal">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <span class="hero-badge" data-translate="navAboutUs">عن نماء المدن</span>
                 <h1 class="hero-title" data-translate="aboutHeroTitle">نبتكر المستقبل، <br> نبني الإرث</h1>
+                <p class="hero-subtitle" data-translate="aboutVisionSubtitle">إرثٌ من التطوير، يتجاوز البناء</p>
             </div>
         </section>
 
-        <!-- Vision & Mission (Glass Cards) -->
-        <section class="content-section">
-            <div class="container">
-                <div class="vision-grid">
-                    <!-- Vision -->
-                    <div class="glass-card animate-on-scroll">
-                        <div class="card-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path
-                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                </path>
-                            </svg>
-                        </div>
-                        <h2 class="card-title" data-translate="aboutOurVisionTitle">رؤيتنا</h2>
-                        <p class="card-text" data-translate="aboutOurVisionText">
-                            أن نكون الرائدين في تطوير بيئات عمرانية متكاملة ومستدامة تفوق التوقعات، وترتقي بجودة الحياة
-                            في المملكة.
-                        </p>
-                    </div>
-
-                    <!-- Mission -->
-                    <div class="glass-card animate-on-scroll" style="transition-delay: 0.2s;">
-                        <div class="card-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                        </div>
-                        <h2 class="card-title" data-translate="aboutOurMissionTitle">رسالتنا</h2>
-                        <p class="card-text" data-translate="aboutOurMissionText">
-                            تقديم حلول عقارية وإنشائية مبتكرة تلتزم بأعلى معايير الجودة والشفافية، وتسهم في تحقيق رؤية
-                            2030.
-                        </p>
-                    </div>
+        <section class="about-story section-reveal">
+            <div class="container story-grid">
+                <div class="story-text">
+                    <h2 class="section-title" data-translate="aboutNmaaTitle">عن نماء المدن</h2>
+                    <p class="section-kicker" data-translate="aboutNmaaSubtitle">قصة نجاح سعودية</p>
+                    <p class="section-paragraph" data-translate="aboutNmaaText">
+                        نحن شركة وطنية طموحة ومصنفة في مجال التطوير العقاري، تأسست عام 2009 في المدينة المنورة وامتدت
+                        لتشمل أكبر مدن المملكة.
+                    </p>
+                </div>
+                <div class="story-media">
+                    <img src="../../public/nama_assets/one-1400w.webp" alt="نماء المدن - مشاريعنا" loading="lazy" width="700" height="360">
                 </div>
             </div>
         </section>
 
-        <!-- About Nmaa (Split) -->
-        <section class="content-section">
-            <div class="container">
-                <div class="split-layout">
-                    <div class="split-content animate-on-scroll">
-                        <h2 class="section-title" data-translate="aboutNmaaTitle">من نحن</h2>
-                        <h3 class="section-subtitle" data-translate="aboutNmaaSubtitle">قصة نجاح سعودية</h3>
-                        <p class="card-text" data-translate="aboutNmaaText">
-                            "نماء المدن" شركة سعودية رائدة في مجال التطوير العقاري والمقاولات، تأسست عام 2006.
-                            منذ انطلاقنا، ونحن نلتزم بتقديم مشاريع نوعية تدمج بين الابتكار الهندسي والفهم العميق
-                            لاحتياجات السوق السعودي.
-                            <br><br>
-                            نحن لا نبني مجرد مبانٍ، بل نصنع مجتمعات حيوية ومساحات عمل ملهمة. من خلال شراكاتنا
-                            الاستراتيجية وفريق عملنا المتخصص،
-                            استطعنا تنفيذ أكثر من 27 مشروعاً ناجحاً بمساحات تتجاوز نصف مليون متر مربع.
-                        </p>
-                    </div>
-                    <div class="split-image animate-on-scroll">
-                        <div class="image-frame">
-                            <!-- Use placeholder or existing asset -->
-                            <img src="../../public/nama_assets/one-1400w.webp" alt="Nmaa Headquarters">
-                        </div>
-                    </div>
+        <section class="about-vision section-reveal">
+            <div class="container vm-grid">
+                <article class="vm-card">
+                    <h3 data-translate="aboutOurVisionTitle">رؤيتنا</h3>
+                    <p data-translate="aboutOurVisionText">أن نكون الرائدين في تطوير بيئات عمرانية متكاملة ومستدامة.</p>
+                </article>
+                <article class="vm-card">
+                    <h3 data-translate="aboutOurMissionTitle">رسالتنا</h3>
+                    <p data-translate="aboutOurMissionText">تقديم حلول عقارية وإنشائية مبتكرة بأعلى معايير الجودة.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-stats section-reveal">
+            <div class="container stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number" data-translate="homeHistoryEmployees">50+</span>
+                    <span class="stat-label" data-translate="homeHistoryEmployeesLabel">موظف</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-translate="homeHistoryProjects">35+</span>
+                    <span class="stat-label" data-translate="homeHistoryProjectsLabel">مشروع</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-translate="homeHistoryOffices">2</span>
+                    <span class="stat-label" data-translate="homeHistoryOfficesLabel">مكاتب رئيسية</span>
                 </div>
             </div>
         </section>
 
-        <!-- Values -->
-        <section class="content-section">
+        <section class="about-values section-reveal">
             <div class="container">
-                <div class="text-center animate-on-scroll" style="text-align: center;">
-                    <h2 class="section-title" style="text-align: center;" data-translate="aboutValuesTitle">قيمنا</h2>
-                    <p class="section-subtitle" style="text-align: center;" data-translate="aboutValuesSubtitle">المبادئ
-                        التي تقودنا</p>
+                <div class="section-head">
+                    <h2 class="section-title" data-translate="aboutValuesTitle">قيم ثابتة</h2>
+                    <p class="section-kicker" data-translate="aboutValuesSubtitle">المبادئ التي تقودنا</p>
                 </div>
-
                 <div class="values-grid">
-                    <div class="value-item animate-on-scroll">
-                        <h3 class="value-title" data-translate="aboutValue1Title">الصدق</h3>
-                        <p class="value-desc" data-translate="aboutValue1Text">نلتزم بالصدق والأمانة في جميع تعاملاتنا
-                            التجارية مع أصحاب المصلحة.</p>
-                    </div>
-                    <div class="value-item animate-on-scroll" style="transition-delay: 0.1s;">
-                        <h3 class="value-title" data-translate="aboutValue2Title">الشراكة</h3>
-                        <p class="value-desc" data-translate="aboutValue2Text">نبني شراكات استراتيجية فعالة تحوّل المشهد
-                            العقاري في المملكة.</p>
-                    </div>
-                    <div class="value-item animate-on-scroll" style="transition-delay: 0.2s;">
-                        <h3 class="value-title" data-translate="aboutValue3Title">الشغف</h3>
-                        <p class="value-desc" data-translate="aboutValue3Text">نعمل بشغف لتصميم مساحات تحمل معاني كبيرة
-                            وإنشاء مجتمعات دائمة.</p>
-                    </div>
-                    <div class="value-item animate-on-scroll" style="transition-delay: 0.3s;">
-                        <h3 class="value-title" data-translate="aboutValue4Title">الشفافية</h3>
-                        <p class="value-desc" data-translate="aboutValue4Text">نؤمن بالشفافية الكاملة ونغتنم الفرص
-                            للاستجابة السريعة للتغيرات بأعلى معايير البناء.</p>
-                    </div>
-                    <div class="value-item animate-on-scroll" style="transition-delay: 0.4s;">
-                        <h3 class="value-title" data-translate="aboutValue5Title">الابتكار والإبداع</h3>
-                        <p class="value-desc" data-translate="aboutValue5Text">نبتكر حلولاً إبداعية ملتزمة بالتحول
-                            الاقتصادي في المملكة العربية السعودية.</p>
-                    </div>
+                    <article class="value-card">
+                        <h3 data-translate="aboutValue1Title">الصدق</h3>
+                        <p data-translate="aboutValue1Text">نلتزم بالصدق والأمانة في جميع تعاملاتنا.</p>
+                    </article>
+                    <article class="value-card">
+                        <h3 data-translate="aboutValue2Title">الشراكة</h3>
+                        <p data-translate="aboutValue2Text">نبني شراكات استراتيجية فعالة تحوّل المشهد العقاري.</p>
+                    </article>
+                    <article class="value-card">
+                        <h3 data-translate="aboutValue3Title">الشغف</h3>
+                        <p data-translate="aboutValue3Text">نعمل بشغف لتصميم مساحات تحمل معاني كبيرة.</p>
+                    </article>
+                    <article class="value-card">
+                        <h3 data-translate="aboutValue4Title">الشفافية</h3>
+                        <p data-translate="aboutValue4Text">نؤمن بالشفافية ونغتنم الفرص للاستجابة السريعة.</p>
+                    </article>
+                    <article class="value-card">
+                        <h3 data-translate="aboutValue5Title">الابتكار والإبداع</h3>
+                        <p data-translate="aboutValue5Text">نبتكر حلولاً إبداعية ملتزمة بالتحول الاقتصادي.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h4 class="footer-title">الاشتراك في النشرة الإخبارية</h4>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="البريد الإلكتروني" class="newsletter-input" required>
-                            <button type="submit" class="newsletter-btn">اشترك</button>
-                        </form>
-                        <p class="newsletter-note" data-translate="footerNewsletterNote">اترك هذا الحقل فارغًا إذا كنت
-                            بشريًا:</p>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-title" data-translate="footerQuickLinks">روابط سريعة</h4>
-                        <ul class="footer-links">
-                            <li><a href="../index/index.html" data-translate="navHome">الرئيسية</a></li>
-                            <li><a href="../projects/projects.html" data-translate="navProjects">المشاريع</a></li>
-                            <li><a href="../services/services.html" data-translate="navServices">الخدمات</a></li>
-                            <li><a href="../construction/construction.html" data-translate="navConstruction">المقاولات
-                                    وEPC</a></li>
-                            <li><a href="../fitout/fitout.html" data-translate="navFitOut">فيت أوت والإنتاج</a></li>
-                            <li><a href="../facility/facility.html" data-translate="navFacility">إدارة المرافق</a></li>
-                            <li><a href="../about/about.html" data-translate="navAboutUs">عن نماء المدن</a></li>
-                            <li><a href="../management/management.html" data-translate="navManagement">الإدارة</a></li>
-                            <li><a href="../contact/contact.html" data-translate="footerContactUs">اتصل بنا</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-title" data-translate="footerManagedProjects">المشاريع التجارية التي تمت
-                            إدارتها وصيانتها</h4>
-                        <ul class="footer-links">
-                            <li><a href="#" data-translate="recentProjTwoStoryBuilding">مبنى سكني من دورين</a></li>
-                            <li><a href="#" data-translate="recentProjResBuilding">مبنى سكني</a></li>
-                            <li><a href="#" data-translate="recentProjCommandCenter">مركز القيادة والتحكم</a></li>
-                            <li><a href="#" data-translate="recentProjQasimCheckpoint">نقطة تفتيش القصيم</a></li>
-                            <li><a href="#" data-translate="recentProjGrassePerfumes">عطور غراس فرع ذا زون</a></li>
-                            <li><a href="#" data-translate="recentProjWoopIcecream">ووب آيس كريم فرع سكة بلازا</a></li>
-                            <li><a href="#" data-translate="recentProjNandos">ناندوز فرع ذا فيو مول</a></li>
-                            <li><a href="#" data-translate="recentProjSikkaBooths">أكشاك سكة الحجاز</a></li>
-                            <li><a href="#" data-translate="recentProjITCafe">كشك IT كافيه في مطعم هنا - بانوراما
-                                    مول</a></li>
-                            <li><a href="#" data-translate="recentProjHungerStation">هنقرستيشن المتاجر المظلمة</a></li>
-                            <li><a href="#" data-translate="recentProjNanaDarkStores">نعناع المتاجر المظلمة</a></li>
-                            <li><a href="#" data-translate="recentProjLagate">سوبرماركت لاقيت</a></li>
-                            <li><a href="#" data-translate="recentProjAcerHQ">تجهيز مكتب إيسر الرئيسي</a></li>
-                            <li><a href="#" data-translate="recentProjHempelHQ">تجهيز مكتب ومعرض هيمبل الرئيسي</a></li>
-                            <li><a href="#" data-translate="recentProjWadiAqiq">كورنيش وادي العقيق</a></li>
-                            <li><a href="#" data-translate="recentProjMadinahInvestment">مبنى استثمار أمانة منطقة
-                                    المدينة المنورة</a></li>
-                            <li><a href="#" data-translate="recentProjAwaliMaint">أعمال صيانة حي العوالي</a></li>
-                            <li><a href="#" data-translate="recentProjNmaaRes1">نماء ريزيدنسز 1</a></li>
-                            <li><a href="#" data-translate="recentProjNmaaRes2">نماء ريزيدنسز 2</a></li>
-                            <li><a href="#" data-translate="recentProjUnicharm">يونيتشارم</a></li>
-                            <li><a href="#" data-translate="recentProjAshjarCafe">أشجار كافيه</a></li>
-                            <li><a href="#" data-translate="recentProjHungerStationMalga">هنقرستيشن مالقا المتاجر
-                                    المظلمة</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-title" data-translate="footerRecentProjects">قائمة المشاريع المنفذة خلال آخر 5
-                            سنين</h4>
-                        <ul class="footer-links">
-                            <li><a href="#" data-translate="recentProjDesertX">ديزرت إكس 2024</a></li>
-                            <li><a href="#" data-translate="recentProjFourResBuildings">أربعة مباني سكنية</a></li>
-                            <li><a href="#" data-translate="recentProjTenVillas">أعمال هيكلية وتشطيبات لعشر فلل</a></li>
-                            <li><a href="#" data-translate="recentProjVillaExtension">أعمال تشطيب توسعة فيلا</a></li>
-                            <li><a href="#" data-translate="recentProjStructFourVillas1">أعمال هيكلية لأربع فلل (1)</a>
-                            </li>
-                            <li><a href="#" data-translate="recentProjStructFourVillas2">أعمال هيكلية لأربع فلل (2)</a>
-                            </li>
-                            <li><a href="#" data-translate="recentProjHassanMosque">مسجد حسن شطا</a></li>
-                            <li><a href="#" data-translate="recentProjKhaleejBridge">جسر الخليج</a></li>
-                            <li><a href="#" data-translate="recentProjNahdaBridge">جسر النهضة</a></li>
-                            <li><a href="#" data-translate="recentProjThreeResBuildings">ثلاثة مباني سكنية</a></li>
-                            <li><a href="#" data-translate="recentProjQaswaa">مشروع مخطط القصواء</a></li>
-                            <li><a href="#" data-translate="recentProjMaternityHospital">ممر مستشفى الولادة والأطفال</a>
-                            </li>
-                            <li><a href="#" data-translate="recentProjSuwaydrah">مشروع مخطط السويدرة</a></li>
-                            <li><a href="#" data-translate="recentProjBinMohammad">مخطط بن محمد</a></li>
-                            <li><a href="#" data-translate="recentProjStructVilla">فيلا هيكلية</a></li>
-                        </ul>
-                    </div>
+        <section class="about-goals section-reveal">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title" data-translate="aboutGoalsTitle">أهدافنا</h2>
                 </div>
-                <div class="footer-bottom">
-                    <p data-translate="footerRightsReserved">جميع الحقوق محفوظة © 2025 نماء المدن للمقاولات</p>
+                <div class="goals-grid">
+                    <article class="goal-card">
+                        <h3 data-translate="aboutGoal1Title">تحقيق هدف المشروع</h3>
+                        <p data-translate="aboutGoal1Text">تحقيق هدف المشروع بأقل تكلفة وأعلى جودة.</p>
+                    </article>
+                    <article class="goal-card">
+                        <h3 data-translate="aboutGoal2Title">بناء علامة تجارية مميزة</h3>
+                        <p data-translate="aboutGoal2Text">شراكات فعالة مع المكاتب الهندسية والمقاولين.</p>
+                    </article>
+                    <article class="goal-card">
+                        <h3 data-translate="aboutGoal3Title">خط إنتاج مستمر</h3>
+                        <p data-translate="aboutGoal3Text">تشغيل خط إنتاج مستمر للمشاريع السكنية.</p>
+                    </article>
+                    <article class="goal-card">
+                        <h3 data-translate="aboutGoal4Title">توسيع دائرة الشراكة</h3>
+                        <p data-translate="aboutGoal4Text">توسيع الشراكة لتشمل أكبر شركات التطوير.</p>
+                    </article>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
 
-    <script src="../shared/header.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
+        <section class="about-cta section-reveal">
+            <div class="container cta-box">
+                <h2 data-translate="homeCTATitle">هل أنت مهتم بمشاريع نماء المدن؟</h2>
+                <p data-translate="homeCTASubtitle">نماء المدن للمقاولات</p>
+                <a href="../contact/contact.html" class="cta-button" data-translate="homeCTAButton">اتصل بنا</a>
+            </div>
+        </section>
+    </main>
 
-            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    <div id="footer-placeholder"></div>
 
-            // Language Manager
-            if (window.LanguageManager) {
-                const langManager = new LanguageManager();
-                const select = document.getElementById('languageSelect');
-                if (select) {
-                    select.addEventListener('change', (e) => langManager.setLanguage(e.target.value));
-                    select.value = langManager.currentLang;
-                }
-            }
-        });
-    </script>
+    <script src="../shared/translations.js?v=2.0" defer></script>
+    <script src="../shared/header.js?v=2.0" defer></script>
+    <script src="about.js?v=2.0" defer></script>
 </body>
 
 </html>
+

@@ -1,29 +1,23 @@
 /* Shared Footer Styles - Premium Design */
-@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+/* Note: fonts and base :root variables are in style.css */
 
 :root {
-    /* Brand Colors - Consistent with Website */
-    --footer-primary: #8B1538;
-    --footer-secondary: #A41E45;
-    --footer-accent: #8B1538;
+    /* Footer-specific variables only */
     --footer-dark-bg: #0a0e27;
     --footer-darker-bg: #0d1128;
-    --footer-text-white: #ffffff;
     --footer-text-gray: #b0b0b0;
     --footer-gradient: linear-gradient(135deg, #0a0e27 0%, #0d1128 100%);
-    --footer-accent-gradient: linear-gradient(135deg, #8B1538 0%, #A41E45 100%);
-    --font-primary: 'Almarai', 'IBM Plex Sans Arabic', sans-serif;
+    --footer-accent-gradient: linear-gradient(135deg, var(--color-primary) 0%, #A41E45 100%);
 }
 
 .footer {
     background: var(--footer-gradient);
-    color: var(--footer-text-white);
+    color: var(--color-white);
     padding: 4rem 0 2rem;
     margin-top: 4rem;
-    font-family: var(--font-primary);
     position: relative;
     overflow: hidden;
-    border-top: 4px solid var(--footer-primary);
+    border-top: 4px solid var(--color-primary);
 }
 
 /* Professional geometric background decorations */
@@ -79,7 +73,7 @@
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: var(--footer-text-white);
+    color: var(--color-white);
     position: relative;
     display: inline-block;
     padding-bottom: 0.75rem;
@@ -108,7 +102,7 @@ html[dir="ltr"] .footer-title::after {
     font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 0.75rem;
-    color: var(--footer-accent);
+    color: var(--color-primary);
 }
 
 .footer-links {
@@ -121,6 +115,28 @@ html[dir="ltr"] .footer-title::after {
     margin-bottom: 0.75rem;
 }
 
+/* Footer description text */
+.footer-text {
+    color: var(--footer-text-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Contact info list in footer */
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    color: var(--footer-text-gray);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
 .footer-links a {
     color: var(--footer-text-gray);
     text-decoration: none;
@@ -131,7 +147,7 @@ html[dir="ltr"] .footer-title::after {
 }
 
 .footer-links a:hover {
-    color: var(--footer-accent);
+    color: var(--color-primary);
     transform: translateX(-5px);
 }
 
@@ -152,15 +168,14 @@ html[dir="ltr"] .footer-links a:hover {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.05);
-    color: var(--footer-text-white);
-    font-family: var(--font-primary);
+    color: var(--color-white);
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
 
 .newsletter-input:focus {
     outline: none;
-    border-color: var(--footer-accent);
+    border-color: var(--color-primary);
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -171,16 +186,15 @@ html[dir="ltr"] .footer-links a:hover {
 .newsletter-btn {
     padding: 1rem 1.5rem;
     background: var(--footer-accent-gradient);
-    color: var(--footer-text-white);
+    color: var(--color-white);
     border: none;
     border-radius: 6px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: var(--font-primary);
     text-align: center;
-    box-shadow: 0 4px 15px rgba(199, 54, 89, 0.3);
+    box-shadow: 0 4px 15px rgba(139, 21, 56, 0.3);
 }
 
 .newsletter-btn:hover {
@@ -228,7 +242,7 @@ html[dir="ltr"] .footer-links a:hover {
 }
 
 .footer-legal a:hover {
-    color: var(--footer-accent);
+    color: var(--color-primary);
 }
 
 .footer-legal a::after {
@@ -238,7 +252,7 @@ html[dir="ltr"] .footer-links a:hover {
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--footer-accent);
+    background: var(--color-primary);
     transition: width 0.3s ease;
 }
 
@@ -259,26 +273,18 @@ html[dir="ltr"] .footer-links a:hover {
         padding: 3rem 0 1.5rem;
     }
 
+    .footer-container {
+        padding: 0 1rem;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
-    .footer-section {
-        margin-bottom: 0;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
+    .footer-title {
         text-align: center;
-        padding-top: 1.5rem;
-    }
-
-    .footer-legal {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        display: block;
     }
 
     .footer-title::after {
@@ -292,11 +298,6 @@ html[dir="ltr"] .footer-links a:hover {
         transform: translateX(-50%);
     }
 
-    .footer-title {
-        text-align: center;
-        display: block;
-    }
-
     .newsletter-form,
     .footer-links {
         text-align: center;
@@ -304,23 +305,22 @@ html[dir="ltr"] .footer-links a:hover {
 
     .footer-links a:hover {
         transform: translateX(0) scale(1.05);
-        /* Slight scale instead of slide on mobile */
-    }
-
-    .footer-container {
-        padding: 0 1rem;
-    }
-
-    .footer-content {
-        gap: 2rem;
     }
 
     .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1.5rem;
         gap: 1rem;
     }
 
     .footer-bottom p {
         font-size: 0.85rem;
         text-align: center;
+    }
+
+    .footer-legal {
+        justify-content: center;
+        gap: 1rem;
     }
 }

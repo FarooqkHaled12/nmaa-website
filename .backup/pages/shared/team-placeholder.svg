@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" role="img" aria-label="Team member placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1b2330"/>
+      <stop offset="100%" stop-color="#2f3a4e"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" fill="url(#bg)"/>
+  <circle cx="240" cy="185" r="78" fill="#8b99b3"/>
+  <path d="M100 410c20-90 92-138 140-138s120 48 140 138" fill="#8b99b3"/>
+  <text x="240" y="452" text-anchor="middle" fill="#dbe3f0" font-family="Arial, sans-serif" font-size="24">NMAA TEAM</text>
+</svg>

@@ -1,6 +1,6 @@
+headersOrigin = "config"
 redirectsOrigin = "config"
 plugins = []
-headers = []
 
 [functions]
 
@@ -8,7 +8,7 @@ headers = []
 
 [build]
 publish = "C:\\Users\\me\\OneDrive\\Desktop\\Nmaa_Web_siteV4\\Nmaa Web site.backup-20260222-133047"
-publishOrigin = "default"
+publishOrigin = "config"
 
 [build.environment]
 
@@ -24,10 +24,193 @@ publishOrigin = "default"
 
 [build.services]
 
+[[headers]]
+for = "/*.html"
+
+[headers.values]
+Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+for = "/public/*"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/**/*.webp"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/**/*.avif"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/**/*.png"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/**/*.jpg"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/**/*.mp4"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/**/*.css"
+
+[headers.values]
+Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+for = "/**/*.js"
+
+[headers.values]
+Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "SAMEORIGIN"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
 [[redirects]]
-from = "/"
-to = "/pages/index/index.html"
+from = "/about"
+to = "/pages/about/about.html"
 status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/careers"
+to = "/pages/careers/careers.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/construction"
+to = "/pages/construction/construction.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/contact"
+to = "/pages/contact/contact.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/facility"
+to = "/pages/facility/facility.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/fitout"
+to = "/pages/fitout/fitout.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/management"
+to = "/pages/management/management.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/media"
+to = "/pages/media/media.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/projects"
+to = "/pages/projects/projects.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/services"
+to = "/pages/services/services.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*"
+to = "/pages/404/index.html"
+status = 404.0
 force = false
 
 [redirects.query]
