@@ -41,7 +41,7 @@ body::after {
     /* Subtle grain */
     opacity: 0.03;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 0;
 }
 
 .section-container {
@@ -99,7 +99,7 @@ body::after {
 .projects-filter-section {
     position: sticky;
     top: 30px;
-    z-index: 1000;
+    z-index: 100;
     margin-bottom: 120px;
 }
 

@@ -231,6 +231,7 @@
                     var parentLink = parentItem.querySelector(':scope > .nav-link');
                     if (parentLink) parentLink.classList.add('active');
                 }
+                // Do NOT add active class to mobile-nav-item (keeps submenu closed)
             }
         }
 
