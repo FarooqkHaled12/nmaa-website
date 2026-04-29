@@ -1145,10 +1145,10 @@ body::after {
     100% { transform: translateX(calc(-196px * 11)); }
 }
 
-/* 10 items = 1960px */
+/* 10 items = 1960px - starts from 0, moves right */
 @keyframes ticker-rtl {
-    0%   { transform: translateX(calc(-196px * 10)); }
-    100% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(196px * 10)); }
 }
 
 .ticker-ltr {
