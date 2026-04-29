@@ -1139,16 +1139,19 @@ body::after {
     will-change: transform;
 }
 
-/* Each item: 180px wide + 16px gap = 196px. 11 items = 2156px */
+/* Each item: 180px wide + 16px gap = 196px.
+   Row has 22 items (11 original + 11 duplicate).
+   Move exactly 11 items = 2156px to create seamless loop */
 @keyframes ticker-ltr {
     0%   { transform: translateX(0); }
     100% { transform: translateX(calc(-196px * 11)); }
 }
 
-/* 10 items = 1960px - starts from 0, moves right */
+/* Row 2 has 20 items (10 original + 10 duplicate).
+   Move exactly 10 items = 1960px */
 @keyframes ticker-rtl {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(calc(196px * 10)); }
+    100% { transform: translateX(calc(-196px * 10)); }
 }
 
 .ticker-ltr {
