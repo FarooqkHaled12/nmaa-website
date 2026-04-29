@@ -68,36 +68,57 @@ document.addEventListener('DOMContentLoaded', function () {
     showSlide(0);
     
     // Auto-advance slides
-    const slideInterval = setInterval(nextSlide, 5000);
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    }
     
     // Event listeners
     if (nextBtn) nextBtn.addEventListener('click', () => {
-        clearInterval(slideInterval);
         nextSlide();
+        resetInterval();
     });
     
     if (prevBtn) prevBtn.addEventListener('click', () => {
-        clearInterval(slideInterval);
         prevSlide();
+        resetInterval();
     });
     
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            clearInterval(slideInterval);
             showSlide(index);
+            resetInterval();
         });
     });
     
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') {
-            clearInterval(slideInterval);
             nextSlide();
+            resetInterval();
         } else if (e.key === 'ArrowLeft') {
-            clearInterval(slideInterval);
             prevSlide();
+            resetInterval();
         }
     });
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    const sliderEl = document.querySelector('.slider-hero-section');
+    if (sliderEl) {
+        sliderEl.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        sliderEl.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+                diff > 0 ? nextSlide() : prevSlide();
+                resetInterval();
+            }
+        }, { passive: true });
+    }
 });
 
 // Approach Section - Horizontal Scroll Layout - Optimized
