@@ -352,3 +352,56 @@ document.addEventListener('DOMContentLoaded', () => {
 // Performance optimization: Disable parallax effect
 // Parallax was causing performance issues and layout shifts
 // Keeping this comment for future reference if needed
+
+// Clients Ticker - seamless infinite scroll
+document.addEventListener('DOMContentLoaded', function () {
+    var rows = [
+        { id: 'tickerRow1', dir: -1 },
+        { id: 'tickerRow2', dir: -1 }
+    ];
+    var tickers = [];
+    var globalPaused = false;
+
+    rows.forEach(function (cfg) {
+        var row = document.getElementById(cfg.id);
+        if (!row) return;
+
+        // Measure original items width (before cloning)
+        var origItems = Array.from(row.children);
+        var origWidth = 0;
+        origItems.forEach(function (el) {
+            origWidth += el.offsetWidth + 16; // 16 = gap
+        });
+
+        // Clone until we have at least 3x screen width
+        var needed = window.innerWidth * 3;
+        while (row.scrollWidth < needed) {
+            origItems.forEach(function (el) {
+                row.appendChild(el.cloneNode(true));
+            });
+        }
+
+        tickers.push({ row: row, pos: 0, speed: cfg.dir * 0.7, origWidth: origWidth });
+    });
+
+    // Pause on hover
+    document.querySelectorAll('.ticker-wrap').forEach(function (wrap, i) {
+        wrap.addEventListener('mouseenter', function () { globalPaused = true; });
+        wrap.addEventListener('mouseleave', function () { globalPaused = false; });
+    });
+
+    function animate() {
+        if (!globalPaused) {
+            tickers.forEach(function (t) {
+                t.pos += t.speed;
+                // Reset when moved one full set of originals
+                if (t.pos <= -t.origWidth) t.pos += t.origWidth;
+                if (t.pos >= 0 && t.speed > 0) t.pos -= t.origWidth;
+                t.row.style.transform = 'translateX(' + t.pos + 'px)';
+            });
+        }
+        requestAnimationFrame(animate);
+    }
+
+    if (tickers.length > 0) requestAnimationFrame(animate);
+});
