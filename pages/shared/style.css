@@ -212,6 +212,13 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
+
+  /* Fix: ensure animated elements are always visible on mobile */
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 480px) {

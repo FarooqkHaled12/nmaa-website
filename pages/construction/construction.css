@@ -405,7 +405,8 @@
     transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.animate-on-scroll.animated {
+.animate-on-scroll.animated,
+.animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
 }
