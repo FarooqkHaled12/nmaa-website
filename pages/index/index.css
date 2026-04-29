@@ -493,7 +493,7 @@ body::after {
 }
 
 .slide-bg-3 {
-    background-image: url('../../public/work_images/image-293.jpg');
+    background-image: url('../../public/work_images/image-127.jpg');
 }
 
 .slide-overlay {
@@ -666,7 +666,9 @@ body::after {
             rgba(199, 54, 89, 0.22) 100%);
     box-shadow: inset 0 100px 100px -100px rgba(11, 15, 26, 0.8),
         inset 0 -100px 100px -100px rgba(15, 25, 35, 1);
-    overflow: hidden;
+    /* clip instead of hidden: allows scroll container padding to work */
+    overflow: clip;
+    overflow-clip-margin: 0px;
     padding: 80px 0 90px;
 }
 
@@ -713,10 +715,23 @@ body::after {
 
 .approach-scroll-container {
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: rgba(199, 54, 89, 0.25) transparent;
+}
+
+/* Mobile: remove container padding, add it to scroll container instead
+   so first/last card isn't clipped when scrolling */
+@media (max-width: 991px) {
+    .approach-section .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .approach-scroll-container {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
 }
 
 .approach-scroll-container::-webkit-scrollbar {
@@ -754,7 +769,7 @@ body::after {
     height: auto;
     display: flex;
     flex-shrink: 0;
-    width: 340px;
+    width: 300px;
     margin: 0;
 }
 
@@ -1130,6 +1145,7 @@ body::after {
     margin-bottom: 16px;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    touch-action: pan-y; /* allow vertical scroll on mobile, don't block horizontal ticker */
 }
 
 .ticker-row {
@@ -1137,34 +1153,12 @@ body::after {
     gap: 16px;
     width: max-content;
     will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-/* Each item: 180px wide + 16px gap = 196px.
-   Row has 22 items (11 original + 11 duplicate).
-   Move exactly 11 items = 2156px to create seamless loop */
-@keyframes ticker-ltr {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(calc(-196px * 11)); }
-}
-
-/* Row 2 has 20 items (10 original + 10 duplicate).
-   Move exactly 10 items = 1960px */
-@keyframes ticker-rtl {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(calc(-196px * 10)); }
-}
-
-.ticker-ltr {
-    animation: ticker-ltr 30s linear infinite;
-}
-
-.ticker-rtl {
-    animation: ticker-rtl 30s linear infinite;
-}
-
-.ticker-wrap:hover .ticker-row {
-    animation-play-state: paused;
-}
+/* Ticker animations handled entirely by JavaScript for seamless opposite-direction scroll */
+/* .ticker-wrap:hover .ticker-row pause is handled via globalPaused flag in JS */
 
 .ticker-item {
     flex-shrink: 0;

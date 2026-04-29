@@ -1,6 +1,10 @@
 [build]
   publish = "."
 
+# Enable Netlify image optimization
+[images]
+  remote_images = ["https://fonts.gstatic.com/.*"]
+
 # 404 fallback
 [[redirects]]
   from = "/*"

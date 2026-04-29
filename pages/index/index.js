@@ -3,6 +3,20 @@
    Removed unused code and improved performance
    ============================================ */
 
+// Add lazy loading to all below-fold images (clients, approach, etc.)
+document.addEventListener('DOMContentLoaded', function () {
+    // Lazy load client logos and approach images (they are below the fold)
+    const belowFoldImages = document.querySelectorAll(
+        '.ticker-item img, .approach-image, .about-company-logo'
+    );
+    belowFoldImages.forEach(function (img) {
+        if (!img.hasAttribute('loading')) {
+            img.setAttribute('loading', 'lazy');
+            img.setAttribute('decoding', 'async');
+        }
+    });
+});
+
 // Enhanced Smooth Scrolling with Offset for Fixed Header
 function smoothScrollTo(target, offset = 80) {
     const element = document.querySelector(target);
@@ -150,10 +164,10 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (width >= 992) {
-                wrapper.style.gap = '2rem';
+                wrapper.style.gap = '1.5rem';
                 slides.forEach((slide, index) => {
-                    slide.style.width = '372px';
-                    slide.style.marginLeft = index === 0 ? '0' : '30px';
+                    slide.style.width = '300px';
+                    slide.style.marginLeft = index === 0 ? '0' : '0';
                 });
             } else if (width >= 768) {
                 wrapper.style.gap = '1.5rem';
@@ -165,6 +179,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         updateLayout();
+
+        // Start scrolled to the right so first card (rightmost in RTL) is visible
+        requestAnimationFrame(() => {
+            scrollContainer.scrollLeft = scrollContainer.scrollWidth;
+        });
         
         // Debounced resize handler
         let resizeTimeout;
@@ -173,16 +192,16 @@ document.addEventListener('DOMContentLoaded', function () {
             resizeTimeout = setTimeout(updateLayout, 150);
         });
 
-        // Navigation buttons scroll
+        // Navigation buttons scroll (RTL: next=right, prev=left)
         const scrollAmount = 400;
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             });
         }
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             });
         }
     }
@@ -353,55 +372,75 @@ document.addEventListener('DOMContentLoaded', () => {
 // Parallax was causing performance issues and layout shifts
 // Keeping this comment for future reference if needed
 
-// Clients Ticker - seamless infinite scroll
-document.addEventListener('DOMContentLoaded', function () {
-    var rows = [
+// Clients Ticker - both rows start together, opposite directions
+(function () {
+    var configs = [
         { id: 'tickerRow1', dir: -1 },
-        { id: 'tickerRow2', dir: -1 }
+        { id: 'tickerRow2', dir:  1 }
     ];
     var tickers = [];
-    var globalPaused = false;
+    var paused = false;
 
-    rows.forEach(function (cfg) {
+    function setupRow(cfg) {
         var row = document.getElementById(cfg.id);
         if (!row) return;
 
-        // Measure original items width (before cloning)
         var origItems = Array.from(row.children);
-        var origWidth = 0;
-        origItems.forEach(function (el) {
-            origWidth += el.offsetWidth + 16; // 16 = gap
-        });
 
-        // Clone until we have at least 3x screen width
-        var needed = window.innerWidth * 3;
+        // Clone immediately with estimated width, re-measure after load
+        var needed = window.innerWidth * 4;
         while (row.scrollWidth < needed) {
             origItems.forEach(function (el) {
                 row.appendChild(el.cloneNode(true));
             });
         }
 
-        tickers.push({ row: row, pos: 0, speed: cfg.dir * 0.7, origWidth: origWidth });
-    });
+        function getOrigWidth() {
+            var w = 0;
+            origItems.forEach(function (el) {
+                w += el.getBoundingClientRect().width + 16;
+            });
+            return w || (origItems.length * 196); // fallback: 180px + 16px gap
+        }
 
-    // Pause on hover
-    document.querySelectorAll('.ticker-wrap').forEach(function (wrap, i) {
-        wrap.addEventListener('mouseenter', function () { globalPaused = true; });
-        wrap.addEventListener('mouseleave', function () { globalPaused = false; });
-    });
+        var origWidth = getOrigWidth();
+        var startPos  = cfg.dir > 0 ? -(origWidth / 2) : 0;
 
-    function animate() {
-        if (!globalPaused) {
+        var ticker = { row: row, pos: startPos, speed: cfg.dir * 0.6, origWidth: origWidth };
+        tickers.push(ticker);
+
+        // Re-measure after images load
+        window.addEventListener('load', function () {
+            ticker.origWidth = getOrigWidth();
+        });
+    }
+
+    function startPauseListeners() {
+        document.querySelectorAll('.ticker-wrap').forEach(function (wrap) {
+            wrap.addEventListener('mouseenter',  function () { paused = true;  });
+            wrap.addEventListener('mouseleave',  function () { paused = false; });
+            wrap.addEventListener('touchstart',  function () { paused = true;  }, { passive: true });
+            wrap.addEventListener('touchend',    function () { paused = false; }, { passive: true });
+            wrap.addEventListener('touchcancel', function () { paused = false; }, { passive: true });
+        });
+    }
+
+    function tick() {
+        if (!paused) {
             tickers.forEach(function (t) {
                 t.pos += t.speed;
-                // Reset when moved one full set of originals
                 if (t.pos <= -t.origWidth) t.pos += t.origWidth;
-                if (t.pos >= 0 && t.speed > 0) t.pos -= t.origWidth;
+                if (t.pos >= 0)            t.pos -= t.origWidth;
                 t.row.style.transform = 'translateX(' + t.pos + 'px)';
             });
         }
-        requestAnimationFrame(animate);
+        requestAnimationFrame(tick);
     }
 
-    if (tickers.length > 0) requestAnimationFrame(animate);
-});
+    // Start as soon as DOM is ready — both rows together
+    document.addEventListener('DOMContentLoaded', function () {
+        configs.forEach(setupRow);
+        startPauseListeners();
+        requestAnimationFrame(tick); // single loop, starts immediately
+    });
+}());

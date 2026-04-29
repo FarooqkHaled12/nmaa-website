@@ -12,8 +12,11 @@
     <link rel="preload" href="pages/index/index.css?v=2.0" as="style">
     <link rel="preload" href="pages/shared/header.js?v=2.0" as="script">
 
-    <!-- Preload hero image (LCP candidate) -->
-    <link rel="preload" href="public/nama_assets/one-1400w.webp" as="image" type="image/webp">
+    <!-- Preload hero slider image (LCP candidate) -->
+    <link rel="preload" href="public/work_images/image-127.jpg" as="image" fetchpriority="high">
+
+    <!-- Preconnect for CDN -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -93,39 +96,87 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* Prevent layout shift while fonts load */
+        .video-title, .video-description, .video-subtitle, .video-main-title,
+        .logo-text, .nav-link, .contact-btn {
+            font-display: swap;
+        }
+
+        /* Hero video placeholder - prevents LCP delay */
+        .video-hero-section {
+            min-height: 100svh;
+            background-color: #0B0F1A;
+        }
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile: hide video, show image for fast LCP */
+        .hero-mobile-poster {
+            display: none;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-video {
+                display: none !important;
+            }
+            .hero-mobile-poster {
+                display: block !important;
+            }
+        }
     </style>
     
-    <!-- Fonts loaded with display=swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts loaded async - non-blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- CSS files loaded with optimized order -->
+    <!-- CSS files - critical ones blocking, rest async -->
     <link rel="stylesheet" href="pages/shared/style.css?v=2.0">
     <link rel="stylesheet" href="pages/shared/header.css?v=2.0">
     <link rel="stylesheet" href="pages/index/index.css?v=2.0">
-    <link rel="stylesheet" href="pages/shared/footer.css?v=2.0">
+    <link rel="preload" href="pages/shared/footer.css?v=2.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="pages/shared/footer.css?v=2.0"></noscript>
     
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Swiper CSS - async non-blocking -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
-    <!-- Google Tag Manager - Required for analytics -->
-    <script>(function (w, d, s, l, i) {
-        w[l] = w[l] || []; w[l].push({
-            'gtm.start': new Date().getTime(), event: 'gtm.js'
-        }); var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WWJQBBKQ');</script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0JLZD8LL7K"></script>
+    <!-- Google Tag Manager - deferred to not block render -->
     <script>
+    window.addEventListener('load', function() {
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start': new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WWJQBBKQ');
+    });
+    </script>
+    
+    <!-- Google Analytics - deferred -->
+    <script>
+    window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0JLZD8LL7K';
+        document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-0JLZD8LL7K');
+    });
     </script>
 </head>
 
@@ -237,9 +288,15 @@
     <!-- Video Hero Section -->
     <section class="video-hero-section" id="home">
         <div class="video-wrapper parallax-element" data-speed="0.3">
-            <video autoplay muted loop playsinline class="hero-video" preload="metadata">
+            <!-- Mobile: show image only (no video download) -->
+            <img src="public/work_images/image-127.jpg"
+                 alt="نماء المدن"
+                 class="hero-mobile-poster"
+                 fetchpriority="high"
+                 decoding="sync">
+            <!-- Desktop: show video -->
+            <video autoplay muted loop playsinline class="hero-video" preload="none" poster="public/work_images/image-127.jpg">
                 <source src="public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
-                <img src="public/nama_assets/one-1400w.webp" alt="Nmaa" class="video-fallback-img" loading="lazy">
             </video>
             <div class="video-overlay"></div>
         </div>
@@ -292,7 +349,7 @@
                 <div class="slider-slide active">
                     <div class="slide-background slide-bg-1">
                         <img src="public/work_images/image-127.jpg"
-                             alt="ديزيرت إكس 2024" class="slide-fallback-img" loading="eager" decoding="async">
+                             alt="ديزيرت إكس 2024" class="slide-fallback-img" fetchpriority="high" decoding="sync">
                     </div>
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
@@ -322,13 +379,13 @@
                 </div>
                 <div class="slider-slide">
                     <div class="slide-background slide-bg-3">
-                        <img src="public/work_images/image-293.jpg" alt="هنقرستيشن" class="slide-fallback-img" loading="lazy" decoding="async">
+                        <img src="public/work_images/image-127.jpg" alt="مشروع جندولا" class="slide-fallback-img" loading="lazy" decoding="async">
                     </div>
                     <div class="slide-overlay"></div>
                     <div class="slide-content">
-                        <div class="slide-badge animate-on-scroll">مشروع استثماري</div>
-                        <h2 class="slide-title animate-on-scroll">هنقرستيشن</h2>
-                        <p class="slide-description animate-on-scroll">أنشطة الصيانة لفروع هنقرستيشن في أكثر من 15 مدينة بالمملكة</p>
+                        <div class="slide-badge animate-on-scroll">مشروع إنشائي</div>
+                        <h2 class="slide-title animate-on-scroll">مشروع جندولا</h2>
+                        <p class="slide-description animate-on-scroll">إنشاء هياكل فولاذية وأعمال تشطيبات متكاملة لمشروع جندولا</p>
                         <div class="slide-buttons animate-on-scroll">
                             <a href="pages/projects/projects.html" class="btn-slide-primary" data-translate="homeSliderButton1">استكشف المشروع</a>
                             <a href="pages/contact/contact.html" class="btn-slide-secondary" data-translate="homeSliderButton2">تواصل معنا</a>
@@ -475,14 +532,14 @@
     </section>
 
     <!-- Our Clients Section -->
-    <section class="clients-section fade-in-section" id="clients">
+    <section class="clients-section" id="clients">
         <div class="clients-header">
             <h2 class="section-title" data-translate="homeClientsTitle">عملاؤنا</h2>
             <p class="section-subtitle" data-translate="homeClientsSubtitle">شركاؤنا في النجاح</p>
         </div>
         <!-- Row 1: scrolls left -->
         <div class="ticker-wrap">
-            <div class="ticker-row ticker-ltr">
+            <div class="ticker-row ticker-ltr" id="tickerRow1">
                 <div class="ticker-item"><img src="public/client_logos_final/01_Al_Madinah_Development_Authority.png" alt="Al Madinah Development Authority"></div>
                 <div class="ticker-item"><img src="public/client_logos_final/02_Ministry_of_Housing.png" alt="Ministry of Housing"></div>
                 <div class="ticker-item"><img src="public/client_logos_final/03_Royal_Commission_AlUla.png" alt="Royal Commission for AlUla"></div>
@@ -510,7 +567,7 @@
         </div>
         <!-- Row 2: scrolls right -->
         <div class="ticker-wrap">
-            <div class="ticker-row ticker-rtl">
+            <div class="ticker-row ticker-rtl" id="tickerRow2">
                 <div class="ticker-item"><img src="public/client_logos_final/12_Pullman_Hotels.png" alt="Pullman Hotels"></div>
                 <div class="ticker-item"><img src="public/client_logos_final/13_Ansab.png" alt="Ansab"></div>
                 <div class="ticker-item"><img src="public/client_logos_final/14_UNASCO.png" alt="UNASCO"></div>
@@ -745,6 +802,21 @@
         </a>
     </div>
     <!-- Scripts loaded with defer for better performance -->
+    <script>
+    // On mobile: remove video source completely to prevent any download
+    if (window.innerWidth <= 768) {
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.querySelector('.hero-video');
+            if (video) {
+                video.pause();
+                video.removeAttribute('src');
+                var sources = video.querySelectorAll('source');
+                sources.forEach(function(s) { s.remove(); });
+                video.load();
+            }
+        });
+    }
+    </script>
     <script src="pages/shared/translations.js?v=2.0" defer></script>
     <script src="pages/shared/header.js?v=2.0" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>

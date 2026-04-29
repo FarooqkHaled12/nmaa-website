@@ -42,6 +42,15 @@
                 if (fileName === 'navbar.html') {
                     var headerClass = container.getAttribute('data-header-class') || '';
                     html = html.replace('{{HEADER_CLASS}}', headerClass);
+                    // Calculate root path relative to current page
+                    var pathname = window.location.pathname.replace(/\\/g, '/');
+                    // Count how many directories deep we are from root
+                    // e.g. /pages/projects/projects.html → depth 2 → rootPath = '../../'
+                    var parts = pathname.split('/').filter(function(p) { return p.length > 0; });
+                    // Remove the filename (last part)
+                    parts.pop();
+                    var rootPath = parts.length > 0 ? parts.map(function() { return '../'; }).join('') : '';
+                    html = html.replace(/\{\{ROOT_PATH\}\}/g, rootPath);
                 }
 
                 var parent = container.parentNode;
