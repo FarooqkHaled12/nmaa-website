@@ -116,12 +116,34 @@
 
         /* Mobile: hide video, show image for fast LCP */
         .hero-mobile-poster {
+            display: block;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Video hidden until JS loads it */
+        .hero-video {
             display: none;
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: 1;
+        }
+
+        /* When video is ready, show it and hide poster */
+        .hero-video.loaded {
+            display: block;
+        }
+
+        .hero-video.loaded ~ .hero-mobile-poster,
+        .hero-mobile-poster.hidden {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -288,15 +310,16 @@
     <!-- Video Hero Section -->
     <section class="video-hero-section" id="home">
         <div class="video-wrapper parallax-element" data-speed="0.3">
-            <!-- Mobile: show image only (no video download) -->
+            <!-- Always show poster image first (LCP element) -->
             <img src="public/work_images/image-127.webp"
                  alt="نماء المدن"
                  class="hero-mobile-poster"
                  fetchpriority="high"
-                 decoding="sync">
-            <!-- Desktop: show video -->
-            <video autoplay muted loop playsinline class="hero-video" preload="none" poster="public/work_images/image-127.webp">
-                <source src="public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
+                 decoding="sync"
+                 id="heroPosterImg">
+            <!-- Desktop: video loads after page is interactive -->
+            <video muted loop playsinline class="hero-video" preload="none" poster="public/work_images/image-127.webp" id="heroVideo">
+                <source data-src="public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
         </div>
@@ -803,17 +826,36 @@
     </div>
     <!-- Scripts loaded with defer for better performance -->
     <script>
-    // On mobile: remove video source completely to prevent any download
+    // On mobile: remove video completely
     if (window.innerWidth <= 768) {
         document.addEventListener('DOMContentLoaded', function() {
-            var video = document.querySelector('.hero-video');
+            var video = document.getElementById('heroVideo');
             if (video) {
-                video.pause();
-                video.removeAttribute('src');
-                var sources = video.querySelectorAll('source');
-                sources.forEach(function(s) { s.remove(); });
-                video.load();
+                video.remove();
             }
+        });
+    } else {
+        // On desktop: load video after page is fully loaded (after LCP)
+        window.addEventListener('load', function() {
+            var video = document.getElementById('heroVideo');
+            var poster = document.getElementById('heroPosterImg');
+            if (!video) return;
+
+            // Set the actual src from data-src
+            var source = video.querySelector('source[data-src]');
+            if (source) {
+                source.src = source.getAttribute('data-src');
+                source.removeAttribute('data-src');
+            }
+
+            video.load();
+            video.play().catch(function(){});
+
+            // When video can play, show it and hide poster
+            video.addEventListener('canplay', function() {
+                video.classList.add('loaded');
+                if (poster) poster.classList.add('hidden');
+            }, { once: true });
         });
     }
     </script>
