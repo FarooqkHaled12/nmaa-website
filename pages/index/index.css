@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    NMAA INDEX PAGE - OPTIMIZED CSS
    Combined index.css + index-new-sections.css
    Removed duplicates and unused rules
@@ -485,15 +485,15 @@ body::after {
 }
 
 .slide-bg-1 {
-    background-image: url('../../public/work_images/image-127.jpg');
+    background-image: url('../../public/work_images/image-127.webp');
 }
 
 .slide-bg-2 {
-    background-image: url('../../public/work_images/image-195.jpg');
+    background-image: url('../../public/work_images/image-195.webp');
 }
 
 .slide-bg-3 {
-    background-image: url('../../public/work_images/image-127.jpg');
+    background-image: url('../../public/work_images/image-127.webp');
 }
 
 .slide-overlay {
