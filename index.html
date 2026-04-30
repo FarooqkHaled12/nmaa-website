@@ -34,33 +34,102 @@
     
     <!-- Critical CSS inlined for faster FCP -->
     <style>
-        /* Critical CSS - minimal above-the-fold only */
+        /* Critical CSS - Above-the-fold styles for Nmaa Website */
         :root {
             --color-primary: #8B1538;
             --color-secondary: #6E1030;
+            --color-accent: #C0392B;
+            --color-accent-pink: #E74C3C;
             --color-background-dark: #0B0F1A;
             --color-text-white: #FFFFFF;
+            --color-text-muted: rgba(255, 255, 255, 0.7);
+            --color-white: #ffffff;
+            --color-black: #000000;
             --font-primary: 'Almarai', 'IBM Plex Sans Arabic', sans-serif;
+            --font-weight-light: 300;
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            --font-weight-black: 800;
         }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.6;
             color: var(--color-text-white);
             background-color: var(--color-background-dark);
+            background-image:
+                radial-gradient(circle at 15% 25%, rgba(199, 54, 89, 0.25) 0%, rgba(139, 21, 56, 0.1) 40%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(44, 62, 80, 0.6) 0%, rgba(11, 15, 26, 0.4) 40%, transparent 60%),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 25%),
+                linear-gradient(135deg, #0B0F1A 0%, #1a050b 100%);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
             overflow-x: hidden;
         }
-        /* Mobile: hide video, show poster image */
-        .hero-mobile-poster { display: none; }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding-right: 20px;
+            padding-left: 20px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Prevent layout shift while fonts load */
+        .video-title, .video-description, .video-subtitle, .video-main-title,
+        .logo-text, .nav-link, .contact-btn {
+            font-display: swap;
+        }
+
+        /* Hero video placeholder - prevents LCP delay */
+        .video-hero-section {
+            min-height: 100svh;
+            background-color: #0B0F1A;
+        }
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile: hide video, show image for fast LCP */
+        .hero-mobile-poster {
+            display: none;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         @media (max-width: 768px) {
-            .hero-video { display: none !important; }
+            .hero-video {
+                display: none !important;
+            }
             .hero-mobile-poster {
                 display: block !important;
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
             }
         }
     </style>
@@ -69,14 +138,16 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- CSS files -->
+    <!-- CSS files - critical ones blocking, rest async -->
     <link rel="stylesheet" href="pages/shared/style.css?v=2.0">
     <link rel="stylesheet" href="pages/shared/header.css?v=2.0">
     <link rel="stylesheet" href="pages/index/index.css?v=2.0">
-    <link rel="stylesheet" href="pages/shared/footer.css?v=2.0">
+    <link rel="preload" href="pages/shared/footer.css?v=2.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="pages/shared/footer.css?v=2.0"></noscript>
     
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Swiper CSS - async non-blocking -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -217,16 +288,15 @@
     <!-- Video Hero Section -->
     <section class="video-hero-section" id="home">
         <div class="video-wrapper parallax-element" data-speed="0.3">
-            <!-- Always show poster image first (LCP element) -->
+            <!-- Mobile: show image only (no video download) -->
             <img src="public/work_images/image-127.webp"
                  alt="نماء المدن"
                  class="hero-mobile-poster"
                  fetchpriority="high"
-                 decoding="sync"
-                 id="heroPosterImg">
-            <!-- Desktop: video loads after page is interactive -->
-            <video muted loop playsinline class="hero-video" preload="none" poster="public/work_images/image-127.webp" id="heroVideo">
-                <source data-src="public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
+                 decoding="sync">
+            <!-- Desktop: show video -->
+            <video autoplay muted loop playsinline class="hero-video" preload="none" poster="public/work_images/image-127.webp">
+                <source src="public/nama_assets/lv_0_٢٠٢٦٠١١٠٠٧٣٢٥٩.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
         </div>
@@ -733,36 +803,17 @@
     </div>
     <!-- Scripts loaded with defer for better performance -->
     <script>
-    // On mobile: remove video completely
+    // On mobile: remove video source completely to prevent any download
     if (window.innerWidth <= 768) {
         document.addEventListener('DOMContentLoaded', function() {
-            var video = document.getElementById('heroVideo');
+            var video = document.querySelector('.hero-video');
             if (video) {
-                video.remove();
+                video.pause();
+                video.removeAttribute('src');
+                var sources = video.querySelectorAll('source');
+                sources.forEach(function(s) { s.remove(); });
+                video.load();
             }
-        });
-    } else {
-        // On desktop: load video after page is fully loaded (after LCP)
-        window.addEventListener('load', function() {
-            var video = document.getElementById('heroVideo');
-            var poster = document.getElementById('heroPosterImg');
-            if (!video) return;
-
-            // Set the actual src from data-src
-            var source = video.querySelector('source[data-src]');
-            if (source) {
-                source.src = source.getAttribute('data-src');
-                source.removeAttribute('data-src');
-            }
-
-            video.load();
-            video.play().catch(function(){});
-
-            // When video can play, show it and hide poster
-            video.addEventListener('canplay', function() {
-                video.classList.add('loaded');
-                if (poster) poster.classList.add('hidden');
-            }, { once: true });
         });
     }
     </script>

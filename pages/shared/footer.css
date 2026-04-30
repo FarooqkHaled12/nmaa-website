@@ -2,12 +2,12 @@
 /* Note: fonts and base :root variables are in style.css */
 
 :root {
-    /* Footer-specific variables */
+    /* Footer-specific variables only */
     --footer-dark-bg: #0a0e27;
     --footer-darker-bg: #0d1128;
     --footer-text-gray: #b0b0b0;
     --footer-gradient: linear-gradient(135deg, #0a0e27 0%, #0d1128 100%);
-    --footer-accent-gradient: linear-gradient(135deg, #8B1538 0%, #A41E45 100%);
+    --footer-accent-gradient: linear-gradient(135deg, var(--color-primary) 0%, #A41E45 100%);
 }
 
 .footer {
@@ -15,7 +15,6 @@
     color: var(--color-white);
     padding: 4rem 0 2rem;
     margin-top: 4rem;
-    font-family: var(--font-primary);
     position: relative;
     overflow: hidden;
     border-top: 4px solid var(--color-primary);
@@ -116,6 +115,28 @@ html[dir="ltr"] .footer-title::after {
     margin-bottom: 0.75rem;
 }
 
+/* Footer description text */
+.footer-text {
+    color: var(--footer-text-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Contact info list in footer */
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    color: var(--footer-text-gray);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
 .footer-links a {
     color: var(--footer-text-gray);
     text-decoration: none;
@@ -148,7 +169,6 @@ html[dir="ltr"] .footer-links a:hover {
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.05);
     color: var(--color-white);
-    font-family: var(--font-primary);
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
@@ -173,7 +193,6 @@ html[dir="ltr"] .footer-links a:hover {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: var(--font-primary);
     text-align: center;
     box-shadow: 0 4px 15px rgba(139, 21, 56, 0.3);
 }
@@ -254,26 +273,18 @@ html[dir="ltr"] .footer-links a:hover {
         padding: 3rem 0 1.5rem;
     }
 
+    .footer-container {
+        padding: 0 1rem;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
-    .footer-section {
-        margin-bottom: 0;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
+    .footer-title {
         text-align: center;
-        padding-top: 1.5rem;
-    }
-
-    .footer-legal {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        display: block;
     }
 
     .footer-title::after {
@@ -287,11 +298,6 @@ html[dir="ltr"] .footer-links a:hover {
         transform: translateX(-50%);
     }
 
-    .footer-title {
-        text-align: center;
-        display: block;
-    }
-
     .newsletter-form,
     .footer-links {
         text-align: center;
@@ -299,23 +305,22 @@ html[dir="ltr"] .footer-links a:hover {
 
     .footer-links a:hover {
         transform: translateX(0) scale(1.05);
-        /* Slight scale instead of slide on mobile */
-    }
-
-    .footer-container {
-        padding: 0 1rem;
-    }
-
-    .footer-content {
-        gap: 2rem;
     }
 
     .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1.5rem;
         gap: 1rem;
     }
 
     .footer-bottom p {
         font-size: 0.85rem;
         text-align: center;
+    }
+
+    .footer-legal {
+        justify-content: center;
+        gap: 1rem;
     }
 }
