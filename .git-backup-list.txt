@@ -1,3 +1,1 @@
-pages/construction/construction.css
-pages/fitout/fitout.css
-pages/shared/style.css
+index.html
