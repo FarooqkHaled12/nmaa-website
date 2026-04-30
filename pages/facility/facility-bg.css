@@ -1,1 +1,147 @@
-﻿@keyframes geometricFloat{0%,100%{transform:translateY(0) rotate(0deg);}25%{transform:translateY(-30px) rotate(5deg);}50%{transform:translateY(-15px) rotate(-3deg);}75%{transform:translateY(-40px) rotate(3deg);}}@keyframes hexPulse{0%,100%{opacity:0.4;transform:scale(1) rotate(30deg);}50%{opacity:0.75;transform:scale(1.15) rotate(35deg);}}@keyframes scanLine{0%{top:-5%;}100%{top:105%;}}@keyframes orbitPath{0%{transform:rotate(0deg) translateX(50px) rotate(0deg);}100%{transform:rotate(360deg) translateX(50px) rotate(-360deg);}}@keyframes glassShimmer{0%{transform:translateX(-100%) rotate(25deg);}100%{transform:translateX(200%) rotate(25deg);}}.fac-hero::before{}.fac-hero::after{}.facility-projects{position:relative;overflow:hidden;}.facility-projects::before{content:'';position:absolute;top:8%;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(52,152,219,0.15) 0%,transparent 65%);border-radius:50%;pointer-events:none;z-index:0;}.facility-projects::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.03) 50%,transparent 100%);transform:rotate(25deg);z-index:1;pointer-events:none;}.facility-projects .container{position:relative;}.facility-projects .container::before{content:'';position:absolute;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,rgba(252,255,255,0.1),transparent);pointer-events:none;z-index:1;}@media (prefers-reduced-motion:reduce){.fac-hero::before,.fac-hero::after,.facility-projects::before,.facility-projects::after,.facility-projects .container::before{}}
+﻿/* ===================================
+   Animated Backgrounds - Facility Page
+   Corporate geometric theme: rotating shapes, precise movements
+   Color: #3498DB (Blue)
+   =================================== */
+
+@keyframes geometricFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-30px) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(-3deg);
+    }
+
+    75% {
+        transform: translateY(-40px) rotate(3deg);
+    }
+}
+
+@keyframes hexPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1) rotate(30deg);
+    }
+
+    50% {
+        opacity: 0.75;
+        transform: scale(1.15) rotate(35deg);
+    }
+}
+
+@keyframes scanLine {
+    0% {
+        top: -5%;
+    }
+
+    100% {
+        top: 105%;
+    }
+}
+
+@keyframes orbitPath {
+    0% {
+        transform: rotate(0deg) translateX(50px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(50px) rotate(-360deg);
+    }
+}
+
+@keyframes glassShimmer {
+    0% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+
+    100% {
+        transform: translateX(200%) rotate(25deg);
+    }
+}
+
+/* Hero animated background */
+.fac-hero::before {
+    /* animation removed */
+    
+}
+
+.fac-hero::after {
+    /* animation removed */
+    
+}
+
+/* Projects Section */
+.facility-projects {
+    position: relative;
+    overflow: hidden;
+}
+
+.facility-projects::before {
+    content: '';
+    position: absolute;
+    top: 8%;
+    left: -80px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.15) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    /* animation removed */
+    
+    z-index: 0;
+}
+
+.facility-projects::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            transparent 100%);
+    transform: rotate(25deg);
+    /* animation removed */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Scan line effect for corporate feel */
+.facility-projects .container {
+    position: relative;
+}
+
+.facility-projects .container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(252, 255, 255, 0.1), transparent);
+    pointer-events: none;
+    /* animation removed */
+    
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .fac-hero::before,
+    .fac-hero::after,
+    .facility-projects::before,
+    .facility-projects::after,
+    .facility-projects .container::before {
+        /* animation removed */
+    }
+}

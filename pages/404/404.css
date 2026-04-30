@@ -1,1 +1,32 @@
-﻿.error-container{max-width:500px;}.error-code{font-size:8rem;font-weight:800;color:var(--color-primary);line-height:1;}.error-container h1{font-size:1.8rem;margin:1rem 0 0.5rem;}.error-container p{color:var(--color-text-muted);margin-bottom:2rem;}.error-home-btn{display:inline-block;padding:12px 32px;background:var(--color-primary);color:var(--color-white);text-decoration:none;border-radius:8px;font-weight:700;transition:background var(--transition-normal,0.3s ease);}.error-home-btn:hover{background:var(--color-secondary);}
+/* 404 Page Styles */
+.error-container { max-width: 500px; }
+
+.error-code {
+    font-size: 8rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.error-container h1 {
+    font-size: 1.8rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.error-container p {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.error-home-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: background var(--transition-normal, 0.3s ease);
+}
+
+.error-home-btn:hover { background: var(--color-secondary); }

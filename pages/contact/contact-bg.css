@@ -1,1 +1,187 @@
-﻿@keyframes warmFloat{0%,100%{transform:translate(0,0) rotate(0deg);}25%{transform:translate(20px,-30px) rotate(5deg);}50%{transform:translate(-10px,-50px) rotate(-3deg);}75%{transform:translate(25px,-15px) rotate(2deg);}}@keyframes glowPulse{0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:0.65;transform:scale(1.15);}}@keyframes waveMotion{0%,100%{transform:translateX(0) scaleY(1);}50%{transform:translateX(30px) scaleY(1.1);}}@keyframes glassShimmer{0%{transform:translateX(-100%) rotate(25deg);}100%{transform:translateX(200%) rotate(25deg);}}.contact-hero{position:relative;overflow:hidden;}.contact-hero::before{content:'';position:absolute;top:-90px;left:-90px;width:380px;height:380px;background:radial-gradient(circle,rgba(139,21,56,0.15) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;}.contact-hero::after{content:'';position:absolute;bottom:-70px;right:-70px;width:320px;height:320px;background:linear-gradient(225deg,rgba(139,21,56,0.08),transparent);transform:rotate(25deg);border-radius:22px;pointer-events:none;z-index:0;}.contact-info-section,.contact-section{position:relative;overflow:hidden;}.contact-info-section::before{content:'';position:absolute;top:50%;right:-120px;transform:translateY(-50%);width:350px;height:350px;background:radial-gradient(circle,rgba(139,21,56,0.12) 0%,transparent 65%),radial-gradient(circle at 40% 60%,rgba(139,21,56,0.06) 0%,transparent 50%);border-radius:50%;pointer-events:none;}.contact-info-section::after{content:'';position:absolute;bottom:20%;left:8%;width:160px;height:160px;background:linear-gradient(135deg,rgba(139,21,56,0.08),transparent);transform:rotate(40deg);border-radius:12px;pointer-events:none;}.contact-form-section{position:relative;overflow:hidden;}.contact-form-section::before{content:'';position:absolute;top:15%;left:-100px;width:300px;height:300px;border:3px solid rgba(139,21,56,0.1);transform:rotate(30deg);border-radius:20px;pointer-events:none;}.contact-form-section::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.03) 50%,transparent 100%);transform:rotate(25deg);z-index:1;pointer-events:none;}@media (prefers-reduced-motion:reduce){.contact-hero::before,.contact-hero::after,.contact-info-section::before,.contact-info-section::after,.contact-form-section::before,.contact-form-section::after{}}
+﻿/* ===================================
+   Animated Backgrounds - Contact Page
+   Connected theme: warm welcoming animations
+   Color: #8B1538 (Burgundy)
+   =================================== */
+
+@keyframes warmFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(20px, -30px) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(-10px, -50px) rotate(-3deg);
+    }
+
+    75% {
+        transform: translate(25px, -15px) rotate(2deg);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.65;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes waveMotion {
+
+    0%,
+    100% {
+        transform: translateX(0) scaleY(1);
+    }
+
+    50% {
+        transform: translateX(30px) scaleY(1.1);
+    }
+}
+
+@keyframes glassShimmer {
+    0% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+
+    100% {
+        transform: translateX(200%) rotate(25deg);
+    }
+}
+
+/* Hero Section */
+.contact-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    top: -90px;
+    left: -90px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(139, 21, 56, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    /* animation removed */
+    
+    z-index: 0;
+}
+
+.contact-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -70px;
+    right: -70px;
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(225deg, rgba(139, 21, 56, 0.08), transparent);
+    transform: rotate(25deg);
+    border-radius: 22px;
+    pointer-events: none;
+    /* animation removed */
+    
+    z-index: 0;
+}
+
+/* Contact Info Section Background */
+.contact-info-section,
+.contact-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -120px;
+    transform: translateY(-50%);
+    width: 350px;
+    height: 350px;
+    background:
+        radial-gradient(circle, rgba(139, 21, 56, 0.12) 0%, transparent 65%),
+        radial-gradient(circle at 40% 60%, rgba(139, 21, 56, 0.06) 0%, transparent 50%);
+    border-radius: 50%;
+    pointer-events: none;
+    /* animation removed */
+    
+}
+
+.contact-info-section::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 8%;
+    width: 160px;
+    height: 160px;
+    background: linear-gradient(135deg, rgba(139, 21, 56, 0.08), transparent);
+    transform: rotate(40deg);
+    border-radius: 12px;
+    pointer-events: none;
+    /* animation removed */
+    
+}
+
+/* Contact Form Section Background */
+.contact-form-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border: 3px solid rgba(139, 21, 56, 0.1);
+    transform: rotate(30deg);
+    border-radius: 20px;
+    pointer-events: none;
+    /* animation removed */
+    
+}
+
+.contact-form-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            transparent 100%);
+    transform: rotate(25deg);
+    /* animation removed */
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contact-hero::before,
+    .contact-hero::after,
+    .contact-info-section::before,
+    .contact-info-section::after,
+    .contact-form-section::before,
+    .contact-form-section::after {
+        /* animation removed */
+    }
+}

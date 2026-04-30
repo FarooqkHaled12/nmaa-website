@@ -1,1 +1,202 @@
-﻿.careers-page{min-height:100vh;background:#fff;}.careers-hero{position:relative;min-height:480px;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,#0B0F1A 0%,#1a0a12 50%,#8B1538 100%);padding:140px 0 80px;}.careers-hero::before{content:"";position:absolute;inset:0;background:url('../../public/nama_assets/one-1400w.webp') center/cover no-repeat;opacity:0.15;}.careers-hero .section-container{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 2rem;text-align:center;}.careers-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:999px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);color:#fff;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;}.careers-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;margin:0 0 1rem;line-height:1.2;}.careers-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 2rem;line-height:1.7;}.careers-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}.careers-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;border-radius:8px;background:#8B1538;color:#fff;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid #8B1538;transition:all 0.3s ease;}.careers-btn:hover{background:transparent;color:#fff;}.careers-why{padding:80px 0;background:#f9f9f9;}.careers-why .section-container{max-width:1200px;margin:0 auto;padding:0 2rem;}.careers-section-title{text-align:center;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#0B0F1A;margin-bottom:0.5rem;}.careers-section-sub{text-align:center;color:#666;margin-bottom:3rem;font-size:1rem;}.careers-perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}.perk-card{background:#fff;border-radius:16px;padding:2rem 1.5rem;text-align:center;box-shadow:0 2px 20px rgba(0,0,0,0.06);transition:transform 0.3s ease,box-shadow 0.3s ease;}.perk-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(139,21,56,0.12);}.perk-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}.perk-title{font-size:1.1rem;font-weight:700;color:#0B0F1A;margin-bottom:0.5rem;}.perk-text{font-size:0.9rem;color:#666;line-height:1.6;}.careers-cta{padding:80px 0;background:#0B0F1A;text-align:center;}.careers-cta .section-container{max-width:700px;margin:0 auto;padding:0 2rem;}.careers-cta-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#fff;margin-bottom:1rem;}.careers-cta-text{color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1rem;line-height:1.7;}.careers-email-link{display:inline-flex;align-items:center;gap:0.5rem;color:#fff;font-size:1.1rem;font-weight:600;text-decoration:none;border-bottom:2px solid #8B1538;padding-bottom:2px;transition:color 0.3s;}.careers-email-link:hover{color:#E74C3C;}
+/* ===== Careers Page ===== */
+.careers-page {
+    min-height: 100vh;
+    background: #fff;
+}
+
+/* Hero */
+.careers-hero {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0B0F1A 0%, #1a0a12 50%, #8B1538 100%);
+    padding: 140px 0 80px;
+}
+
+.careers-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../../public/nama_assets/one-1400w.webp') center/cover no-repeat;
+    opacity: 0.15;
+}
+
+.careers-hero .section-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.careers-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.careers-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.careers-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+}
+
+.careers-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.careers-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 8px;
+    background: #8B1538;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid #8B1538;
+    transition: all 0.3s ease;
+}
+
+.careers-btn:hover {
+    background: transparent;
+    color: #fff;
+}
+
+/* Why Join Section */
+.careers-why {
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+.careers-why .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.careers-section-title {
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: #0B0F1A;
+    margin-bottom: 0.5rem;
+}
+
+.careers-section-sub {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+}
+
+.careers-perks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.perk-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.perk-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(139,21,56,0.12);
+}
+
+.perk-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.perk-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0B0F1A;
+    margin-bottom: 0.5rem;
+}
+
+.perk-text {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.careers-cta {
+    padding: 80px 0;
+    background: #0B0F1A;
+    text-align: center;
+}
+
+.careers-cta .section-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.careers-cta-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.careers-cta-text {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.careers-email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #8B1538;
+    padding-bottom: 2px;
+    transition: color 0.3s;
+}
+
+.careers-email-link:hover {
+    color: #E74C3C;
+}
